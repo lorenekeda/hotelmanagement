@@ -6,7 +6,7 @@ public class Room {
     private String view;
     private boolean extendable;
     private int price;
-    private int capacity;
+    private String capacity;
 
 
     /**
@@ -20,7 +20,7 @@ public class Room {
      * @param price price of room
      * @param capacity capacity of room
      */
-    public Room(Integer chainId, Integer hotelId, Integer roomNum, String view, boolean extendable, int price, int capacity) {
+    public Room(Integer chainId, Integer hotelId, Integer roomNum, String view, boolean extendable, int price, String capacity) {
         this.chainId = chainId;
         this.hotelId = hotelId;
         this.roomNum = roomNum;
@@ -38,7 +38,7 @@ public class Room {
      * @param price price of room
      * @param capacity capacity of room
      */
-    public Room(String view, boolean extendable, int price, int capacity) {
+    public Room(String view, boolean extendable, int price, String capacity) {
         this.view = view;
         this.extendable = extendable;
         this.price = price;
@@ -52,7 +52,7 @@ public class Room {
     public String getView() { return this.view; }
     public boolean getExtendable() { return this.extendable; }
     public int getPrice() { return this.price; }
-    public int getCapacity() { return this.capacity; }
+    public String getCapacity() { return this.capacity; }
 
     /* Setters */
     public void setChainId(int id) { this.chainId = id; }
@@ -61,7 +61,7 @@ public class Room {
     public void setView(String view) { this.view = view; }
     public void setExtendable(boolean extendable) { this.extendable = extendable; }
     public void setPrice(int price) { this.price = price; }
-    public void setCapacity(int capacity) { this.capacity = capacity; }
+    public void setCapacity(String capacity) { this.capacity = capacity; }
 
     @Override
     public String toString() {
