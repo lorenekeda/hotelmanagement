@@ -23,7 +23,7 @@ SET row_security = off;
 -- TOC entry 5 (class 2615 OID 32823)
 -- Name: relational_schema; Type: SCHEMA; Schema: -; Owner: postgres
 --
-
+DROP SCHEMA IF EXISTS relational_schema CASCADE;
 CREATE SCHEMA relational_schema;
 
 
