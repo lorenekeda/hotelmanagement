@@ -5,7 +5,7 @@
 -- Dumped from database version 17.2
 -- Dumped by pg_dump version 17.2
 
--- Started on 2025-03-22 18:51:22 EDT
+-- Started on 2025-03-23 00:21:47
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -20,7 +20,7 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- TOC entry 5 (class 2615 OID 16425)
+-- TOC entry 5 (class 2615 OID 32823)
 -- Name: relational_schema; Type: SCHEMA; Schema: -; Owner: postgres
 --
 
@@ -34,7 +34,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- TOC entry 235 (class 1259 OID 16479)
+-- TOC entry 218 (class 1259 OID 32824)
 -- Name: archive; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -46,7 +46,7 @@ CREATE TABLE relational_schema.archive (
 ALTER TABLE relational_schema.archive OWNER TO postgres;
 
 --
--- TOC entry 229 (class 1259 OID 16461)
+-- TOC entry 219 (class 1259 OID 32827)
 -- Name: booking; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -63,7 +63,7 @@ CREATE TABLE relational_schema.booking (
 ALTER TABLE relational_schema.booking OWNER TO postgres;
 
 --
--- TOC entry 223 (class 1259 OID 16443)
+-- TOC entry 220 (class 1259 OID 32832)
 -- Name: chain_address; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -76,7 +76,7 @@ CREATE TABLE relational_schema.chain_address (
 ALTER TABLE relational_schema.chain_address OWNER TO postgres;
 
 --
--- TOC entry 227 (class 1259 OID 16455)
+-- TOC entry 221 (class 1259 OID 32837)
 -- Name: chain_email; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -89,7 +89,7 @@ CREATE TABLE relational_schema.chain_email (
 ALTER TABLE relational_schema.chain_email OWNER TO postgres;
 
 --
--- TOC entry 224 (class 1259 OID 16446)
+-- TOC entry 222 (class 1259 OID 32842)
 -- Name: chain_number; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -102,7 +102,7 @@ CREATE TABLE relational_schema.chain_number (
 ALTER TABLE relational_schema.chain_number OWNER TO postgres;
 
 --
--- TOC entry 232 (class 1259 OID 16470)
+-- TOC entry 223 (class 1259 OID 32845)
 -- Name: customer; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -119,7 +119,7 @@ CREATE TABLE relational_schema.customer (
 ALTER TABLE relational_schema.customer OWNER TO postgres;
 
 --
--- TOC entry 230 (class 1259 OID 16464)
+-- TOC entry 224 (class 1259 OID 32850)
 -- Name: employee; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -137,7 +137,7 @@ CREATE TABLE relational_schema.employee (
 ALTER TABLE relational_schema.employee OWNER TO postgres;
 
 --
--- TOC entry 234 (class 1259 OID 16476)
+-- TOC entry 225 (class 1259 OID 32855)
 -- Name: holds; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -151,7 +151,7 @@ CREATE TABLE relational_schema.holds (
 ALTER TABLE relational_schema.holds OWNER TO postgres;
 
 --
--- TOC entry 219 (class 1259 OID 16431)
+-- TOC entry 226 (class 1259 OID 32860)
 -- Name: hotel; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -170,7 +170,7 @@ CREATE TABLE relational_schema.hotel (
 ALTER TABLE relational_schema.hotel OWNER TO postgres;
 
 --
--- TOC entry 228 (class 1259 OID 16458)
+-- TOC entry 227 (class 1259 OID 32865)
 -- Name: hotel_address; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -184,7 +184,7 @@ CREATE TABLE relational_schema.hotel_address (
 ALTER TABLE relational_schema.hotel_address OWNER TO postgres;
 
 --
--- TOC entry 218 (class 1259 OID 16426)
+-- TOC entry 228 (class 1259 OID 32870)
 -- Name: hotel_chain; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -198,7 +198,7 @@ CREATE TABLE relational_schema.hotel_chain (
 ALTER TABLE relational_schema.hotel_chain OWNER TO postgres;
 
 --
--- TOC entry 225 (class 1259 OID 16449)
+-- TOC entry 229 (class 1259 OID 32875)
 -- Name: hotel_email; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -212,7 +212,7 @@ CREATE TABLE relational_schema.hotel_email (
 ALTER TABLE relational_schema.hotel_email OWNER TO postgres;
 
 --
--- TOC entry 226 (class 1259 OID 16452)
+-- TOC entry 230 (class 1259 OID 32880)
 -- Name: hotel_phone; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -226,7 +226,7 @@ CREATE TABLE relational_schema.hotel_phone (
 ALTER TABLE relational_schema.hotel_phone OWNER TO postgres;
 
 --
--- TOC entry 231 (class 1259 OID 16467)
+-- TOC entry 231 (class 1259 OID 32883)
 -- Name: manager; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -244,7 +244,7 @@ CREATE TABLE relational_schema.manager (
 ALTER TABLE relational_schema.manager OWNER TO postgres;
 
 --
--- TOC entry 233 (class 1259 OID 16473)
+-- TOC entry 232 (class 1259 OID 32888)
 -- Name: renting; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -262,7 +262,7 @@ CREATE TABLE relational_schema.renting (
 ALTER TABLE relational_schema.renting OWNER TO postgres;
 
 --
--- TOC entry 220 (class 1259 OID 16434)
+-- TOC entry 233 (class 1259 OID 32893)
 -- Name: room; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -280,7 +280,7 @@ CREATE TABLE relational_schema.room (
 ALTER TABLE relational_schema.room OWNER TO postgres;
 
 --
--- TOC entry 221 (class 1259 OID 16437)
+-- TOC entry 234 (class 1259 OID 32898)
 -- Name: room_amenity; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -295,7 +295,7 @@ CREATE TABLE relational_schema.room_amenity (
 ALTER TABLE relational_schema.room_amenity OWNER TO postgres;
 
 --
--- TOC entry 222 (class 1259 OID 16440)
+-- TOC entry 235 (class 1259 OID 32903)
 -- Name: room_damage; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -310,72 +310,72 @@ CREATE TABLE relational_schema.room_damage (
 ALTER TABLE relational_schema.room_damage OWNER TO postgres;
 
 --
--- TOC entry 3730 (class 0 OID 16479)
--- Dependencies: 235
+-- TOC entry 4958 (class 0 OID 32824)
+-- Dependencies: 218
 -- Data for Name: archive; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
 
 
 --
--- TOC entry 3724 (class 0 OID 16461)
--- Dependencies: 229
+-- TOC entry 4959 (class 0 OID 32827)
+-- Dependencies: 219
 -- Data for Name: booking; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
 
 
 --
--- TOC entry 3718 (class 0 OID 16443)
--- Dependencies: 223
+-- TOC entry 4960 (class 0 OID 32832)
+-- Dependencies: 220
 -- Data for Name: chain_address; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
 
 
 --
--- TOC entry 3722 (class 0 OID 16455)
--- Dependencies: 227
+-- TOC entry 4961 (class 0 OID 32837)
+-- Dependencies: 221
 -- Data for Name: chain_email; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
 
 
 --
--- TOC entry 3719 (class 0 OID 16446)
--- Dependencies: 224
+-- TOC entry 4962 (class 0 OID 32842)
+-- Dependencies: 222
 -- Data for Name: chain_number; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
 
 
 --
--- TOC entry 3727 (class 0 OID 16470)
--- Dependencies: 232
+-- TOC entry 4963 (class 0 OID 32845)
+-- Dependencies: 223
 -- Data for Name: customer; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
 
 
 --
--- TOC entry 3725 (class 0 OID 16464)
--- Dependencies: 230
+-- TOC entry 4964 (class 0 OID 32850)
+-- Dependencies: 224
 -- Data for Name: employee; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
 
 
 --
--- TOC entry 3729 (class 0 OID 16476)
--- Dependencies: 234
+-- TOC entry 4965 (class 0 OID 32855)
+-- Dependencies: 225
 -- Data for Name: holds; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
 
 
 --
--- TOC entry 3714 (class 0 OID 16431)
--- Dependencies: 219
+-- TOC entry 4966 (class 0 OID 32860)
+-- Dependencies: 226
 -- Data for Name: hotel; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
@@ -428,16 +428,16 @@ INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, r
 
 
 --
--- TOC entry 3723 (class 0 OID 16458)
--- Dependencies: 228
+-- TOC entry 4967 (class 0 OID 32865)
+-- Dependencies: 227
 -- Data for Name: hotel_address; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
 
 
 --
--- TOC entry 3713 (class 0 OID 16426)
--- Dependencies: 218
+-- TOC entry 4968 (class 0 OID 32870)
+-- Dependencies: 228
 -- Data for Name: hotel_chain; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
@@ -449,23 +449,23 @@ INSERT INTO relational_schema.hotel_chain (chain_id, chain_name, num_of_hotel) V
 
 
 --
--- TOC entry 3720 (class 0 OID 16449)
--- Dependencies: 225
+-- TOC entry 4969 (class 0 OID 32875)
+-- Dependencies: 229
 -- Data for Name: hotel_email; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
 
 
 --
--- TOC entry 3721 (class 0 OID 16452)
--- Dependencies: 226
+-- TOC entry 4970 (class 0 OID 32880)
+-- Dependencies: 230
 -- Data for Name: hotel_phone; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
 
 
 --
--- TOC entry 3726 (class 0 OID 16467)
+-- TOC entry 4971 (class 0 OID 32883)
 -- Dependencies: 231
 -- Data for Name: manager; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
@@ -473,59 +473,34 @@ INSERT INTO relational_schema.hotel_chain (chain_id, chain_name, num_of_hotel) V
 
 
 --
--- TOC entry 3728 (class 0 OID 16473)
--- Dependencies: 233
+-- TOC entry 4972 (class 0 OID 32888)
+-- Dependencies: 232
 -- Data for Name: renting; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
 
 
 --
--- TOC entry 3715 (class 0 OID 16434)
--- Dependencies: 220
+-- TOC entry 4973 (class 0 OID 32893)
+-- Dependencies: 233
 -- Data for Name: room; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, NULL, NULL, NULL, NULL, 11111, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, NULL, NULL, NULL, NULL, 11111, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, NULL, NULL, NULL, NULL, 11111, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, NULL, NULL, NULL, NULL, 11111, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, NULL, NULL, NULL, NULL, 11111, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, NULL, NULL, NULL, NULL, 88888, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, NULL, NULL, NULL, NULL, 88888, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, NULL, NULL, NULL, NULL, 88888, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, NULL, NULL, NULL, NULL, 88888, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, NULL, NULL, NULL, NULL, 88888, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, NULL, NULL, NULL, NULL, 44444, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, NULL, NULL, NULL, NULL, 44444, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, NULL, NULL, NULL, NULL, 44444, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, NULL, NULL, NULL, NULL, 44444, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, NULL, NULL, NULL, NULL, 44444, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, NULL, NULL, NULL, NULL, 55555, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, NULL, NULL, NULL, NULL, 55555, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, NULL, NULL, NULL, NULL, 55555, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, NULL, NULL, NULL, NULL, 55555, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, NULL, NULL, NULL, NULL, 55555, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, NULL, NULL, NULL, NULL, 33333, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, NULL, NULL, NULL, NULL, 33333, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, NULL, NULL, NULL, NULL, 33333, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, NULL, NULL, NULL, NULL, 33333, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, NULL, NULL, NULL, NULL, 33333, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'sea', true, 'presidential suite', 1200, 44444, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'mountain', true, 'suite', 395, 44444, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'mountain', true, 'deluxe room', 170, 44444, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'mountain', false, 'double room', 115, 44444, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'mountain', false, 'single room', 70, 44444, 45678);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'none', false, 'single room', 50, 55555, 34567);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'sea', false, 'double room', 100, 55555, 34567);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'sea', false, 'deluxe room', 150, 55555, 34567);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'mountain', false, 'family room', 200, 55555, 34567);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'mountain', true, 'suite', 375, 55555, 34567);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, NULL, NULL, NULL, NULL, 66666, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, NULL, NULL, NULL, NULL, 66666, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, NULL, NULL, NULL, NULL, 66666, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, NULL, NULL, NULL, NULL, 66666, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, NULL, NULL, NULL, NULL, 66666, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, NULL, NULL, NULL, NULL, 33333, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, NULL, NULL, NULL, NULL, 33333, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, NULL, NULL, NULL, NULL, 33333, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, NULL, NULL, NULL, NULL, 33333, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, NULL, NULL, NULL, NULL, 33333, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'none', false, 'single room', 50, 33333, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'none', false, 'double room', 100, 33333, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'sea', true, 'family room', 205, 33333, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'sea', true, 'deluxe room', 155, 33333, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'sea', true, 'suite', 375, 33333, 45678);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'none', true, 'family room', 200, 77777, 56789);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'sea', false, 'single room', 50, 66666, 56789);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'sea', true, 'deluxe room', 150, 99999, 56789);
@@ -539,52 +514,31 @@ INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price,
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'sea', true, 'family room', 200, 99999, 56789);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'sea', false, 'double room', 100, 99999, 56789);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'mountain', true, 'deluxe room', 150, 88888, 56789);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, NULL, NULL, NULL, NULL, 77777, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, NULL, NULL, NULL, NULL, 77777, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, NULL, NULL, NULL, NULL, 77777, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, NULL, NULL, NULL, NULL, 77777, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, NULL, NULL, NULL, NULL, 77777, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, NULL, NULL, NULL, NULL, 66666, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, NULL, NULL, NULL, NULL, 66666, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, NULL, NULL, NULL, NULL, 66666, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, NULL, NULL, NULL, NULL, 66666, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, NULL, NULL, NULL, NULL, 66666, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, NULL, NULL, NULL, NULL, 44444, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, NULL, NULL, NULL, NULL, 44444, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, NULL, NULL, NULL, NULL, 44444, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, NULL, NULL, NULL, NULL, 44444, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, NULL, NULL, NULL, NULL, 44444, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, NULL, NULL, NULL, NULL, 55555, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, NULL, NULL, NULL, NULL, 55555, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, NULL, NULL, NULL, NULL, 55555, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, NULL, NULL, NULL, NULL, 55555, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, NULL, NULL, NULL, NULL, 55555, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'mountain', false, 'single room', 50, 77777, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'none', false, 'double room', 95, 77777, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'mountain', false, 'deluxe room', 150, 77777, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'none', true, 'family room', 195, 77777, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'mountain', false, 'suite', 375, 77777, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'none', false, 'single room', 45, 66666, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'sea', false, 'double room', 105, 66666, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'none', true, 'deluxe room', 150, 66666, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'sea', true, 'family room', 200, 66666, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'sea', true, 'suite', 375, 66666, 45678);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'mountain', false, 'single room', 65, 77777, 34567);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'mountain', false, 'double room', 115, 77777, 34567);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'mountain', true, 'deluxe room', 165, 77777, 34567);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'mountain', true, 'family room', 215, 77777, 34567);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'mountain', true, 'suite', 1105, 77777, 34567);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, NULL, NULL, NULL, NULL, 55555, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, NULL, NULL, NULL, NULL, 55555, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, NULL, NULL, NULL, NULL, 55555, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, NULL, NULL, NULL, NULL, 55555, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, NULL, NULL, NULL, NULL, 55555, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, NULL, NULL, NULL, NULL, 44444, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, NULL, NULL, NULL, NULL, 44444, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, NULL, NULL, NULL, NULL, 44444, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, NULL, NULL, NULL, NULL, 44444, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, NULL, NULL, NULL, NULL, 44444, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'sea', true, 'suite', 330, 55555, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'none', false, 'family room', 160, 55555, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'none', false, 'deluxe room', 110, 55555, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'none', false, 'double room', 65, 55555, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'none', false, 'single room', 25, 55555, 45678);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'sea', false, 'double room', 100, 11000, 56789);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, NULL, NULL, NULL, NULL, 99999, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, NULL, NULL, NULL, NULL, 99999, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, NULL, NULL, NULL, NULL, 99999, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, NULL, NULL, NULL, NULL, 99999, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, NULL, NULL, NULL, NULL, 99999, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, NULL, NULL, NULL, NULL, 88888, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, NULL, NULL, NULL, NULL, 88888, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, NULL, NULL, NULL, NULL, 88888, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, NULL, NULL, NULL, NULL, 88888, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, NULL, NULL, NULL, NULL, 88888, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'none', false, 'single room', 45, 99999, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'sea', false, 'double room', 95, 99999, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'none', true, 'family room', 195, 99999, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'sea', false, 'suite', 370, 99999, 45678);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'none', false, 'single room', 60, 33333, 34567);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'sea', false, 'double room', 110, 33333, 34567);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'sea', true, 'deluxe room', 160, 33333, 34567);
@@ -595,51 +549,31 @@ INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price,
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'none', false, 'deluxe room', 150, 66666, 34567);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'sea', true, 'family room', 210, 66666, 34567);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'sea', false, 'suite', 380, 66666, 34567);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, NULL, NULL, NULL, NULL, 10111, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, NULL, NULL, NULL, NULL, 10111, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, NULL, NULL, NULL, NULL, 10111, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, NULL, NULL, NULL, NULL, 10111, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, NULL, NULL, NULL, NULL, 10111, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, NULL, NULL, NULL, NULL, 88888, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, NULL, NULL, NULL, NULL, 88888, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, NULL, NULL, NULL, NULL, 88888, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, NULL, NULL, NULL, NULL, 88888, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, NULL, NULL, NULL, NULL, 88888, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, NULL, NULL, NULL, NULL, 99999, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, NULL, NULL, NULL, NULL, 99999, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, NULL, NULL, NULL, NULL, 99999, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, NULL, NULL, NULL, NULL, 99999, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, NULL, NULL, NULL, NULL, 99999, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'none', false, 'single room', 45, 10111, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'none', false, 'double room', 95, 10111, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'sea', false, 'deluxe room', 150, 10111, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'none', true, 'family room', 200, 10111, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'sea', true, 'suite', 375, 10111, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'none', false, 'single room', 60, 88888, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'sea', true, 'deluxe room', 160, 88888, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'sea', true, 'family room', 215, 88888, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'mountain', true, 'suite', 385, 88888, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'mountain', true, 'presidential suite', 1100, 88888, 45678);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'none', false, 'single room', 30, 44444, 34567);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'none', false, 'double room', 80, 44444, 34567);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'none', false, 'deluxe room', 130, 44444, 34567);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'sea', true, 'family room', 180, 44444, 34567);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'sea', true, 'suite', 355, 44444, 34567);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, NULL, NULL, NULL, NULL, 66666, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, NULL, NULL, NULL, NULL, 66666, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, NULL, NULL, NULL, NULL, 66666, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, NULL, NULL, NULL, NULL, 66666, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, NULL, NULL, NULL, NULL, 66666, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, NULL, NULL, NULL, NULL, 22222, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, NULL, NULL, NULL, NULL, 22222, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, NULL, NULL, NULL, NULL, 22222, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, NULL, NULL, NULL, NULL, 22222, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, NULL, NULL, NULL, NULL, 22222, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, NULL, NULL, NULL, NULL, 11111, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, NULL, NULL, NULL, NULL, 11111, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, NULL, NULL, NULL, NULL, 11111, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, NULL, NULL, NULL, NULL, 11111, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, NULL, NULL, NULL, NULL, 11111, 45678);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, NULL, NULL, NULL, NULL, 22222, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, NULL, NULL, NULL, NULL, 22222, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, NULL, NULL, NULL, NULL, 22222, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, NULL, NULL, NULL, NULL, 22222, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, NULL, NULL, NULL, NULL, 22222, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, NULL, NULL, NULL, NULL, 77777, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, NULL, NULL, NULL, NULL, 77777, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, NULL, NULL, NULL, NULL, 77777, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, NULL, NULL, NULL, NULL, 77777, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, NULL, NULL, NULL, NULL, 77777, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'mountain', false, 'suite', 370, 22222, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'none', true, 'family room', 200, 22222, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'mountain', false, 'deluxe room', 150, 22222, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'none', false, 'double room', 100, 22222, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'mountain', false, 'single room', 50, 22222, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'sea', false, 'single room', 65, 11111, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'none', false, 'double room', 115, 11111, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'sea', true, 'family room', 210, 11111, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'sea', true, 'suite', 390, 11111, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'mountain', false, 'presidential suite', 1110, 11111, 45678);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'mountain', true, 'suite', 995, 22222, 34567);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'none', false, 'family room', 195, 22222, 34567);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'mountain', false, 'deluxe room', 145, 22222, 34567);
@@ -650,31 +584,11 @@ INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price,
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'sea', false, 'deluxe room', 155, 11111, 34567);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'none', false, 'double room', 105, 11111, 34567);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'none', false, 'single room', 55, 11111, 34567);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, NULL, NULL, NULL, NULL, 77777, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, NULL, NULL, NULL, NULL, 77777, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, NULL, NULL, NULL, NULL, 77777, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, NULL, NULL, NULL, NULL, 77777, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, NULL, NULL, NULL, NULL, 77777, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, NULL, NULL, NULL, NULL, 22222, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, NULL, NULL, NULL, NULL, 22222, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, NULL, NULL, NULL, NULL, 22222, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, NULL, NULL, NULL, NULL, 22222, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, NULL, NULL, NULL, NULL, 22222, 12345);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, NULL, NULL, NULL, NULL, 11111, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, NULL, NULL, NULL, NULL, 11111, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, NULL, NULL, NULL, NULL, 11111, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, NULL, NULL, NULL, NULL, 11111, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, NULL, NULL, NULL, NULL, 11111, 23456);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'sea', false, 'single room', 60, 88888, 34567);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'none', false, 'double room', 110, 88888, 34567);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'sea', true, 'deluxe room', 160, 88888, 34567);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'none', true, 'family room', 210, 88888, 34567);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'sea', true, 'presidential suite', 1100, 88888, 34567);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, NULL, NULL, NULL, NULL, 33333, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, NULL, NULL, NULL, NULL, 33333, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, NULL, NULL, NULL, NULL, 33333, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, NULL, NULL, NULL, NULL, 33333, 23456);
-INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, NULL, NULL, NULL, NULL, 33333, 23456);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'sea', true, 'deluxe room', 150, 33333, 56789);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'mountain', false, 'single room', 50, 22222, 56789);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'mountain', false, 'single room', 50, 55555, 56789);
@@ -716,26 +630,112 @@ INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price,
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'none', false, 'double room', 100, 11111, 56789);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'mountain', true, 'deluxe room', 150, 55555, 56789);
 INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'mountain', true, 'deluxe room', 150, 10111, 56789);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'mountain', false, 'single room', 50, 11111, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'sea', false, 'single room', 60, 11111, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'none', false, 'single room', 50, 22222, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'none', false, 'single room', 50, 22222, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'none', false, 'double room', 110, 33333, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'mountain', false, 'double room', 100, 44444, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'sea', false, 'double room', 100, 44444, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'none', false, 'double room', 80, 55555, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'none', false, 'double room', 80, 55555, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'none', false, 'double room', 100, 66666, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'none', false, 'double room', 110, 66666, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'none', false, 'double room', 110, 77777, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'mountain', false, 'double room', 100, 77777, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'sea', false, 'double room', 100, 88888, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'mountain', false, 'double room', 100, 88888, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'sea', false, 'double room', 110, 99999, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'sea', true, 'deluxe room', 130, 11111, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'mountain', false, 'deluxe', 130, 11111, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'mountain', true, 'deluxe room', 150, 22222, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'mountain', true, 'deluxe room', 130, 22222, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'mountain', true, 'deluxe room', 160, 33333, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'sea', true, 'deluxe room', 160, 33333, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'mountain', true, 'deluxe room', 160, 44444, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'sea', true, 'deluxe room', 130, 44444, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'mountain', true, 'deluxe room', 160, 55555, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'sea', true, 'deluxe room', 160, 55555, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'sea', true, 'deluxe room', 130, 66666, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'mountain', true, 'deluxe room', 150, 66666, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'sea', true, 'deluxe room', 150, 77777, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'mountain', true, 'deluxe room', 130, 77777, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'none', true, 'deluxe room', 130, 88888, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'none', true, 'deluxe room', 150, 88888, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (2, 'mountain', true, 'deluxe room', 160, 99999, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'none', true, 'deluxe room', 150, 11111, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'none', true, 'deluxe room', 160, 11111, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'none', true, 'deluxe room', 150, 22222, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'none', true, 'deluxe room', 150, 22222, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'mountain', true, 'family room', 180, 33333, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'sea', true, 'family room', 180, 33333, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'sea', true, 'family room', 200, 44444, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'sea', true, 'family room', 200, 44444, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'none', false, 'family room', 180, 55555, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'none', false, 'family room', 180, 55555, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'mountain', false, 'family room', 200, 66666, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'mountain', false, 'family room', 200, 66666, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'sea', true, 'family room', 210, 77777, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'sea', true, 'family room', 210, 77777, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'sea', true, 'family room', 210, 88888, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'mountain', true, 'family room', 210, 88888, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'mountain', true, 'family room', 210, 99999, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (3, 'sea', false, 'deluxe room', 150, 99999, 45678);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'mountain', true, 'family room', 210, 11111, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'sea', true, 'family room', 210, 11111, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'sea', true, 'suite', 355, 22222, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'sea', true, 'suite', 355, 22222, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'mountain', true, 'suite', 355, 33333, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'sea', true, 'suite', 355, 33333, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'sea', true, 'suite', 375, 44444, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (1, 'none', false, 'double room', 110, 33333, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'sea', true, 'suite', 375, 44444, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'mountain', true, 'suite', 375, 55555, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'sea', true, 'suite', 385, 55555, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'mountain', true, 'suite', 375, 66666, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'sea', true, 'suite', 375, 66666, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'sea', true, 'suite', 385, 77777, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'sea', true, 'suite', 375, 77777, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'none', false, 'single room', 30, 88888, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'none', false, 'single room', 30, 88888, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (4, 'none', false, 'single  room', 30, 99999, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'none', false, 'double room', 100, 11111, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'sea', false, 'double room', 110, 11111, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'none', false, 'double room', 80, 22222, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'none', false, 'double room', 80, 22222, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'mountain', false, 'single room', 60, 33333, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'mountain', false, 'single room', 60, 33333, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'mountain', true, 'presidential suite', 990, 44444, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'sea', true, 'presidential suite', 990, 44444, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'sea', true, 'presidential suite', 990, 55555, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'sea', true, 'presidential suite', 990, 55555, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'mountain', true, 'presidential suite', 990, 66666, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'mountain', true, 'presidential suite', 990, 66666, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'sea', true, 'presidential suite', 1000, 77777, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'sea', true, 'presidential suite', 1000, 77777, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'sea', true, 'presidential suite', 1000, 88888, 12345);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'sea', true, 'presidential suite', 1000, 88888, 23456);
+INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price, hotel_id, chain_id) VALUES (5, 'sea', true, 'presidential suite', 1100, 99999, 23456);
 
 
 --
--- TOC entry 3716 (class 0 OID 16437)
--- Dependencies: 221
+-- TOC entry 4974 (class 0 OID 32898)
+-- Dependencies: 234
 -- Data for Name: room_amenity; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
 
 
 --
--- TOC entry 3717 (class 0 OID 16440)
--- Dependencies: 222
+-- TOC entry 4975 (class 0 OID 32903)
+-- Dependencies: 235
 -- Data for Name: room_damage; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
 
 
 --
--- TOC entry 3553 (class 2606 OID 16487)
+-- TOC entry 4764 (class 2606 OID 32909)
 -- Name: archive archive_id; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -744,7 +744,7 @@ ALTER TABLE ONLY relational_schema.archive
 
 
 --
--- TOC entry 3541 (class 2606 OID 16727)
+-- TOC entry 4766 (class 2606 OID 32911)
 -- Name: booking booking_start_date; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -753,7 +753,7 @@ ALTER TABLE ONLY relational_schema.booking
 
 
 --
--- TOC entry 3529 (class 2606 OID 16658)
+-- TOC entry 4768 (class 2606 OID 32913)
 -- Name: chain_address c_address; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -762,7 +762,7 @@ ALTER TABLE ONLY relational_schema.chain_address
 
 
 --
--- TOC entry 3537 (class 2606 OID 16660)
+-- TOC entry 4770 (class 2606 OID 32915)
 -- Name: chain_email c_email; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -771,7 +771,7 @@ ALTER TABLE ONLY relational_schema.chain_email
 
 
 --
--- TOC entry 3531 (class 2606 OID 16662)
+-- TOC entry 4772 (class 2606 OID 32917)
 -- Name: chain_number c_phone_number; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -780,7 +780,7 @@ ALTER TABLE ONLY relational_schema.chain_number
 
 
 --
--- TOC entry 3519 (class 2606 OID 16491)
+-- TOC entry 4784 (class 2606 OID 32919)
 -- Name: hotel_chain chain_id; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -789,7 +789,7 @@ ALTER TABLE ONLY relational_schema.hotel_chain
 
 
 --
--- TOC entry 3547 (class 2606 OID 16534)
+-- TOC entry 4774 (class 2606 OID 32921)
 -- Name: customer customer_id; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -798,7 +798,7 @@ ALTER TABLE ONLY relational_schema.customer
 
 
 --
--- TOC entry 3543 (class 2606 OID 16532)
+-- TOC entry 4776 (class 2606 OID 32923)
 -- Name: employee employee_ssn; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -807,7 +807,7 @@ ALTER TABLE ONLY relational_schema.employee
 
 
 --
--- TOC entry 3539 (class 2606 OID 16674)
+-- TOC entry 4782 (class 2606 OID 32925)
 -- Name: hotel_address h_address_pk; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -816,7 +816,7 @@ ALTER TABLE ONLY relational_schema.hotel_address
 
 
 --
--- TOC entry 3533 (class 2606 OID 16676)
+-- TOC entry 4786 (class 2606 OID 32927)
 -- Name: hotel_email h_email_pk; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -825,7 +825,7 @@ ALTER TABLE ONLY relational_schema.hotel_email
 
 
 --
--- TOC entry 3535 (class 2606 OID 16678)
+-- TOC entry 4788 (class 2606 OID 32929)
 -- Name: hotel_phone h_phone_number_pk; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -834,7 +834,7 @@ ALTER TABLE ONLY relational_schema.hotel_phone
 
 
 --
--- TOC entry 3551 (class 2606 OID 16656)
+-- TOC entry 4778 (class 2606 OID 32931)
 -- Name: holds holds_pk; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -843,7 +843,7 @@ ALTER TABLE ONLY relational_schema.holds
 
 
 --
--- TOC entry 3521 (class 2606 OID 16666)
+-- TOC entry 4780 (class 2606 OID 32933)
 -- Name: hotel hotel_pk; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -852,7 +852,7 @@ ALTER TABLE ONLY relational_schema.hotel
 
 
 --
--- TOC entry 3545 (class 2606 OID 16664)
+-- TOC entry 4790 (class 2606 OID 32935)
 -- Name: manager manager_pk; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -861,7 +861,7 @@ ALTER TABLE ONLY relational_schema.manager
 
 
 --
--- TOC entry 3549 (class 2606 OID 16729)
+-- TOC entry 4792 (class 2606 OID 32937)
 -- Name: renting renting_start_date; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -870,7 +870,7 @@ ALTER TABLE ONLY relational_schema.renting
 
 
 --
--- TOC entry 3525 (class 2606 OID 16670)
+-- TOC entry 4796 (class 2606 OID 32939)
 -- Name: room_amenity room_amenity_pk; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -879,7 +879,7 @@ ALTER TABLE ONLY relational_schema.room_amenity
 
 
 --
--- TOC entry 3527 (class 2606 OID 16672)
+-- TOC entry 4798 (class 2606 OID 32941)
 -- Name: room_damage room_damage_pk; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -888,7 +888,7 @@ ALTER TABLE ONLY relational_schema.room_damage
 
 
 --
--- TOC entry 3523 (class 2606 OID 16668)
+-- TOC entry 4794 (class 2606 OID 32943)
 -- Name: room room_pk; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -897,7 +897,7 @@ ALTER TABLE ONLY relational_schema.room
 
 
 --
--- TOC entry 3562 (class 2606 OID 16560)
+-- TOC entry 4799 (class 2606 OID 32944)
 -- Name: booking booking_customer_id_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -906,7 +906,7 @@ ALTER TABLE ONLY relational_schema.booking
 
 
 --
--- TOC entry 3563 (class 2606 OID 16684)
+-- TOC entry 4800 (class 2606 OID 32949)
 -- Name: booking booking_room_chain_id_hotel_id_room_num_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -915,7 +915,7 @@ ALTER TABLE ONLY relational_schema.booking
 
 
 --
--- TOC entry 3556 (class 2606 OID 16610)
+-- TOC entry 4801 (class 2606 OID 32954)
 -- Name: chain_address chain_address_hotel_chain_chain_id_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -924,7 +924,7 @@ ALTER TABLE ONLY relational_schema.chain_address
 
 
 --
--- TOC entry 3560 (class 2606 OID 16615)
+-- TOC entry 4802 (class 2606 OID 32959)
 -- Name: chain_email chain_email_hotel_chain_chain_id_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -933,7 +933,7 @@ ALTER TABLE ONLY relational_schema.chain_email
 
 
 --
--- TOC entry 3557 (class 2606 OID 16620)
+-- TOC entry 4803 (class 2606 OID 32964)
 -- Name: chain_number chain_number_hotel_chain_chain_id_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -942,7 +942,7 @@ ALTER TABLE ONLY relational_schema.chain_number
 
 
 --
--- TOC entry 3564 (class 2606 OID 16699)
+-- TOC entry 4804 (class 2606 OID 32969)
 -- Name: employee employee_hotel_hotel_id_chain_id_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -951,7 +951,7 @@ ALTER TABLE ONLY relational_schema.employee
 
 
 --
--- TOC entry 3561 (class 2606 OID 16719)
+-- TOC entry 4806 (class 2606 OID 32974)
 -- Name: hotel_address hotel_address_hotel_chain_id_hotel_id_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -960,7 +960,7 @@ ALTER TABLE ONLY relational_schema.hotel_address
 
 
 --
--- TOC entry 3554 (class 2606 OID 16492)
+-- TOC entry 4805 (class 2606 OID 32979)
 -- Name: hotel hotel_chain_id_fkey; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -969,7 +969,7 @@ ALTER TABLE ONLY relational_schema.hotel
 
 
 --
--- TOC entry 3558 (class 2606 OID 16714)
+-- TOC entry 4807 (class 2606 OID 32984)
 -- Name: hotel_email hotel_email_hotel_chain_id_hotel_id_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -978,7 +978,7 @@ ALTER TABLE ONLY relational_schema.hotel_email
 
 
 --
--- TOC entry 3559 (class 2606 OID 16709)
+-- TOC entry 4808 (class 2606 OID 32989)
 -- Name: hotel_phone hotel_phone_hotel_chain_id_hotel_id_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -987,7 +987,7 @@ ALTER TABLE ONLY relational_schema.hotel_phone
 
 
 --
--- TOC entry 3565 (class 2606 OID 16590)
+-- TOC entry 4809 (class 2606 OID 32994)
 -- Name: renting renting_customer_customer_id_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -996,7 +996,7 @@ ALTER TABLE ONLY relational_schema.renting
 
 
 --
--- TOC entry 3566 (class 2606 OID 16595)
+-- TOC entry 4810 (class 2606 OID 32999)
 -- Name: renting renting_employee_employee_ssn_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -1005,7 +1005,7 @@ ALTER TABLE ONLY relational_schema.renting
 
 
 --
--- TOC entry 3567 (class 2606 OID 16689)
+-- TOC entry 4811 (class 2606 OID 33004)
 -- Name: renting renting_room_room_num_hotel_id_chain_id_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -1014,7 +1014,7 @@ ALTER TABLE ONLY relational_schema.renting
 
 
 --
--- TOC entry 3555 (class 2606 OID 16679)
+-- TOC entry 4812 (class 2606 OID 33009)
 -- Name: room room_hotel_hotel_id_chain_id_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -1023,7 +1023,7 @@ ALTER TABLE ONLY relational_schema.room
 
 
 --
--- TOC entry 3736 (class 0 OID 0)
+-- TOC entry 4981 (class 0 OID 0)
 -- Dependencies: 6
 -- Name: SCHEMA public; Type: ACL; Schema: -; Owner: pg_database_owner
 --
@@ -1031,7 +1031,7 @@ ALTER TABLE ONLY relational_schema.room
 REVOKE USAGE ON SCHEMA public FROM PUBLIC;
 
 
--- Completed on 2025-03-22 18:51:22 EDT
+-- Completed on 2025-03-23 00:21:47
 
 --
 -- PostgreSQL database dump complete
