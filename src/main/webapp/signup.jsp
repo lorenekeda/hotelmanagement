@@ -34,4 +34,19 @@
             </form>
     </div>
 </body>
+<style>
+.sign-in-box {
+     font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-top: 50px;
+    justify-self: center;
+    border: 2px solid grey;
+    box-shadow: 0px 0px 5px #528AAE;
+    border-radius: 10px;
+    padding: 20px;
+    align-items: center;
+    display: flex;
+}
+
+</style>
+
 </html>
