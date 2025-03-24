@@ -293,6 +293,29 @@ CREATE TABLE relational_schema.room_damage (
 
 ALTER TABLE relational_schema.room_damage OWNER TO postgres;
 
+
+-- Table: relational_schema.payment
+
+-- DROP TABLE IF EXISTS relational_schema.payment;
+
+CREATE TABLE IF NOT EXISTS relational_schema.payment
+(
+    card_number integer NOT NULL,
+    cvv integer,
+    expiry_date character varying COLLATE pg_catalog."default",
+    customer_id character varying COLLATE pg_catalog."default",
+    CONSTRAINT payment_pk PRIMARY KEY (card_number),
+    CONSTRAINT payment_customer_customer_id_fk FOREIGN KEY (customer_id)
+        REFERENCES relational_schema.customer (customer_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS relational_schema.payment
+    OWNER to postgres;
+
 --
 -- TOC entry 4951 (class 0 OID 17254)
 -- Dependencies: 218
