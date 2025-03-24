@@ -5,7 +5,7 @@
 -- Dumped from database version 17.2
 -- Dumped by pg_dump version 17.2
 
--- Started on 2025-03-23 00:21:47
+-- Started on 2025-03-24 13:32:35
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -20,10 +20,10 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- TOC entry 5 (class 2615 OID 32823)
+-- TOC entry 5 (class 2615 OID 17253)
 -- Name: relational_schema; Type: SCHEMA; Schema: -; Owner: postgres
 --
-DROP SCHEMA IF EXISTS relational_schema CASCADE;
+
 CREATE SCHEMA relational_schema;
 
 
@@ -34,7 +34,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- TOC entry 218 (class 1259 OID 32824)
+-- TOC entry 218 (class 1259 OID 17254)
 -- Name: archive; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -46,7 +46,7 @@ CREATE TABLE relational_schema.archive (
 ALTER TABLE relational_schema.archive OWNER TO postgres;
 
 --
--- TOC entry 219 (class 1259 OID 32827)
+-- TOC entry 219 (class 1259 OID 17257)
 -- Name: booking; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -63,7 +63,7 @@ CREATE TABLE relational_schema.booking (
 ALTER TABLE relational_schema.booking OWNER TO postgres;
 
 --
--- TOC entry 220 (class 1259 OID 32832)
+-- TOC entry 220 (class 1259 OID 17262)
 -- Name: chain_address; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -76,7 +76,7 @@ CREATE TABLE relational_schema.chain_address (
 ALTER TABLE relational_schema.chain_address OWNER TO postgres;
 
 --
--- TOC entry 221 (class 1259 OID 32837)
+-- TOC entry 221 (class 1259 OID 17267)
 -- Name: chain_email; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -89,20 +89,20 @@ CREATE TABLE relational_schema.chain_email (
 ALTER TABLE relational_schema.chain_email OWNER TO postgres;
 
 --
--- TOC entry 222 (class 1259 OID 32842)
+-- TOC entry 222 (class 1259 OID 17272)
 -- Name: chain_number; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
 CREATE TABLE relational_schema.chain_number (
     chain_id integer NOT NULL,
-    c_phone_number integer NOT NULL
+    c_phone_number bigint NOT NULL
 );
 
 
 ALTER TABLE relational_schema.chain_number OWNER TO postgres;
 
 --
--- TOC entry 223 (class 1259 OID 32845)
+-- TOC entry 223 (class 1259 OID 17275)
 -- Name: customer; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -119,7 +119,7 @@ CREATE TABLE relational_schema.customer (
 ALTER TABLE relational_schema.customer OWNER TO postgres;
 
 --
--- TOC entry 224 (class 1259 OID 32850)
+-- TOC entry 224 (class 1259 OID 17280)
 -- Name: employee; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -137,7 +137,7 @@ CREATE TABLE relational_schema.employee (
 ALTER TABLE relational_schema.employee OWNER TO postgres;
 
 --
--- TOC entry 225 (class 1259 OID 32855)
+-- TOC entry 225 (class 1259 OID 17285)
 -- Name: holds; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -151,7 +151,7 @@ CREATE TABLE relational_schema.holds (
 ALTER TABLE relational_schema.holds OWNER TO postgres;
 
 --
--- TOC entry 226 (class 1259 OID 32860)
+-- TOC entry 226 (class 1259 OID 17290)
 -- Name: hotel; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -159,10 +159,8 @@ CREATE TABLE relational_schema.hotel (
     hotel_id integer NOT NULL,
     chain_id integer NOT NULL,
     address character varying,
-    email character varying,
     name character varying,
     rating integer,
-    phone_number integer,
     num_of_room character varying
 );
 
@@ -170,21 +168,7 @@ CREATE TABLE relational_schema.hotel (
 ALTER TABLE relational_schema.hotel OWNER TO postgres;
 
 --
--- TOC entry 227 (class 1259 OID 32865)
--- Name: hotel_address; Type: TABLE; Schema: relational_schema; Owner: postgres
---
-
-CREATE TABLE relational_schema.hotel_address (
-    chain_id integer NOT NULL,
-    hotel_id integer NOT NULL,
-    h_address character varying NOT NULL
-);
-
-
-ALTER TABLE relational_schema.hotel_address OWNER TO postgres;
-
---
--- TOC entry 228 (class 1259 OID 32870)
+-- TOC entry 227 (class 1259 OID 17300)
 -- Name: hotel_chain; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -198,7 +182,7 @@ CREATE TABLE relational_schema.hotel_chain (
 ALTER TABLE relational_schema.hotel_chain OWNER TO postgres;
 
 --
--- TOC entry 229 (class 1259 OID 32875)
+-- TOC entry 228 (class 1259 OID 17305)
 -- Name: hotel_email; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -212,21 +196,21 @@ CREATE TABLE relational_schema.hotel_email (
 ALTER TABLE relational_schema.hotel_email OWNER TO postgres;
 
 --
--- TOC entry 230 (class 1259 OID 32880)
+-- TOC entry 229 (class 1259 OID 17310)
 -- Name: hotel_phone; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
 CREATE TABLE relational_schema.hotel_phone (
     chain_id integer NOT NULL,
     hotel_id integer NOT NULL,
-    h_phone_number integer NOT NULL
+    h_phone_number bigint NOT NULL
 );
 
 
 ALTER TABLE relational_schema.hotel_phone OWNER TO postgres;
 
 --
--- TOC entry 231 (class 1259 OID 32883)
+-- TOC entry 230 (class 1259 OID 17313)
 -- Name: manager; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -244,7 +228,7 @@ CREATE TABLE relational_schema.manager (
 ALTER TABLE relational_schema.manager OWNER TO postgres;
 
 --
--- TOC entry 232 (class 1259 OID 32888)
+-- TOC entry 231 (class 1259 OID 17318)
 -- Name: renting; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -262,7 +246,7 @@ CREATE TABLE relational_schema.renting (
 ALTER TABLE relational_schema.renting OWNER TO postgres;
 
 --
--- TOC entry 233 (class 1259 OID 32893)
+-- TOC entry 232 (class 1259 OID 17323)
 -- Name: room; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -280,7 +264,7 @@ CREATE TABLE relational_schema.room (
 ALTER TABLE relational_schema.room OWNER TO postgres;
 
 --
--- TOC entry 234 (class 1259 OID 32898)
+-- TOC entry 233 (class 1259 OID 17328)
 -- Name: room_amenity; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -295,7 +279,7 @@ CREATE TABLE relational_schema.room_amenity (
 ALTER TABLE relational_schema.room_amenity OWNER TO postgres;
 
 --
--- TOC entry 235 (class 1259 OID 32903)
+-- TOC entry 234 (class 1259 OID 17333)
 -- Name: room_damage; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -310,7 +294,7 @@ CREATE TABLE relational_schema.room_damage (
 ALTER TABLE relational_schema.room_damage OWNER TO postgres;
 
 --
--- TOC entry 4958 (class 0 OID 32824)
+-- TOC entry 4951 (class 0 OID 17254)
 -- Dependencies: 218
 -- Data for Name: archive; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
@@ -318,7 +302,7 @@ ALTER TABLE relational_schema.room_damage OWNER TO postgres;
 
 
 --
--- TOC entry 4959 (class 0 OID 32827)
+-- TOC entry 4952 (class 0 OID 17257)
 -- Dependencies: 219
 -- Data for Name: booking; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
@@ -326,31 +310,46 @@ ALTER TABLE relational_schema.room_damage OWNER TO postgres;
 
 
 --
--- TOC entry 4960 (class 0 OID 32832)
+-- TOC entry 4953 (class 0 OID 17262)
 -- Dependencies: 220
 -- Data for Name: chain_address; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
+INSERT INTO relational_schema.chain_address (chain_id, c_address) VALUES (12345, 'Toronto');
+INSERT INTO relational_schema.chain_address (chain_id, c_address) VALUES (23456, 'Ottawa');
+INSERT INTO relational_schema.chain_address (chain_id, c_address) VALUES (34567, 'Hamilton');
+INSERT INTO relational_schema.chain_address (chain_id, c_address) VALUES (45678, 'Kingston');
+INSERT INTO relational_schema.chain_address (chain_id, c_address) VALUES (56789, 'Windsor');
 
 
 --
--- TOC entry 4961 (class 0 OID 32837)
+-- TOC entry 4954 (class 0 OID 17267)
 -- Dependencies: 221
 -- Data for Name: chain_email; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
+INSERT INTO relational_schema.chain_email (chain_id, c_email) VALUES (12345, 'miltoninfo@milton');
+INSERT INTO relational_schema.chain_email (chain_id, c_email) VALUES (23456, 'larriottinfo@larriott');
+INSERT INTO relational_schema.chain_email (chain_id, c_email) VALUES (34567, 'skyeinfo@skye');
+INSERT INTO relational_schema.chain_email (chain_id, c_email) VALUES (45678, 'ascoinfo@asco');
+INSERT INTO relational_schema.chain_email (chain_id, c_email) VALUES (56789, 'starinfo@star');
 
 
 --
--- TOC entry 4962 (class 0 OID 32842)
+-- TOC entry 4955 (class 0 OID 17272)
 -- Dependencies: 222
 -- Data for Name: chain_number; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
+INSERT INTO relational_schema.chain_number (chain_id, c_phone_number) VALUES (56789, 9078956789);
+INSERT INTO relational_schema.chain_number (chain_id, c_phone_number) VALUES (12345, 5269312345);
+INSERT INTO relational_schema.chain_number (chain_id, c_phone_number) VALUES (23456, 3779723456);
+INSERT INTO relational_schema.chain_number (chain_id, c_phone_number) VALUES (34567, 7298934567);
+INSERT INTO relational_schema.chain_number (chain_id, c_phone_number) VALUES (45678, 1717045678);
 
 
 --
--- TOC entry 4963 (class 0 OID 32845)
+-- TOC entry 4956 (class 0 OID 17275)
 -- Dependencies: 223
 -- Data for Name: customer; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
@@ -358,7 +357,7 @@ ALTER TABLE relational_schema.room_damage OWNER TO postgres;
 
 
 --
--- TOC entry 4964 (class 0 OID 32850)
+-- TOC entry 4957 (class 0 OID 17280)
 -- Dependencies: 224
 -- Data for Name: employee; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
@@ -366,7 +365,7 @@ ALTER TABLE relational_schema.room_damage OWNER TO postgres;
 
 
 --
--- TOC entry 4965 (class 0 OID 32855)
+-- TOC entry 4958 (class 0 OID 17285)
 -- Dependencies: 225
 -- Data for Name: holds; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
@@ -374,70 +373,62 @@ ALTER TABLE relational_schema.room_damage OWNER TO postgres;
 
 
 --
--- TOC entry 4966 (class 0 OID 32860)
+-- TOC entry 4959 (class 0 OID 17290)
 -- Dependencies: 226
 -- Data for Name: hotel; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (11111, 12345, 'Kanata', 'hotel1@milton', 'Milton', 4, 112233, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (33333, 56789, 'River Bend', 'hotel3@star', 'Star co.', 4, 334455, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (44444, 45678, 'Gardiners', 'hotel4@asco', 'Asco', 5, 445566, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (99999, 56789, 'River Bend', 'hotel9@star', 'Star co.', 5, 990011, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (66666, 56789, 'Stoneybrook', 'hotel6@star', 'Star co.', 5, 667788, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (77777, 45678, 'Westwoods', 'hotel7@asco', 'Asco', 4, 778899, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (44444, 12345, 'Orleans', 'hotel4@milton', 'Milton', 3, 445566, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (33333, 34567, 'Richmond', 'hotel3@skye', 'Skye Hotels', 5, 334455, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (66666, 34567, 'North Vancouver', 'hotel6@skye', 'Skye Hotels', 4, 667788, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (10111, 45678, 'Alwington', 'hotel10@asco', 'Asco', 3, 101010, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (99999, 23456, 'Etobicoke', 'hotel9@larriott', 'Larriott', 5, 990011, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (66666, 23456, 'Markham', 'hotel6@larriott', 'Larriott', 1, 667788, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (11111, 45678, 'Alwington', 'hotel1@asco', 'Asco', 5, 112233, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (22222, 23456, 'Mississauga', 'hotel2@larriott', 'Larriott', 4, 223344, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (77777, 12345, 'Stittsville', 'hotel7@milton', 'Milton', 2, 778899, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (33333, 23456, 'Markham', 'hotel3@larriott', 'Larriott', 5, 334455, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (11111, 56789, 'Byron', 'hotel1@star', 'Star co.', 3, 112233, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (22222, 34567, 'Surrey', 'hotel2@skye', 'Skye Hotels', 4, 223344, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (44444, 56789, 'Summerside', 'hotel4@star', 'Star co.', 4, 445566, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (66666, 45678, 'Inner Harbour', 'hotel6@asco', 'Asco', 4, 667788, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (77777, 34567, 'Richmond', 'hotel7@skye', 'Skye Hotels', 5, 778899, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (11000, 56789, 'Blackfriars', 'hotel11@star', 'Star co.', 4, 110011, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (44444, 23456, 'Vaughan', 'hotel4@larriott', 'Larriott', 3, 445566, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (88888, 45678, 'Polson Park', 'hotel8@asco', 'Asco', 5, 889900, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (88888, 23456, 'Brampton', 'hotel8@larriott', 'Larriott', 4, 889900, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (77777, 56789, 'Byron', 'hotel7@star', 'Star co.', 2, 778899, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (88888, 56789, 'Bostwick', 'hotel8@star', 'Star co.', 2, 889900, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (22222, 45678, 'Inner Harbour', 'hotel2@asco', 'Asco', 3, 223344, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (55555, 34567, 'West Vancouver', 'hotel5@skye', 'Skye Hotels', 3, 556677, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (33333, 45678, 'Hillendale', 'hotel3@asco', 'Asco', 3, 334455, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (11111, 34567, 'Burnaby', 'hotel1@skye', 'Skye Hotels', 3, 112233, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (55555, 12345, 'Barrhaven', 'hotel5@milton', 'Milton', 4, 556677, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (22222, 12345, 'Barrhaven', 'hotel2@milton', 'Milton', 5, 223344, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (33333, 12345, 'South Keys', 'hotel3@milton', 'Milton', 3, 334455, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (55555, 56789, 'Oakridge', 'hotel5@star', 'Star co.', 3, 556677, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (22222, 56789, 'Lambeth', 'hotel2@star', 'Star co.', 5, 223344, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (11111, 23456, 'Scarborough', 'hotel1@larriott', 'Larriott', 2, 112233, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (10111, 56789, 'Summerside', 'hotel10@star', 'Star co.', 3, 101010, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (77777, 23456, 'York', 'hotel7@larriott', 'Larriott', 2, 778899, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (88888, 12345, 'Gloucester', 'hotel8@milton', 'Milton', 3, 889900, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (55555, 23456, 'Scarborough', 'hotel5@larriott', 'Larriott', 4, 556677, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (88888, 34567, 'Burnaby', 'hotel8@skye', 'Skye Hotels', 5, 889900, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (99999, 45678, 'Reddendale', 'hotel9@asco', 'Asco', 4, 990011, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (44444, 34567, 'Surrey', 'hotel4@skye', 'Skye Hotels', 2, 445566, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (55555, 45678, 'Glenburnie', 'hotel5@asco', 'Asco', 2, 556677, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, email, name, rating, phone_number, num_of_room) VALUES (66666, 12345, 'Orleans', 'hotel6@milton', 'Milton', 5, 667788, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (11111, 12345, 'Kanata', 'Milton', 4, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (33333, 56789, 'River Bend', 'Star co.', 4, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (44444, 45678, 'Gardiners', 'Asco', 5, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (99999, 56789, 'River Bend', 'Star co.', 5, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (66666, 56789, 'Stoneybrook', 'Star co.', 5, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (77777, 45678, 'Westwoods', 'Asco', 4, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (44444, 12345, 'Orleans', 'Milton', 3, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (33333, 34567, 'Richmond', 'Skye Hotels', 5, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (66666, 34567, 'North Vancouver', 'Skye Hotels', 4, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (10111, 45678, 'Alwington', 'Asco', 3, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (99999, 23456, 'Etobicoke', 'Larriott', 5, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (66666, 23456, 'Markham', 'Larriott', 1, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (11111, 45678, 'Alwington', 'Asco', 5, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (22222, 23456, 'Mississauga', 'Larriott', 4, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (77777, 12345, 'Stittsville', 'Milton', 2, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (33333, 23456, 'Markham', 'Larriott', 5, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (11111, 56789, 'Byron', 'Star co.', 3, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (22222, 34567, 'Surrey', 'Skye Hotels', 4, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (44444, 56789, 'Summerside', 'Star co.', 4, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (66666, 45678, 'Inner Harbour', 'Asco', 4, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (77777, 34567, 'Richmond', 'Skye Hotels', 5, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (11000, 56789, 'Blackfriars', 'Star co.', 4, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (44444, 23456, 'Vaughan', 'Larriott', 3, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (88888, 45678, 'Polson Park', 'Asco', 5, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (88888, 23456, 'Brampton', 'Larriott', 4, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (77777, 56789, 'Byron', 'Star co.', 2, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (88888, 56789, 'Bostwick', 'Star co.', 2, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (22222, 45678, 'Inner Harbour', 'Asco', 3, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (55555, 34567, 'West Vancouver', 'Skye Hotels', 3, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (33333, 45678, 'Hillendale', 'Asco', 3, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (11111, 34567, 'Burnaby', 'Skye Hotels', 3, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (55555, 12345, 'Barrhaven', 'Milton', 4, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (22222, 12345, 'Barrhaven', 'Milton', 5, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (33333, 12345, 'South Keys', 'Milton', 3, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (55555, 56789, 'Oakridge', 'Star co.', 3, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (22222, 56789, 'Lambeth', 'Star co.', 5, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (11111, 23456, 'Scarborough', 'Larriott', 2, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (10111, 56789, 'Summerside', 'Star co.', 3, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (77777, 23456, 'York', 'Larriott', 2, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (88888, 12345, 'Gloucester', 'Milton', 3, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (55555, 23456, 'Scarborough', 'Larriott', 4, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (88888, 34567, 'Burnaby', 'Skye Hotels', 5, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (99999, 45678, 'Reddendale', 'Asco', 4, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (44444, 34567, 'Surrey', 'Skye Hotels', 2, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (55555, 45678, 'Glenburnie', 'Asco', 2, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (66666, 12345, 'Orleans', 'Milton', 5, '5');
 
 
 --
--- TOC entry 4967 (class 0 OID 32865)
+-- TOC entry 4960 (class 0 OID 17300)
 -- Dependencies: 227
--- Data for Name: hotel_address; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
---
-
-
-
---
--- TOC entry 4968 (class 0 OID 32870)
--- Dependencies: 228
 -- Data for Name: hotel_chain; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
@@ -449,40 +440,132 @@ INSERT INTO relational_schema.hotel_chain (chain_id, chain_name, num_of_hotel) V
 
 
 --
--- TOC entry 4969 (class 0 OID 32875)
--- Dependencies: 229
+-- TOC entry 4961 (class 0 OID 17305)
+-- Dependencies: 228
 -- Data for Name: hotel_email; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (45678, 10111, 'hotel10@asco');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (56789, 10111, 'hotel10@star');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (56789, 11000, 'hotel11@star');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (12345, 11111, 'hotel1@milton');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (23456, 11111, 'hotel1@larriott');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (34567, 11111, 'hotel1@skye');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (45678, 11111, 'hotel1@asco');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (56789, 11111, 'hotel1@star');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (12345, 22222, 'hotel2@milton');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (23456, 22222, 'hotel2@larriott');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (34567, 22222, 'hotel2@skye');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (45678, 22222, 'hotel2@asco');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (56789, 22222, 'hotel2@star');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (12345, 33333, 'hotel3@milton');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (23456, 33333, 'hotel3@larriott');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (34567, 33333, 'hotel3@skye');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (45678, 33333, 'hotel3@asco');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (56789, 33333, 'hotel3@star');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (12345, 44444, 'hotel4@milton');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (23456, 44444, 'hotel4@larriott');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (34567, 44444, 'hotel4@skye');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (45678, 44444, 'hotel4@asco');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (56789, 44444, 'hotel4@star');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (12345, 55555, 'hotel5@milton');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (23456, 55555, 'hotel5@larriott');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (34567, 55555, 'hotel5@skye');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (45678, 55555, 'hotel5@asco');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (56789, 55555, 'hotel5@star');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (12345, 66666, 'hotel6@milton');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (23456, 66666, 'hotel6@larriott');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (34567, 66666, 'hotel6@skye');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (45678, 66666, 'hotel6@asco');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (56789, 66666, 'hotel6@star');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (12345, 77777, 'hotel7@milton');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (23456, 77777, 'hotel7@larriott');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (34567, 77777, 'hotel7@skye');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (45678, 77777, 'hotel7@asco');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (56789, 77777, 'hotel7@star');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (12345, 88888, 'hotel8@milton');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (23456, 88888, 'hotel8@larriott');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (34567, 88888, 'hotel8@skye');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (45678, 88888, 'hotel8@asco');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (56789, 88888, 'hotel8@star');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (23456, 99999, 'hotel9@larriott');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (45678, 99999, 'hotel9@asco');
+INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (56789, 99999, 'hotel9@star');
 
 
 --
--- TOC entry 4970 (class 0 OID 32880)
--- Dependencies: 230
+-- TOC entry 4962 (class 0 OID 17310)
+-- Dependencies: 229
 -- Data for Name: hotel_phone; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (45678, 10111, 1010102794);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (56789, 10111, 1010101821);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (56789, 11000, 1100116936);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (12345, 11111, 1122331528);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (23456, 11111, 1122331027);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (34567, 11111, 1122336460);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (45678, 11111, 1122335459);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (56789, 11111, 1122331359);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (12345, 22222, 2233445668);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (23456, 22222, 2233442924);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (34567, 22222, 2233445460);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (45678, 22222, 2233442976);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (56789, 22222, 2233446521);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (12345, 33333, 3344553853);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (23456, 33333, 3344553524);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (34567, 33333, 3344555940);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (45678, 33333, 3344553182);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (56789, 33333, 3344552077);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (12345, 44444, 4455663752);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (23456, 44444, 4455661448);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (34567, 44444, 4455669127);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (45678, 44444, 4455662079);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (56789, 44444, 4455663155);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (12345, 55555, 5566776738);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (23456, 55555, 5566771081);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (34567, 55555, 5566775253);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (45678, 55555, 5566774945);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (56789, 55555, 5566776720);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (12345, 66666, 6677884802);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (23456, 66666, 6677889427);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (34567, 66666, 6677886682);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (45678, 66666, 6677887697);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (56789, 66666, 6677886420);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (12345, 77777, 7788995365);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (23456, 77777, 7788991421);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (34567, 77777, 7788991942);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (45678, 77777, 7788994220);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (56789, 77777, 7788992024);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (12345, 88888, 8899003013);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (23456, 88888, 8899003125);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (34567, 88888, 8899007554);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (45678, 88888, 8899009919);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (56789, 88888, 8899003378);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (23456, 99999, 9900114652);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (45678, 99999, 9900119780);
+INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) VALUES (56789, 99999, 9900115471);
 
 
 --
--- TOC entry 4971 (class 0 OID 32883)
--- Dependencies: 231
+-- TOC entry 4963 (class 0 OID 17313)
+-- Dependencies: 230
 -- Data for Name: manager; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4972 (class 0 OID 32888)
--- Dependencies: 232
+-- TOC entry 4964 (class 0 OID 17318)
+-- Dependencies: 231
 -- Data for Name: renting; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4973 (class 0 OID 32893)
--- Dependencies: 233
+-- TOC entry 4965 (class 0 OID 17323)
+-- Dependencies: 232
 -- Data for Name: room; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
@@ -719,23 +802,23 @@ INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price,
 
 
 --
--- TOC entry 4974 (class 0 OID 32898)
--- Dependencies: 234
+-- TOC entry 4966 (class 0 OID 17328)
+-- Dependencies: 233
 -- Data for Name: room_amenity; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4975 (class 0 OID 32903)
--- Dependencies: 235
+-- TOC entry 4967 (class 0 OID 17333)
+-- Dependencies: 234
 -- Data for Name: room_damage; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4764 (class 2606 OID 32909)
+-- TOC entry 4760 (class 2606 OID 17339)
 -- Name: archive archive_id; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -744,7 +827,7 @@ ALTER TABLE ONLY relational_schema.archive
 
 
 --
--- TOC entry 4766 (class 2606 OID 32911)
+-- TOC entry 4762 (class 2606 OID 17341)
 -- Name: booking booking_start_date; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -753,7 +836,7 @@ ALTER TABLE ONLY relational_schema.booking
 
 
 --
--- TOC entry 4768 (class 2606 OID 32913)
+-- TOC entry 4764 (class 2606 OID 17343)
 -- Name: chain_address c_address; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -762,7 +845,7 @@ ALTER TABLE ONLY relational_schema.chain_address
 
 
 --
--- TOC entry 4770 (class 2606 OID 32915)
+-- TOC entry 4766 (class 2606 OID 17345)
 -- Name: chain_email c_email; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -771,7 +854,7 @@ ALTER TABLE ONLY relational_schema.chain_email
 
 
 --
--- TOC entry 4772 (class 2606 OID 32917)
+-- TOC entry 4768 (class 2606 OID 17452)
 -- Name: chain_number c_phone_number; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -780,7 +863,7 @@ ALTER TABLE ONLY relational_schema.chain_number
 
 
 --
--- TOC entry 4784 (class 2606 OID 32919)
+-- TOC entry 4778 (class 2606 OID 17349)
 -- Name: hotel_chain chain_id; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -789,7 +872,7 @@ ALTER TABLE ONLY relational_schema.hotel_chain
 
 
 --
--- TOC entry 4774 (class 2606 OID 32921)
+-- TOC entry 4770 (class 2606 OID 17351)
 -- Name: customer customer_id; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -798,7 +881,7 @@ ALTER TABLE ONLY relational_schema.customer
 
 
 --
--- TOC entry 4776 (class 2606 OID 32923)
+-- TOC entry 4772 (class 2606 OID 17353)
 -- Name: employee employee_ssn; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -807,16 +890,7 @@ ALTER TABLE ONLY relational_schema.employee
 
 
 --
--- TOC entry 4782 (class 2606 OID 32925)
--- Name: hotel_address h_address_pk; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
---
-
-ALTER TABLE ONLY relational_schema.hotel_address
-    ADD CONSTRAINT h_address_pk PRIMARY KEY (h_address, chain_id, hotel_id);
-
-
---
--- TOC entry 4786 (class 2606 OID 32927)
+-- TOC entry 4780 (class 2606 OID 17357)
 -- Name: hotel_email h_email_pk; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -825,7 +899,7 @@ ALTER TABLE ONLY relational_schema.hotel_email
 
 
 --
--- TOC entry 4788 (class 2606 OID 32929)
+-- TOC entry 4782 (class 2606 OID 17446)
 -- Name: hotel_phone h_phone_number_pk; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -834,7 +908,7 @@ ALTER TABLE ONLY relational_schema.hotel_phone
 
 
 --
--- TOC entry 4778 (class 2606 OID 32931)
+-- TOC entry 4774 (class 2606 OID 17361)
 -- Name: holds holds_pk; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -843,7 +917,7 @@ ALTER TABLE ONLY relational_schema.holds
 
 
 --
--- TOC entry 4780 (class 2606 OID 32933)
+-- TOC entry 4776 (class 2606 OID 17363)
 -- Name: hotel hotel_pk; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -852,7 +926,7 @@ ALTER TABLE ONLY relational_schema.hotel
 
 
 --
--- TOC entry 4790 (class 2606 OID 32935)
+-- TOC entry 4784 (class 2606 OID 17365)
 -- Name: manager manager_pk; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -861,7 +935,7 @@ ALTER TABLE ONLY relational_schema.manager
 
 
 --
--- TOC entry 4792 (class 2606 OID 32937)
+-- TOC entry 4786 (class 2606 OID 17367)
 -- Name: renting renting_start_date; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -870,7 +944,7 @@ ALTER TABLE ONLY relational_schema.renting
 
 
 --
--- TOC entry 4796 (class 2606 OID 32939)
+-- TOC entry 4790 (class 2606 OID 17369)
 -- Name: room_amenity room_amenity_pk; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -879,7 +953,7 @@ ALTER TABLE ONLY relational_schema.room_amenity
 
 
 --
--- TOC entry 4798 (class 2606 OID 32941)
+-- TOC entry 4792 (class 2606 OID 17371)
 -- Name: room_damage room_damage_pk; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -888,7 +962,7 @@ ALTER TABLE ONLY relational_schema.room_damage
 
 
 --
--- TOC entry 4794 (class 2606 OID 32943)
+-- TOC entry 4788 (class 2606 OID 17373)
 -- Name: room room_pk; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -897,7 +971,7 @@ ALTER TABLE ONLY relational_schema.room
 
 
 --
--- TOC entry 4799 (class 2606 OID 32944)
+-- TOC entry 4793 (class 2606 OID 17374)
 -- Name: booking booking_customer_id_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -906,7 +980,7 @@ ALTER TABLE ONLY relational_schema.booking
 
 
 --
--- TOC entry 4800 (class 2606 OID 32949)
+-- TOC entry 4794 (class 2606 OID 17379)
 -- Name: booking booking_room_chain_id_hotel_id_room_num_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -915,7 +989,7 @@ ALTER TABLE ONLY relational_schema.booking
 
 
 --
--- TOC entry 4801 (class 2606 OID 32954)
+-- TOC entry 4795 (class 2606 OID 17384)
 -- Name: chain_address chain_address_hotel_chain_chain_id_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -924,7 +998,7 @@ ALTER TABLE ONLY relational_schema.chain_address
 
 
 --
--- TOC entry 4802 (class 2606 OID 32959)
+-- TOC entry 4796 (class 2606 OID 17389)
 -- Name: chain_email chain_email_hotel_chain_chain_id_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -933,7 +1007,7 @@ ALTER TABLE ONLY relational_schema.chain_email
 
 
 --
--- TOC entry 4803 (class 2606 OID 32964)
+-- TOC entry 4797 (class 2606 OID 17394)
 -- Name: chain_number chain_number_hotel_chain_chain_id_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -942,7 +1016,7 @@ ALTER TABLE ONLY relational_schema.chain_number
 
 
 --
--- TOC entry 4804 (class 2606 OID 32969)
+-- TOC entry 4798 (class 2606 OID 17399)
 -- Name: employee employee_hotel_hotel_id_chain_id_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -951,16 +1025,7 @@ ALTER TABLE ONLY relational_schema.employee
 
 
 --
--- TOC entry 4806 (class 2606 OID 32974)
--- Name: hotel_address hotel_address_hotel_chain_id_hotel_id_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
---
-
-ALTER TABLE ONLY relational_schema.hotel_address
-    ADD CONSTRAINT hotel_address_hotel_chain_id_hotel_id_fk FOREIGN KEY (chain_id, hotel_id) REFERENCES relational_schema.hotel(chain_id, hotel_id);
-
-
---
--- TOC entry 4805 (class 2606 OID 32979)
+-- TOC entry 4799 (class 2606 OID 17409)
 -- Name: hotel hotel_chain_id_fkey; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -969,7 +1034,7 @@ ALTER TABLE ONLY relational_schema.hotel
 
 
 --
--- TOC entry 4807 (class 2606 OID 32984)
+-- TOC entry 4800 (class 2606 OID 17414)
 -- Name: hotel_email hotel_email_hotel_chain_id_hotel_id_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -978,7 +1043,7 @@ ALTER TABLE ONLY relational_schema.hotel_email
 
 
 --
--- TOC entry 4808 (class 2606 OID 32989)
+-- TOC entry 4801 (class 2606 OID 17419)
 -- Name: hotel_phone hotel_phone_hotel_chain_id_hotel_id_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -987,7 +1052,7 @@ ALTER TABLE ONLY relational_schema.hotel_phone
 
 
 --
--- TOC entry 4809 (class 2606 OID 32994)
+-- TOC entry 4802 (class 2606 OID 17424)
 -- Name: renting renting_customer_customer_id_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -996,7 +1061,7 @@ ALTER TABLE ONLY relational_schema.renting
 
 
 --
--- TOC entry 4810 (class 2606 OID 32999)
+-- TOC entry 4803 (class 2606 OID 17429)
 -- Name: renting renting_employee_employee_ssn_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -1005,7 +1070,7 @@ ALTER TABLE ONLY relational_schema.renting
 
 
 --
--- TOC entry 4811 (class 2606 OID 33004)
+-- TOC entry 4804 (class 2606 OID 17434)
 -- Name: renting renting_room_room_num_hotel_id_chain_id_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -1014,7 +1079,7 @@ ALTER TABLE ONLY relational_schema.renting
 
 
 --
--- TOC entry 4812 (class 2606 OID 33009)
+-- TOC entry 4805 (class 2606 OID 17439)
 -- Name: room room_hotel_hotel_id_chain_id_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -1023,7 +1088,7 @@ ALTER TABLE ONLY relational_schema.room
 
 
 --
--- TOC entry 4981 (class 0 OID 0)
+-- TOC entry 4973 (class 0 OID 0)
 -- Dependencies: 6
 -- Name: SCHEMA public; Type: ACL; Schema: -; Owner: pg_database_owner
 --
@@ -1031,7 +1096,7 @@ ALTER TABLE ONLY relational_schema.room
 REVOKE USAGE ON SCHEMA public FROM PUBLIC;
 
 
--- Completed on 2025-03-23 00:21:47
+-- Completed on 2025-03-24 13:32:35
 
 --
 -- PostgreSQL database dump complete
