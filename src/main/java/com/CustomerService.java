@@ -3,6 +3,7 @@ package com;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,8 +55,29 @@ public class CustomerService {
             throw new Exception(e.getMessage());
         }
     }
+    public boolean updateCustomer(int customerId, String firstName, String lastName, String email, String phone, String address) throws Exception {
+        String sql = "UPDATE relational_schema.customer SET first_name = ?, last_name = ?, email = ?, phone = ?, address = ? WHERE customer_id = ?";
 
-}
+        try (Connection con = new ConnectionDB().getConnection();
+             PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            stmt.setString(1, firstName);
+            stmt.setString(2, lastName);
+            stmt.setString(3, email);
+            stmt.setString(4, phone);
+            stmt.setString(5, address);
+            stmt.setInt(6, customerId);
+
+            int rowsUpdated = stmt.executeUpdate();
+            return rowsUpdated > 0; // Returns true if update was successful
+
+        } catch (SQLException e) {
+            throw new SQLException("Error updating customer info: " + e.getMessage(), e);
+        }
+    }
+    }
+
+
 
 
 
