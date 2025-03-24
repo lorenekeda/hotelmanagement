@@ -45,28 +45,6 @@
 </body>
 
 <style>
-    .menu {
-        background-color: #528AAE;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        padding: 10px 0;
-        margin-bottom: 100px;
-    }
-
-    .menu ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-    }
-
-    .menu li {
-        margin: 0 20px;
-    }
-
     .container1 {
         margin-top: 30px;
         display:flex;
