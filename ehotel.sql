@@ -24,8 +24,8 @@ SET row_security = off;
 -- Name: relational_schema; Type: SCHEMA; Schema: -; Owner: postgres
 --
 
+DROP SCHEMA IF EXISTS relational_schema CASCADE;
 CREATE SCHEMA relational_schema;
-
 
 ALTER SCHEMA relational_schema OWNER TO postgres;
 
