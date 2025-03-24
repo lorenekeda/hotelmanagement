@@ -1,24 +1,26 @@
+package com;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HotelService {
+public class HotelChainService {
 
     /**
-     * Method to get all Hotel from the database
+     * Method to get all com.HotelChain from the database
      *
-     * @return List of Hotel from database
+     * @return List of com.HotelChain from database
      * @throws Exception when trying to connect to database
      */
-    public List<Hotel> getHotel() throws Exception {
+    public List<HotelChain> getHotelChain() throws Exception {
 
-        String sql = "SELECT * FROM hotel";
+        String sql = "SELECT * FROM relational_schema.hotel_chain";
 
         ConnectionDB db = new ConnectionDB();
 
-        List<Hotel> hotels = new ArrayList<>();
+        List<HotelChain> chains = new ArrayList<>();
 
         //connect to database, catch any exceptions
         try (Connection con = db.getConnection()) {
@@ -26,21 +28,15 @@ public class HotelService {
             PreparedStatement stmt = con.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
 
-
-
-
             while (rs.next()) {
-                // create Hotel object from result
-                Hotel hotel = new Hotel(
+                // create com.HotelChain object from result
+                HotelChain chain = new HotelChain(
                         rs.getInt("chain_id"),
-                        rs.getInt("hotel_id"),
-                        rs.getString("name"),
-                        rs.getString("address"),
-                        rs.getInt("rating"),
-                        rs.getInt("num_of_room")
+                        rs.getString("chain_name"),
+                        rs.getInt("num_of_hotel")
                 );
 
-                hotels.add(hotel);
+                chains.add(chain);
             }
 
             rs.close();
@@ -48,7 +44,7 @@ public class HotelService {
             con.close();
             db.close();
 
-            return hotels;
+            return chains;
 
         } catch (Exception e) {
             throw new Exception(e.getMessage());
@@ -56,5 +52,4 @@ public class HotelService {
     }
 
 }
-
 

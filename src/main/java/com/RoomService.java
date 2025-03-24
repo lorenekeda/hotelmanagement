@@ -1,45 +1,47 @@
+package com;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmployeeService {
+public class RoomService {
 
     /**
-     * Method to get all Employee from the database
+     * Method to get all com.Room from the database
      *
-     * @return List of Employee from database
+     * @return List of com.Room from database
      * @throws Exception when trying to connect to database
      */
-    public List<Employee> getEmployee() throws Exception {
+    public List<Room> getRoom() throws Exception {
 
-        String sql = "SELECT * FROM employee";
+        String sql = "SELECT * FROM relational_schema.room";
 
         ConnectionDB db = new ConnectionDB();
 
-        List<Employee> employees = new ArrayList<>();
+        List<Room> rooms = new ArrayList<>();
 
         //connect to database, catch any exceptions
         try (Connection con = db.getConnection()) {
 
             PreparedStatement stmt = con.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
-            
+
 
             while (rs.next()) {
-                // create Employee object from result
-                Employee employee = new Employee(
-                        rs.getInt("employee_ssn"),
+                // create com.Room object from result
+                Room room = new Room(
                         rs.getInt("chain_id"),
                         rs.getInt("hotel_id"),
-                        rs.getString("first_name"),
-                        rs.getString("last_name"),
-                        rs.getString("address"),
-                        rs.getString("position")
+                        rs.getInt("room_num"),
+                        rs.getString("view"),
+                        rs.getBoolean("extendable"),
+                        rs.getInt("price"),
+                        rs.getString("capacity")
                 );
 
-                employees.add(employee);
+                rooms.add(room);
             }
 
             rs.close();
@@ -47,7 +49,9 @@ public class EmployeeService {
             con.close();
             db.close();
 
-            return employees;
+            System.out.println("Found " + rooms.size() + " rooms.");
+
+            return rooms;
 
         } catch (Exception e) {
             throw new Exception(e.getMessage());
@@ -55,3 +59,5 @@ public class EmployeeService {
     }
 
 }
+
+

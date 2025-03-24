@@ -1,3 +1,5 @@
+package com;
+
 public class Employee {
 
     private Integer ssn;
@@ -10,7 +12,7 @@ public class Employee {
 
 
     /**
-     * Constructor to create Employee object with chainId, hotelId, ssn, firstName, lastName, address, position
+     * Constructor to create com.Employee object with chainId, hotelId, ssn, firstName, lastName, address, position
      *
      * @param ssn ssn of employee
      * @param chainId id of hotel chain
@@ -51,9 +53,9 @@ public class Employee {
     @Override
     public String toString() {
         return "<ul>"
-                + "<li>Employee= " + firstName + "</li>"
-                + "<li>Employee= " + lastName + "</li>"
-                + "<li>Employee= " + address + "</li>"
-                + "<li>Employee= " + position + "</li>";
+                + "<li>com.Employee= " + firstName + "</li>"
+                + "<li>com.Employee= " + lastName + "</li>"
+                + "<li>com.Employee= " + address + "</li>"
+                + "<li>com.Employee= " + position + "</li>";
     }
 }

@@ -1,3 +1,4 @@
+package com;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,10 +7,10 @@ import java.sql.SQLException;
 
 public class ConnectionDB {
 
-    /*!!! change dbusername, dbpassword for you!!! */
+    /*!!! change dbName, dbpassword for you!!! */
     private final String ipAddress = "localhost";
     private final String dbServerPort = "5432";
-    private final String dbName = "postgres";
+    private final String dbName = "hotelchain";
     private final String dbusername = "postgres";
     private final String dbpassword = "";
 
@@ -22,6 +23,7 @@ public class ConnectionDB {
             Class.forName("org.postgresql.Driver");
             con = DriverManager.getConnection("jdbc:postgresql://"
                     + ipAddress + ":" + dbServerPort + "/" + dbName, dbusername, dbpassword);
+            System.out.println("Database connection successful!");
             return con;
         } catch (Exception e) {
 

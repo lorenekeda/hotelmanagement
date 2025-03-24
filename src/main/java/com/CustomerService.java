@@ -1,3 +1,5 @@
+package com;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,14 +9,14 @@ import java.util.List;
 public class CustomerService {
 
     /**
-     * Method to get all Customer from the database
+     * Method to get all com.Customer from the database
      *
-     * @return List of Customer from database
+     * @return List of com.Customer from database
      * @throws Exception when trying to connect to database
      */
     public List<Customer> getCustomer() throws Exception {
 
-        String sql = "SELECT * FROM customer";
+        String sql = "SELECT * FROM relational_schema.customer";
 
         ConnectionDB db = new ConnectionDB();
 
@@ -28,7 +30,7 @@ public class CustomerService {
 
            
             while (rs.next()) {
-                // create Room object from result
+                // create com.Room object from result
                 Customer customer = new Customer(
                         rs.getString("customer_id"),
                         rs.getString("registration_date"),

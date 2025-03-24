@@ -1,3 +1,5 @@
+package com;
+
 public class HotelChain {
 
     private Integer chainId;
@@ -5,7 +7,7 @@ public class HotelChain {
     private int numOfHotel;
 
     /**
-     * Constructor to create HotelChain object with chainId, chainName, numOfHotel
+     * Constructor to create com.HotelChain object with chainId, chainName, numOfHotel
      *
      * @param chainId id of hotel chain
      * @param chainName name of hotel chain
@@ -18,7 +20,7 @@ public class HotelChain {
     }
 
     /**
-     * Constructor to create HotelChain object with chainName, numOfHotel
+     * Constructor to create com.HotelChain object with chainName, numOfHotel
      *
      * @param chainName name of hotel chain
      * @param numOfHotel number of hotels belonging to the hotel chain
@@ -41,7 +43,7 @@ public class HotelChain {
     @Override
     public String toString() {
         return "<ul>"
-                + "<li>HotelChain= " + chainName + "</li>"
-                + "<li>HotelChain= " + numOfHotel + "</li>";
+                + "<li>com.HotelChain= " + chainName + "</li>"
+                + "<li>com.HotelChain= " + numOfHotel + "</li>";
     }
 }

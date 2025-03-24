@@ -1,3 +1,5 @@
+package com;
+
 public class Customer {
 
     private String customerId;
@@ -9,7 +11,7 @@ public class Customer {
 
 
     /**
-     * Constructor to create Customer object with customerId, registrationDate, firstName, lastName, idType, address
+     * Constructor to create com.Customer object with customerId, registrationDate, firstName, lastName, idType, address
      *
      * @param customerId id of customer
      * @param registrationDate registration date of customer
@@ -28,7 +30,7 @@ public class Customer {
     }
 
     /**
-     * Constructor to create Customer object with registrationDate, firstName, lastName, idType, address
+     * Constructor to create com.Customer object with registrationDate, firstName, lastName, idType, address
      *
      * @param registrationDate registration date of customer
      * @param firstName first name of customer
@@ -63,10 +65,10 @@ public class Customer {
     @Override
     public String toString() {
         return "<ul>"
-                + "<li>Customer= " + registrationDate + "</li>"
-                + "<li>Customer= " + firstName + "</li>"
-                + "<li>Customer= " + lastName + "</li>"
-                + "<li>Customer= " + idType + "</li>"
-                + "<li>Customer= " + address + "</li>";
+                + "<li>com.Customer= " + registrationDate + "</li>"
+                + "<li>com.Customer= " + firstName + "</li>"
+                + "<li>com.Customer= " + lastName + "</li>"
+                + "<li>com.Customer= " + idType + "</li>"
+                + "<li>com.Customer= " + address + "</li>";
     }
 }

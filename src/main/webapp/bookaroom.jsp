@@ -1,5 +1,21 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+<%@ page import="java.util.List" %>
+<%@ page import="com.RoomService" %>
+<%@ page import="com.Room" %>
+<%@ page import="java.util.ArrayList" %>
+
+
+<%
+    RoomService roomService = new RoomService();
+    List<Room> rooms = null;
+    try {
+        rooms = roomService.getRoom();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +57,38 @@
 
     <div class="container">
         <h1>Available Rooms</h1>
+        <div class="row" id="row">
+            <div class="col-md-12">
+                <div class="card" id="card-container">
+                    <div class="card-body" id="card">
+                       <% if (rooms != null && rooms.size() == 0) { %>
+                           <h1 style="margin-top: 5rem;">No Rooms found!</h1>
+                       <% } else if (rooms != null) { %>
+                           <div class="table-responsive">
+                               <table class="table">
+                                   <tbody>
+                                       <% for (Room room : rooms) { %>
+                                           <tr>
+                                                <td>
+                                                    <button type="button">
+                                                        Room Number: <%= room.getRoomNum() %><br>
+                                                        View: <%= room.getView() %><br>
+                                                        Price: <%= room.getPrice() %><br>
+                                                        Capacity: <%= room.getCapacity() %>
+                                                    </button>
+                                               </td>
+                                           </tr>
+                                       <% } %>
+                                   </tbody>
+                               </table>
+                           </div>
+                       <% }
+                       %>
+                    </div>
+                </div>
+            </div>
     </div>
+
 </body>
 
 <style>

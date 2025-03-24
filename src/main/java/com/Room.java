@@ -1,3 +1,5 @@
+package com;
+
 public class Room {
 
     private Integer chainId;
@@ -10,7 +12,7 @@ public class Room {
 
 
     /**
-     * Constructor to create Room object with chainId, hotelId, roomNum, view, extendable, price, capacity
+     * Constructor to create com.Room object with chainId, hotelId, roomNum, view, extendable, price, capacity
      *
      * @param chainId id of hotel chain
      * @param hotelId id of hotel
@@ -31,7 +33,7 @@ public class Room {
     }
 
     /**
-     * Constructor to create Room object with view, extendable, price, capacity
+     * Constructor to create com.Room object with view, extendable, price, capacity
      *
      * @param view view for room
      * @param extendable if room can be extended
@@ -66,9 +68,9 @@ public class Room {
     @Override
     public String toString() {
         return "<ul>"
-                + "<li>Room= " + view + "</li>"
-                + "<li>Room= " + extendable + "</li>"
-                + "<li>Room= " + price + "</li>"
-                + "<li>Room= " + capacity + "</li>";
+                + "<li>com.Room= " + view + "</li>"
+                + "<li>com.Room= " + extendable + "</li>"
+                + "<li>com.Room= " + price + "</li>"
+                + "<li>com.Room= " + capacity + "</li>";
     }
 }
