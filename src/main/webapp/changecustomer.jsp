@@ -43,15 +43,34 @@
 </body>
 <style>
    form{
+       box-shadow: 15px 15px 15px lightblue;
+       padding: 50px;
+       font-family: Georgia, 'Times New Roman', Times, serif;
+       height: 350px;
+       text-align: center;
+       align-self: center;
+       background-color: #528AAE;
+       flex: 1;
 
    }
    body{
+       padding: 20px;
+       font-family: Georgia, 'Times New Roman', Times, serif;
+       width: 600px;
+       height: 419px;
+       text-align: center;
+       align-self: center;
+       background-color: #fefefe;
+       flex: 1;
 
    }
    label{
 
+
+
    }
    input, select{
+       border: 1px solid rgb(2, 4, 5);
 
    }
    button{
