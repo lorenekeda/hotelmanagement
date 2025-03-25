@@ -6,21 +6,21 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RoomService {
+public class RentingService {
 
     /**
-     * Method to get all com.Room from the database
+     * Method to get all com.Renting from the database
      *
-     * @return List of com.Room from database
+     * @return List of com.Renting from database
      * @throws Exception when trying to connect to database
      */
-    public List<Room> getRoom() throws Exception {
+    public List<Renting> getRenting() throws Exception {
 
-        String sql = "SELECT * FROM relational_schema.room";
+        String sql = "SELECT * FROM relational_schema.renting";
 
         ConnectionDB db = new ConnectionDB();
 
-        List<Room> rooms = new ArrayList<>();
+        List<Renting> rentings = new ArrayList<>();
 
         //connect to database, catch any exceptions
         try (Connection con = db.getConnection()) {
@@ -30,18 +30,18 @@ public class RoomService {
 
 
             while (rs.next()) {
-                // create com.Room object from result
-                Room room = new Room(
+                // create com.Booking object from result
+                Renting renting = new Renting(
                         rs.getInt("chain_id"),
                         rs.getInt("hotel_id"),
                         rs.getInt("room_num"),
-                        rs.getString("view"),
-                        rs.getBoolean("extendable"),
-                        rs.getInt("price"),
-                        rs.getString("capacity")
+                        rs.getString("start_date"),
+                        rs.getString("end_date"),
+                        rs.getString("customer_id"),
+                        rs.getInt("employee_ssn")
                 );
 
-                rooms.add(room);
+                rentings.add(renting);
             }
 
             rs.close();
@@ -49,7 +49,7 @@ public class RoomService {
             con.close();
             db.close();
 
-            return rooms;
+            return rentings;
 
         } catch (Exception e) {
             throw new Exception(e.getMessage());
