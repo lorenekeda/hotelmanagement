@@ -23,7 +23,6 @@ public class ConnectionDB {
             Class.forName("org.postgresql.Driver");
             con = DriverManager.getConnection("jdbc:postgresql://"
                     + ipAddress + ":" + dbServerPort + "/" + dbName, dbusername, dbpassword);
-            System.out.println("Database connection successful!");
             return con;
         } catch (Exception e) {
 
