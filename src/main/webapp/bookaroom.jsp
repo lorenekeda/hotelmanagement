@@ -2,6 +2,7 @@
 
 <%@ page import="java.util.List" %>
 <%@ page import="com.RoomService" %>
+<%@ page import="com.HotelService" %>
 <%@ page import="com.HotelChainService" %>
 <%@ page import="com.HotelChain" %>
 <%@ page import="com.Room" %>
@@ -17,6 +18,14 @@
         e.printStackTrace();
     }
 
+    HotelService hotelService = new HotelService();
+    List<String> locations = null;
+    try {
+        locations = hotelService.getLocations();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
     RoomService roomService = new RoomService();
     List<Room> rooms = null;
     try {
@@ -24,6 +33,7 @@
     } catch (Exception e) {
         e.printStackTrace();
     }
+
 %>
 
 <!DOCTYPE html>
@@ -62,8 +72,9 @@
 
             <label for="Area">Area:</label>
             <select id="Area" name="Area">
-                <option value="1">1</option>
-                <option value="2">2</option>
+                <% for (String area : locations) { %>
+                    <option value=<%=area%>> <%= area %></option>
+                <% } %>
             </select>
 
             <label for="Price">Max Price $:</label>
@@ -85,7 +96,7 @@
             <label for="EndDate">End Date:</label>
             <input type="date" id="EndDate" name="EndDate">
 
-            <button>Filter</button>
+            <button type="submit">Filter</button>
         </form>
     </div>
 
@@ -179,4 +190,5 @@
         font-family: Georgia, 'Times New Roman', Times, serif;
     }
 </style>
+
 </html>
