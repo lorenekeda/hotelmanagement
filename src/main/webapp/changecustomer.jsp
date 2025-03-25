@@ -17,7 +17,7 @@
 <h2>Update Customer Information</h2>
 <form action="updateCustomer" method="post">
     <label for="customer_id">Customer ID:</label>
-    <input type="number" id="customer_id" name="customer_id" required><br>
+    <input type="text" id="customer_id" name="customer_id" required><br>
 
     <label for="first_name">First Name:</label>
     <input type="text" id="first_name" name="first_name"><br>
