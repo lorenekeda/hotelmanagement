@@ -33,6 +33,7 @@
             </form>
             <p>Don't have an account?</p> <a>Click here to create one.</a>
             <a href="bookaroom.jsp" class="room-button">TEMPORARY BUTTON TO BOOK A ROOM TO TEST</a>
+            <a href="changecustomer.jsp" class="customerinfo-button">TEMPORARY BUTTON TO VIEW CUSTOMER CHANGE PAGE</a>
         </div>
     </div>
    
