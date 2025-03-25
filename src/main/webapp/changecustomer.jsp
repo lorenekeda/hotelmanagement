@@ -39,5 +39,33 @@
 
 
 
+
 </body>
+<style>
+   form{
+
+   }
+   body{
+
+   }
+   label{
+
+   }
+   input, select{
+
+   }
+   button{
+       border: none;
+       border-radius: 10px;
+       padding: 10px;
+       background-color: #63a7d1;
+       box-shadow: 0px 0px 5px #528AAE;
+
+   }
+   button:hover{
+       cursor: pointer;
+       box-shadow: 0px 0px 7px #487b9b;
+
+   }
+</style>
 </html>
