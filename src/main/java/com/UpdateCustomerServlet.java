@@ -9,6 +9,11 @@ import jakarta.servlet.ServletException;
 
 
 
+@WebServlet("/updateCustomer")
+public class UpdateCustomerServlet extends HttpServlet  {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-public class UpdateCustomerServlet  {
+    }
+
+
 }
