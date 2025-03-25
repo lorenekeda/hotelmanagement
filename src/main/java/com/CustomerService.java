@@ -55,7 +55,7 @@ public class CustomerService {
             throw new Exception(e.getMessage());
         }
     }
-    public boolean updateCustomer(int customerId, String firstName, String lastName, String email, String phone, String address) throws Exception {
+    public static boolean updateCustomer(String customerId, String firstName, String lastName, String email, String phone, String address) throws Exception {
         String sql = "UPDATE relational_schema.customer SET first_name = ?, last_name = ?, email = ?, phone = ?, address = ? WHERE customer_id = ?";
 
         try (Connection con = new ConnectionDB().getConnection();
@@ -66,7 +66,7 @@ public class CustomerService {
             stmt.setString(3, email);
             stmt.setString(4, phone);
             stmt.setString(5, address);
-            stmt.setInt(6, customerId);
+            stmt.setString(6, customerId);
 
             int rowsUpdated = stmt.executeUpdate();
             return rowsUpdated > 0; // Returns true if update was successful
