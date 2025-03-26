@@ -1,7 +1,7 @@
 const signinButton = document.getElementById("signinbutton")
-   function signin(){
-           //check user
-           windows.location.href= "welcomeuser.jsp";
-           }
+signinButton.addEventListener("click", function(){
+ windows.location.href = "welcomeuser.jsp";
+
+})
 
 
