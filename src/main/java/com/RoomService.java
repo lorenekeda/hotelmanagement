@@ -55,6 +55,9 @@ public class RoomService {
             throw new Exception(e.getMessage());
         }
     }
+    public static boolean updateRoom(Room room) throws Exception {
+        return false; //placeholder
+    }
 
 }
 

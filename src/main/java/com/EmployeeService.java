@@ -55,5 +55,8 @@ public class EmployeeService {
             throw new Exception(e.getMessage());
         }
     }
+    public static boolean updateEmployee(Employee employee) throws Exception {
+        return false; // placeholder
+    }
 
 }
