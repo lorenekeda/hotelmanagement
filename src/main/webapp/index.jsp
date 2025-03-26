@@ -31,7 +31,8 @@
                 <input type="password" id="pass" name = "pass"> <br> <br>
            <button>Sign in</button>
             </form>
-            <p>Don't have an account?</p> <a>Click here to create one.</a>
+            <p>Don't have an account?</p>
+            <a href="signup.jsp">Click here to create one.</a>
             <a href="bookaroom.jsp" class="room-button">TEMPORARY BUTTON TO BOOK A ROOM TO TEST</a>
             <a href="changecustomer.jsp" class="customerinfo-button">TEMPORARY BUTTON TO VIEW CUSTOMER CHANGE PAGE</a>
             <a href="changehotel.jsp" class="hotelchange-button">TEMP BUTTON TO VIEW HOTEL UPDATE PAGE</a>
@@ -45,85 +46,5 @@
     <p>BookingHotels.com just made booking hotels from the most popular hotel chains in North America much easier with a click of a button!</p>
    </div>
 </body>
-<style>
-.container h1 {
-    font-weight: bold;
-    text-decoration: dotted;
- }
- .title {
-     box-shadow: 15px 15px 15px lightblue;
-     padding: 50px;
-       font-family: Georgia, 'Times New Roman', Times, serif;
-     height: 350px;
-     text-align: center;
-         align-self: center;
-     background-color: #528AAE;
-     flex: 1;
- }
- .signin {
 
-     padding: 20px;
-     font-family: Georgia, 'Times New Roman', Times, serif;
-     width: 600px;
-     height: 419px;
-     text-align: center;
-     align-self: center;
-     background-color: #fefefe;
-    flex: 1;
- }
- .container1 {
-    margin-top: 30px;
-     display:flex;
-     justify-content: center;
-     align-items: center;
-
- }
-
- .container{
-    text-align: center;
-    font-family: Georgia, 'Times New Roman', Times, serif;
- }
- input {
-     border-radius: 5px;
-     border: 1px solid rgb(2, 4, 5);
-
- }
- input:focus {
-
-     box-shadow: 0px 0px 5px #528AAE;
- }
-  button {
-    border: none;
-    border-radius: 10px;
-    padding: 10px;
-    background-color: #63a7d1;
-     box-shadow: 0px 0px 5px #528AAE;
- }
- button:hover{
-    cursor: pointer;
-     box-shadow: 0px 0px 7px #487b9b;
- }
-
- .menu {
-    background-color: #528AAE;
-    position: fixed;
-    top:0;
-    left:0;
-    width: 100%;
-    padding: 10px 0;
-    margin-bottom: 100px;
- }
- .menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
- }
-
- .menu li {
-    margin: 0 20px;
-}
-
-</style>
 </html> 
