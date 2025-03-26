@@ -3,9 +3,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./cssAndjs/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Document</title>
 </head>
 <body>
@@ -29,10 +30,12 @@
                 <input type="text" id="user" name = "user"><br><br>
                 <label for="pass">Password:</label> <br>
                 <input type="password" id="pass" name = "pass"> <br> <br>
-           <button>Sign in</button>
+           <button id="signinbutton" >Sign in</button>
+
             </form>
             <p>Don't have an account?</p>
             <a href="signup.jsp">Click here to create one.</a>
+            <a href="welcomeuser.jsp" class="user-button">temp for welcomeuser</a>
             <a href="bookaroom.jsp" class="room-button">TEMPORARY BUTTON TO BOOK A ROOM TO TEST</a>
             <a href="changecustomer.jsp" class="customerinfo-button">TEMPORARY BUTTON TO VIEW CUSTOMER CHANGE PAGE</a>
             <a href="changehotel.jsp" class="hotelchange-button">TEMP BUTTON TO VIEW HOTEL UPDATE PAGE</a>
