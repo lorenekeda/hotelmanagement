@@ -72,7 +72,7 @@
             </select>
 
             <label for="Price">Max Price $:</label>
-            <input type="text", id="Price" name="Price">
+            <input type="number" placeholder="0" id="Price" name="Price">
 
             <label for="Capacity">Capacity:</label>
             <select id="Capacity" name="Capacity">
@@ -102,7 +102,7 @@
         <% } else if (rooms != null) { %>
             <% for (Room room : rooms) { %>
                 <div class="room-item">
-                    <button class="button-room">
+                    <button class="button-room" onclick="confirmBooking()">
                         Room Number: <%= room.getRoomNum() %><br>
                         View: <%= room.getView() %><br>
                         Price: <%= room.getPrice() %><br>
@@ -182,5 +182,13 @@
         font-family: Georgia, 'Times New Roman', Times, serif;
     }
 </style>
+
+<script>
+    function confirmBooking() {
+        if (confirm("Book this room?")) {
+            //create booking
+        }
+    }
+</script>
 
 </html>
