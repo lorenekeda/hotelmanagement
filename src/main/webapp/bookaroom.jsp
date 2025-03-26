@@ -26,13 +26,7 @@
         e.printStackTrace();
     }
 
-    RoomService roomService = new RoomService();
-    List<Room> rooms = null;
-    try {
-        rooms = roomService.getRoom();
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
+    List<Room> rooms = (List<Room>) request.getAttribute("filteredRooms");
 
 %>
 
@@ -53,7 +47,7 @@
 
     <div class="filter-section">
         <h2>Search Filter</h2>
-        <form>
+        <form action="filterRoomServlet" method="get">
             <label for="Chain">Chain:</label>
             <select id="Chain" name="Chain">
                 <% for (HotelChain chain : chains) { %>
@@ -107,16 +101,14 @@
             <h1 style="margin-top: 5rem;">No Rooms found!</h1>
         <% } else if (rooms != null) { %>
             <% for (Room room : rooms) { %>
-                <tr>
-                    <td>
-                        <button class="button-room">
-                            Room Number: <%= room.getRoomNum() %><br>
-                            View: <%= room.getView() %><br>
-                            Price: <%= room.getPrice() %><br>
-                            Capacity: <%= room.getCapacity() %>
-                        </button>
-                    </td>
-                </tr>
+                <div class="room-item">
+                    <button class="button-room">
+                        Room Number: <%= room.getRoomNum() %><br>
+                        View: <%= room.getView() %><br>
+                        Price: <%= room.getPrice() %><br>
+                        Capacity: <%= room.getCapacity() %>
+                    </button>
+                </div>
             <% } %>
             <% }
             %>
