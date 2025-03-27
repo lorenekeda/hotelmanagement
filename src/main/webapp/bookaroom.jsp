@@ -102,7 +102,7 @@
         <% } else if (rooms != null) { %>
             <% for (Room room : rooms) { %>
                 <div class="room-item">
-                    <button class="button-room" onclick="confirmBooking()">
+                    <button class="button-room" onclick="confirmBooking(<%=room.getChainId() %>, <%= room.getHotelId() %>, <%= room.getRoomNum() %>)">
                         Room Number: <%= room.getRoomNum() %><br>
                         View: <%= room.getView() %><br>
                         Price: <%= room.getPrice() %><br>
@@ -184,9 +184,13 @@
 </style>
 
 <script>
-    function confirmBooking() {
+    function confirmBooking(chain, hotel, room) {
         if (confirm("Book this room?")) {
             //create booking
+            console.log(chain);
+            console.log(hotel);
+            console.log(room);
+
         }
     }
 </script>
