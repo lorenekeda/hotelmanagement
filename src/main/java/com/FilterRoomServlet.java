@@ -15,7 +15,11 @@ public class FilterRoomServlet extends HttpServlet {
             String chain = request.getParameter("Chain");
             String location = request.getParameter("Area");
             String capacity = request.getParameter("Capacity");
-            int price = Integer.parseInt(request.getParameter("Price"));
+            String num = request.getParameter("Price");
+            int price = 0;
+            if (!(num.isEmpty())) {
+                price = Integer.parseInt(num);
+            }
             int rating = Integer.parseInt(request.getParameter("Rating"));
 
             List<Room> filteredRooms = RoomService.getFilteredRooms(chain, location, rating, price, capacity);

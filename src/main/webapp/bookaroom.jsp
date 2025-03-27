@@ -50,6 +50,7 @@
         <form action="filterRoomServlet" method="get">
             <label for="Chain">Chain:</label>
             <select id="Chain" name="Chain">
+                <option value="All">All</option>
                 <% for (HotelChain chain : chains) { %>
                     <option value=<%= chain.getChainName() %>> <%= chain.getChainName() %></option>
                 <% } %>
@@ -66,13 +67,14 @@
 
             <label for="Area">Area:</label>
             <select id="Area" name="Area">
+                <option value="All">All</option>
                 <% for (String area : locations) { %>
                     <option value=<%=area%>> <%= area %></option>
                 <% } %>
             </select>
 
             <label for="Price">Max Price $:</label>
-            <input type="number" placeholder="0" id="Price" name="Price">
+            <input type="number" placeholder="0" min="0" id="Price" name="Price">
 
             <label for="Capacity">Capacity:</label>
             <select id="Capacity" name="Capacity">
