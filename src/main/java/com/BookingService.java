@@ -1,8 +1,6 @@
 package com;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,6 +50,26 @@ public class BookingService {
 
         } catch (Exception e) {
             throw new Exception(e.getMessage());
+        }
+    }
+
+    public static void createBooking(Date start, Date end, Integer chainId, Integer hotelId, Integer roomNum, String customerId) throws Exception {
+        String sql = "INSERT INTO relational_schema.booking (booking_start_date, booking_end_date, room_num, customer_id, hotel_id, chain_id) VALUES (?, ?, ?, ?, ?, ?)";
+
+        try (Connection con = new ConnectionDB().getConnection();
+
+            PreparedStatement stmt = con.prepareStatement(sql)) {
+            stmt.setDate(1, start);
+            stmt.setDate(2, end);
+            stmt.setInt(3, roomNum);
+            stmt.setString(4, customerId);
+            stmt.setInt(5, hotelId);
+            stmt.setInt(6, chainId);
+
+            stmt.executeUpdate();
+
+        } catch (Exception e) {
+            throw new Exception(e.getMessage(), e);
         }
     }
 

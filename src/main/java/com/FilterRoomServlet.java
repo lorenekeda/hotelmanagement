@@ -16,6 +16,9 @@ public class FilterRoomServlet extends HttpServlet {
             String location = request.getParameter("Area");
             String capacity = request.getParameter("Capacity");
             String num = request.getParameter("Price");
+            String start = request.getParameter("StartDate");
+            String end = request.getParameter("EndDate");
+
             int price = 0;
             if (!(num.isEmpty())) {
                 price = Integer.parseInt(num);
@@ -25,10 +28,12 @@ public class FilterRoomServlet extends HttpServlet {
             List<Room> filteredRooms = RoomService.getFilteredRooms(chain, location, rating, price, capacity);
 
             request.setAttribute("filteredRooms", filteredRooms);
+            request.setAttribute("start", start);
+            request.setAttribute("end", end);
             request.getRequestDispatcher("/bookaroom.jsp").forward(request, response);
 
         } catch (Exception e) {
-            request.setAttribute("errorMessage", "Unexpected error: " + e.getMessage());
+            request.setAttribute("errorMessage", e.getMessage());
         }
     }
 }

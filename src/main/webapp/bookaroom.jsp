@@ -104,12 +104,19 @@
         <% } else if (rooms != null) { %>
             <% for (Room room : rooms) { %>
                 <div class="room-item">
-                    <button class="button-room" onclick="confirmBooking(<%=room.getChainId() %>, <%= room.getHotelId() %>, <%= room.getRoomNum() %>)">
-                        Room Number: <%= room.getRoomNum() %><br>
-                        View: <%= room.getView() %><br>
-                        Price: <%= room.getPrice() %><br>
-                        Capacity: <%= room.getCapacity() %>
-                    </button>
+                    <form action="createBooking" method="post">
+                        <input type="hidden" id="start" name="start" value= <%=request.getAttribute("start") %> >
+                        <input type="hidden" id="end" name="end" value= <%=request.getAttribute("end") %> >
+                        <input type="hidden" id="cId" name="cId" value= <%=room.getChainId() %> >
+                        <input type="hidden" id="hId" name="hId" value= <%=room.getHotelId() %> >
+                        <input type="hidden" id="rNum" name="rNum" value= <%=room.getRoomNum() %> >
+
+                        <button type="submit">Room Number: <%= room.getRoomNum() %><br>
+                                              View: <%= room.getView() %><br>
+                                              Price: <%= room.getPrice() %><br>
+                                              Capacity: <%= room.getCapacity() %>
+                        </button>
+                    </form>
                 </div>
             <% } %>
             <% }
@@ -184,17 +191,4 @@
         font-family: Georgia, 'Times New Roman', Times, serif;
     }
 </style>
-
-<script>
-    function confirmBooking(chain, hotel, room) {
-        if (confirm("Book this room?")) {
-            //create booking
-            console.log(chain);
-            console.log(hotel);
-            console.log(room);
-
-        }
-    }
-</script>
-
 </html>
