@@ -24,9 +24,11 @@ public class FilterRoomServlet extends HttpServlet {
             if (!(num.isEmpty())) {
                 price = Integer.parseInt(num);
             }
+
+            String ratingDetail = request.getParameter("RatingDetail");
             int rating = Integer.parseInt(request.getParameter("Rating"));
 
-            List<Room> filteredRooms = RoomService.getFilteredRooms(chain, location, rating, price, capacity, start, end);
+            List<Room> filteredRooms = RoomService.getFilteredRooms(chain, location, ratingDetail, rating, price, capacity, start, end);
 
             request.setAttribute("filteredRooms", filteredRooms);
             request.setAttribute("start", start);

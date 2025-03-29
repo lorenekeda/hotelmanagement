@@ -52,24 +52,32 @@
             <select id="Chain" name="Chain">
                 <option value="All">All</option>
                 <% for (HotelChain chain : chains) { %>
-                    <option value=<%= chain.getChainName() %>> <%= chain.getChainName() %></option>
+                    <option value="<%= chain.getChainName() %>"> <%= chain.getChainName() %></option>
                 <% } %>
             </select>
 
-            <label for="Rating">Rating:</label>
-            <select id="Rating" name="Rating">
-                <option value=1>1</option>
-                <option value=2>2</option>
-                <option value=3>3</option>
-                <option value=4>4</option>
-                <option value=5>5</option>
-            </select>
+            <div class="filter-rating">
+                <label for="RatingDetail">Rating:</label>
+                <select id="RatingDetail" name="RatingDetail">
+                    <option value="=">Exactly</option>
+                    <option value=">=">At least</option>
+                </select>
+
+                <label for="Rating"></label>
+                <select id="Rating" name="Rating">
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                    <option value=4>4</option>
+                    <option value=5>5</option>
+                </select>
+            </div>
 
             <label for="Area">Area:</label>
             <select id="Area" name="Area">
                 <option value="All">All</option>
                 <% for (String area : locations) { %>
-                    <option value=<%=area%>> <%= area %></option>
+                    <option value="<%=area%>"> <%= area %></option>
                 <% } %>
             </select>
 
@@ -156,6 +164,12 @@
         display: flex;
         justify-content: left;
         gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .filter-rating {
+        display: flex;
+        justify-content: left;
         flex-wrap: wrap;
     }
 
