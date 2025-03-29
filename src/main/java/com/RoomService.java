@@ -67,10 +67,10 @@ public class RoomService {
                         "WHERE rating = ? AND price < ? AND capacity = ?";
 
         if (!(address.equals("All"))){
-            sql += " AND address = "+address;
+            sql += " AND address = ? ";
         }
         if (!(chainName.equals("All"))){
-            sql += " AND chain_name = "+chainName;
+            sql += " AND chain_name = ? ";
         }
 
          sql += " EXCEPT " +
@@ -88,13 +88,23 @@ public class RoomService {
 
             PreparedStatement stmt = con.prepareStatement(sql);
 
-            stmt.setInt(1, rating);
-            stmt.setInt(2, price);
-            stmt.setString(3, capacity);
-            stmt.setDate(4, start);
-            stmt.setDate(5, end);
-            stmt.setDate(6, start);
-            stmt.setDate(7, end);
+            int index = 1;
+            stmt.setInt(index++, rating);
+            stmt.setInt(index++, price);
+            stmt.setString(index++, capacity);
+
+            if (!(address.equals("All"))){
+                stmt.setString(index++, address);
+            }
+
+            if (!(chainName.equals("All"))) {
+                stmt.setString(index++, chainName);
+            }
+
+            stmt.setDate(index++, start);
+            stmt.setDate(index++, end);
+            stmt.setDate(index++, start);
+            stmt.setDate(index++, end);
 
 
             ResultSet rs = stmt.executeQuery();
