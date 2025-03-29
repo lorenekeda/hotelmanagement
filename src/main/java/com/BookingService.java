@@ -71,8 +71,8 @@ public class BookingService {
         try (Connection con = db.getConnection()) {
 
             PreparedStatement stmt = con.prepareStatement(sql);
-            stmt.setDate(1, end);
-            stmt.setDate(2, start);
+            stmt.setDate(1, start);
+            stmt.setDate(2, end);
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
