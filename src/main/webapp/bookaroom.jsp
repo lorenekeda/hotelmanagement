@@ -111,7 +111,7 @@
                         <input type="hidden" id="hId" name="hId" value= <%=room.getHotelId() %> >
                         <input type="hidden" id="rNum" name="rNum" value= <%=room.getRoomNum() %> >
 
-                        <button class="button-room "type="submit">Room Number: <%= room.getRoomNum() %><br>
+                        <button onclick="return confirm('Book this room?)" class="button-room "type="submit">Room Number: <%= room.getRoomNum() %><br>
                                               View: <%= room.getView() %><br>
                                               Price: <%= room.getPrice() %><br>
                                               Capacity: <%= room.getCapacity() %>
