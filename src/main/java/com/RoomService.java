@@ -118,7 +118,7 @@ public class RoomService {
     }
 
     public static boolean updateRoom(int hotelId, int chainId, boolean extendable, String view, String price, String roomNum) throws Exception {
-        String sql = "UPDATE relational_schema.hotel SET   extendable = ?, view = ?, price = ? WHERE hotel_id = ? AND chain_id = ? AND room_num = ?;";
+        String sql = "UPDATE relational_schema.room SET   extendable = ?, view = ?, price = ? WHERE hotel_id = ? AND chain_id = ? AND room_num = ?;";
 
         try (Connection con = new ConnectionDB().getConnection();
              PreparedStatement stmt = con.prepareStatement(sql)) {

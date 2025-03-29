@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Room Informationb</title>
+    <title>Update Room Information</title>
 </head>
 <body>
 <h2>Update Room Information</h2>
@@ -22,13 +22,13 @@
     <input type="text" id="chain_id" name="chain_id" required><br>
 
     <label for="room_num">Room Number:</label>
-    <input type="text" id="room_num" name="room_num"><br>
+    <input type="text" id="room_num" name="room_num" required><br>
 
     <label for="price">Price:</label>
-    <input type="text" id="price" name="price" required><br>
+    <input type="text" id="price" name="price" ><br>
 
     <label for="view">View:</label>
-    <textarea id="view" name="view" required></textarea><br>
+    <textarea id="view" name="view" ></textarea><br>
 
     <label for="extendable">Extendability:</label>
     <input type="text" id="extendable" name="extendable"><br>

@@ -22,10 +22,10 @@
     <input type="text" id="chain_id" name="chain_id" required><br>
 
     <label for="name">Hotel Name:</label>
-    <input type="text" id="name" name="name" required><br>
+    <input type="text" id="name" name="name" ><br>
 
     <label for="address">Address:</label>
-    <textarea id="address" name="address" required></textarea><br>
+    <textarea id="address" name="address" ></textarea><br>
 
     <label for="rating">Rating:</label>
     <input type="text" id="rating" name="rating"><br>
