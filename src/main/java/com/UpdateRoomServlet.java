@@ -8,21 +8,21 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.ServletException;
 
+@WebServlet("/updateRoomServlet")
 public class UpdateRoomServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int hotelId = Integer.parseInt(request.getParameter("hotel_id"));
         int chainId = Integer.parseInt(request.getParameter("chain_id"));
-        String name = request.getParameter("name");
-        String address = request.getParameter("address");
-        String rating = request.getParameter("rating");
-        String numOfRoomStr = request.getParameter("num_of_room");
+        String roomNum = request.getParameter("room_num");
+        String view = request.getParameter("view");
+        String price = request.getParameter("price");
+        String extendable = request.getParameter("extendable");
 
         try {
-            // Convert numOfRoom from String to an Integer (for validation)
-            int numOfRoom = Integer.parseInt(numOfRoomStr);
+
 
             // Call the updateHotel method
-            boolean updateSuccess = HotelService.updateHotel(hotelId, chainId, address, name, rating, numOfRoomStr);
+            boolean updateSuccess = RoomService.updateRoom(hotelId, chainId, Boolean.parseBoolean(extendable), view, price, roomNum);
 
             if (updateSuccess) {
                 // Redirect to success page or display success message

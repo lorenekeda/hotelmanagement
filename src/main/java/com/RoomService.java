@@ -3,6 +3,7 @@ package com;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -116,9 +117,30 @@ public class RoomService {
         }
     }
 
-    public static boolean updateRoom(Room room) throws Exception {
-        return false; //placeholder
+    public static boolean updateRoom(int hotelId, int chainId, boolean extendable, String view, String price, String roomNum) throws Exception {
+        String sql = "UPDATE relational_schema.hotel SET   extendable = ?, view = ?, price = ? WHERE hotel_id = ? AND chain_id = ? AND room_num = ?;";
+
+        try (Connection con = new ConnectionDB().getConnection();
+             PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            stmt.setString(1, String.valueOf(extendable));
+            stmt.setString(2, view);
+            stmt.setString(3, price);
+            stmt.setInt(4, hotelId);
+            stmt.setInt(5, chainId);
+            stmt.setInt(6, Integer.parseInt(roomNum));
+
+            int rowsUpdated = stmt.executeUpdate();
+            return rowsUpdated > 0; // Returns true if update was successful
+
+        } catch (SQLException e) {
+            throw new SQLException("Error updating room info: " + e.getMessage(), e);
+        }
+
     }
+
+
+
 
 }
 
