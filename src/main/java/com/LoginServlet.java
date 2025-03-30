@@ -62,11 +62,11 @@ public class LoginServlet extends HttpServlet  {
                 //if employee  exists
                 if (validEmp) {
                     logger.info("its valid");
+                    //do the same http stuff if its an employee
                     HttpSession session = request.getSession();
                     session.setAttribute("user", email);
                     session.setAttribute("type", type);
-                    String user = (String) session.getAttribute("user");
-                    logger.info("hi" + user);
+
                     response.sendRedirect("welcomeuser.jsp");
                 } else {
                     logger.info("its not valid");
