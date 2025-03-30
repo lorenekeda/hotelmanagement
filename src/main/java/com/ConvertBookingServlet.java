@@ -10,8 +10,8 @@ import java.io.IOException;
 import java.sql.Date;
 
 
-@WebServlet("/createBooking")
-public class BookingServlet extends HttpServlet  {
+@WebServlet("/convertBooking")
+public class ConvertBookingServlet extends HttpServlet  {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         Date start = Date.valueOf(request.getParameter("start"));
@@ -20,15 +20,16 @@ public class BookingServlet extends HttpServlet  {
         Integer hotelId = Integer.parseInt(request.getParameter("hId"));
         Integer roomNum = Integer.parseInt(request.getParameter("rNum"));
         String customerId = request.getParameter("custId");
+        Integer employeeSsn = Integer.parseInt(request.getParameter("eSsn"));
 
         try {
-            BookingService.createBooking(start, end, chainId, hotelId, roomNum, customerId);
+            RentingService.createRenting(start, end, chainId, hotelId, roomNum, customerId, employeeSsn);
 
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
-        request.getRequestDispatcher("/bookaroom.jsp").forward(request, response);
+        request.getRequestDispatcher("/viewcustomerbookings.jsp").forward(request, response);
 
 
     }

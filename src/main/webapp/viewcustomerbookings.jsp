@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page session="true" %>
 
 <%@ page import="java.util.List" %>
 <%@ page import="com.BookingService" %>
@@ -7,6 +8,8 @@
 
 
 <%
+    Integer employeeSsn = (Integer) session.getAttribute("user");
+
     List<Booking> bookings = (List<Booking>) request.getAttribute("bookings");
 %>
 
@@ -41,14 +44,16 @@
         <% } else if (bookings != null) { %>
             <% for (Booking booking : bookings) { %>
                 <div>
-                    <form action="createRenting" method="post">
+                    <form action="convertBooking" method="post">
                         <input type="hidden" id="start" name="start" value= <%=booking.getStartDate() %> >
                         <input type="hidden" id="end" name="end" value= <%=booking.getEndDate() %> >
                         <input type="hidden" id="cId" name="cId" value= <%=booking.getChainId() %> >
                         <input type="hidden" id="hId" name="hId" value= <%=booking.getHotelId() %> >
                         <input type="hidden" id="rNum" name="rNum" value= <%=booking.getRoomNum() %> >
+                        <input type="hidden" id="custId" name="custId" value= <%=booking.getCustomerId() %> >
+                        <input type="hidden" id="eSsn" name="eSsn" value= <%=employeeSsn %> >
 
-                        <button onclick="return confirm('Convert this booking?)" class="button-booking "type="submit">
+                        <button class="button-booking "type="submit">
                             Room Number: <%= booking.getRoomNum() %><br>
                             Hotel: <%= booking.getHotelId() %><br>
                             Chain: <%= booking.getChainId() %>

@@ -100,6 +100,27 @@ public class RentingService {
         }
     }
 
+    public static void createRenting(Date start, Date end, Integer chainId, Integer hotelId, Integer roomNum, String customerId, Integer employeeSsn) throws Exception {
+        String sql = "INSERT INTO relational_schema.renting (start_date, end_date, room_num, customer_id, employee_ssn, hotel_id, chain_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+        try (Connection con = new ConnectionDB().getConnection();
+
+            PreparedStatement stmt = con.prepareStatement(sql)) {
+            stmt.setDate(1, start);
+            stmt.setDate(2, end);
+            stmt.setInt(3, roomNum);
+            stmt.setString(4, customerId);
+            stmt.setInt(5, employeeSsn);
+            stmt.setInt(6, hotelId);
+            stmt.setInt(7, chainId);
+
+            stmt.executeUpdate();
+
+        } catch (Exception e) {
+            throw new Exception(e.getMessage(), e);
+        }
+    }
+
 }
 
 
