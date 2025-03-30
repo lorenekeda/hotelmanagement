@@ -10,7 +10,13 @@
     <title>Document</title>
 </head>
 <body>
-
+<h1> My bookings </h1>
 
 </body>
+<style>
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background: linear-gradient(to right, rgb(255, 255, 255), #528AAE);
+}
+</style>
 </html>

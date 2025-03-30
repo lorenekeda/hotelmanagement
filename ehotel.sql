@@ -5,7 +5,7 @@
 -- Dumped from database version 17.2
 -- Dumped by pg_dump version 17.2
 
--- Started on 2025-03-30 13:06:38
+-- Started on 2025-03-30 18:50:37
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -341,6 +341,7 @@ ALTER TABLE relational_schema.room_damage OWNER TO postgres;
 -- Data for Name: booking; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
+INSERT INTO relational_schema.booking (booking_start_date, booking_end_date, room_num, customer_id, hotel_id, chain_id) VALUES ('2025-03-30', '2025-04-02', 5, 'szhen025@uottawa.ca', 11111, 23456);
 
 
 --
@@ -390,6 +391,8 @@ INSERT INTO relational_schema.chain_number (chain_id, c_phone_number) VALUES (45
 
 INSERT INTO relational_schema.customer (customer_id, registration_date, first_name, last_name, id_type, address, password) VALUES ('hi@gmail.com', 'Sun Mar 30 12:36:05 EDT 2025', 'sona', 'jio', 'Driver''s License', 'yu', 'hi');
 INSERT INTO relational_schema.customer (customer_id, registration_date, first_name, last_name, id_type, address, password) VALUES ('szhen025@uottawa.ca', 'Sun Mar 30 13:04:55 EDT 2025', 'Sophia', 'Zheng', 'Driver''s License', '323 Somerset St E.', 'hi');
+INSERT INTO relational_schema.customer (customer_id, registration_date, first_name, last_name, id_type, address, password) VALUES ('hi@outlook.com', 'Sun Mar 30 13:12:17 EDT 2025', 'hi', 'hi', 'SIN', 'hi', 'hi');
+INSERT INTO relational_schema.customer (customer_id, registration_date, first_name, last_name, id_type, address, password) VALUES ('hi2email.com', 'Sun Mar 30 13:13:28 EDT 2025', 'hi', 'hi', 'Driver''s License', 'hi', 'hi');
 
 
 --
@@ -398,6 +401,7 @@ INSERT INTO relational_schema.customer (customer_id, registration_date, first_na
 -- Data for Name: employee; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
+INSERT INTO relational_schema.employee (employee_ssn, first_name, last_name, address, "position", hotel_id, chain_id, password) VALUES (123, 'john', 'smith', '123 street', 'emp', 11111, 12345, 'pass');
 
 
 --
@@ -1202,7 +1206,7 @@ ALTER TABLE ONLY relational_schema.room
 REVOKE USAGE ON SCHEMA public FROM PUBLIC;
 
 
--- Completed on 2025-03-30 13:06:38
+-- Completed on 2025-03-30 18:50:37
 
 --
 -- PostgreSQL database dump complete
