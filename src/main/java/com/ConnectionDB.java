@@ -10,7 +10,7 @@ public class ConnectionDB {
     /*!!! change dbName, dbpassword for you!!! */
     private final String ipAddress = "localhost";
     private final String dbServerPort = "5432";
-    private final String dbName = "hotelchain2";
+    private final String dbName = "hotelchain";
     private final String dbusername = "postgres";
     private final String dbpassword = "";
 

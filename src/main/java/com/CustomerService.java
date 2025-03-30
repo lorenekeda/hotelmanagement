@@ -38,7 +38,8 @@ public class CustomerService {
                         rs.getString("first_name"),
                         rs.getString("last_name"),
                         rs.getString("id_type"),
-                        rs.getString("address")
+                        rs.getString("address"),
+                        rs.getString("password")
                 );
 
                 customers.add(customer);
@@ -87,17 +88,19 @@ public class CustomerService {
 
     /**
      * Creates a new customer account and puts it in the database.
+     * @param id
      * @param registrationDate
      * @param firstName
      * @param lastName
      * @param idType
      * @param address
-     * @param id
+     * @param password
+     * @return
      * @throws Exception
      */
-    public static boolean createCustomer(String id, String registrationDate, String firstName, String lastName, String idType, String address) throws Exception {
+    public static boolean createCustomer(String id, String registrationDate, String firstName, String lastName, String idType, String address, String password) throws Exception {
       //  Customer newCustomer = new Customer(registrationDate, firstName, lastName, idType, address);
-        String sql = "INSERT INTO relational_schema.customer (customer_id, registration_date, first_name, last_name, id_type, address) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO relational_schema.customer (customer_id, registration_date, first_name, last_name, id_type, address, password) VALUES (?, ?, ?, ?, ?, ?, ?)";
         ConnectionDB db = new ConnectionDB();
 
         try (Connection con = db.getConnection()) {
@@ -109,6 +112,7 @@ public class CustomerService {
             stmt.setString(4, lastName);
             stmt.setString(5, idType);
             stmt.setString(6, address);
+            stmt.setString(7, password);
             int rowsAffected = stmt.executeUpdate();
             stmt.close();
             con.close();
@@ -134,6 +138,7 @@ public class CustomerService {
             stmt.setString(4, registrationDate);
             stmt.setString(5, address);
             stmt.setString(6, customerId);
+
 
             int rowsUpdated = stmt.executeUpdate();
             return rowsUpdated > 0; // Returns true if update was successful

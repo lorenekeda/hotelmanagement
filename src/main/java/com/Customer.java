@@ -8,6 +8,7 @@ public class Customer {
     private String lastName;
     private String idType;
     private String address;
+    private String password;
 
 
     /**
@@ -20,13 +21,14 @@ public class Customer {
      * @param idType id type given from customer
      * @param address address of customer
      */
-    public Customer(String customerId, String registrationDate, String firstName, String lastName, String idType, String address) {
+    public Customer(String customerId, String registrationDate, String firstName, String lastName, String idType, String address, String password) {
         this.customerId = customerId;
         this.registrationDate = registrationDate;
         this.firstName = firstName;
         this.lastName = lastName;
         this.idType = idType;
         this.address = address;
+        this.password = password;
     }
 
     /**

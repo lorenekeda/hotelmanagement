@@ -13,10 +13,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Logger;
 
-//Maybe this is incorrect??
+
 @WebServlet("/signIn")
 public class CreateCustomerServlet extends HttpServlet  {
-    //logger to help debug but i cant find where the log messages go
+   //logger to help debug
     private static final Logger logger = Logger.getLogger(CreateCustomerServlet.class.getName());
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -27,6 +27,7 @@ public class CreateCustomerServlet extends HttpServlet  {
         String email = request.getParameter("email");
         String address = request.getParameter("address");
         String verID = request.getParameter("radiob");
+        String password = request.getParameter("pass");
         //create the registration date
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         Date date = new Date();
@@ -44,7 +45,7 @@ public class CreateCustomerServlet extends HttpServlet  {
                logger.info("DONT HAVE CUSTOMER");
                try {
                    //if it does not exist try to create a customer
-                   boolean created = CustomerService.createCustomer(email, String.valueOf(date), firstName, lastName, verID, address); //change to create customer
+                   boolean created = CustomerService.createCustomer(email, String.valueOf(date), firstName, lastName, verID, address, password); //change to create customer
                    if (created) {
                        logger.info("CREATED");
                        response.sendRedirect("index.jsp");

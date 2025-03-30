@@ -44,6 +44,10 @@
                  <input type="text" id="address" name = "address"><br><br>
             <button id="create" >Create Account</button>
             </form>
+            <% String message = (String) request.getAttribute("message"); %>
+            <% if (message != null) { %>
+                <p style="color: red; font-weight: bold;"><%= message %></p>
+            <% } %>
     </div>
 </body>
 <style>
