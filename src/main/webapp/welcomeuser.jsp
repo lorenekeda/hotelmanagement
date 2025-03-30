@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page session="true" %> <!--Put this in your file -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,28 +17,35 @@
         </ul>
     </nav>
     <div class="welcome-box">
-     <h1>
-        Welcome insert user!
-    </h1>
-    <a href="rentaroom.jsp">
-        <div class="rent-a-room">
-            <h3>Rent a room</h3>
-            <p>Rent a room for a customer.</p>
-        </div>
-        </a>
 
-        <a href="viewcustomerbookings.jsp">
-        <div class="view-customer-bookings">
-            <h3>Customer Bookings</h3>
-            <p>View all bookings of every customer</p>
-        </div>
-        </a>
-        <a href="changeinfo">
-        <div class="change-info" onclick="window.location.href='about.html';">
-            <h3>Hotel Info</h3>
-            <p>Change employee, customer, or hotel information.</p>
-        </div>
-        </a>
+     <%
+            <!-- first grab the type attribute set in the LoginServlet-->
+                String role = (String) session.getAttribute("type");
+
+                <!-- check if it is null-->
+                if (role != null) {
+
+                <!-- if it is an employee then show these options-->
+                    if (role.equals("employee")) {
+            %>
+                        <h2>Employee Dashboard</h2>
+                        <p>Welcome, Employee. You have access to management features.</p>
+                        <a href="rentaroom.jsp">Rent a room for a customer</a><br>
+                        <a href="viewcustomerbookings.jsp">View all customer bookings</a>
+            <%
+            
+                <!-- if it is a customer then show these options-->
+                    } else if (role.equals("customer")) {
+            %>
+                        <h1>Welcome <%= user %></h1>
+                        <h2>Customer Dashboard</h2>
+                        <p>Welcome, Customer. You can manage your bookings and view information.</p>
+                        <a href="viewbookings.jsp">View Bookings</a><br>
+                        <a href="bookaroom.jsp">Book A Room!</a>
+            <%
+                    }
+                }
+            %>
 
 
 </div>

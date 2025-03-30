@@ -78,4 +78,35 @@ public class EmployeeService {
         }
     }
 
+    /**
+     * Check if an employee exists in the databse using their SSN and password.
+     * @param empSSN
+     * @param password
+     * @return
+     * @throws Exception
+     */
+    public static boolean checkSpecificEmployeeWithPassword(String empSSN, String password) throws Exception {
+        String sql = "SELECT * FROM relational_schema.employee WHERE employee_ssn = ? AND password = ?";
+        ConnectionDB db = new ConnectionDB();
+        try (Connection con = db.getConnection()) {
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, empSSN);
+            stmt.setString(2, password);
+            ResultSet rs = stmt.executeQuery();
+
+            // if there is no next that means it does not exist
+            if (!rs.next()) {
+                return false;
+            }
+            else {
+                return true;
+            }
+
+        } catch (Exception e) {
+
+            throw new Exception(e.getMessage());
+        }
+    }
+
 }

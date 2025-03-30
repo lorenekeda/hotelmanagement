@@ -48,7 +48,9 @@ public class CreateCustomerServlet extends HttpServlet  {
                    boolean created = CustomerService.createCustomer(email, String.valueOf(date), firstName, lastName, verID, address, password); //change to create customer
                    if (created) {
                        logger.info("CREATED");
-                       response.sendRedirect("index.jsp");
+                       request.setAttribute("message", "Account created successfully!");
+                       RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+                       dispatcher.forward(request, response);
                    } else {
                        logger.info("NOT CREATED");
                        request.setAttribute("message", "Customer account could not be created.");

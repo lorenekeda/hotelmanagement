@@ -58,7 +58,7 @@ public class CustomerService {
     }
 
     /**
-     * Checks if a specific customer already exists using their customer id (their email).
+     * Checks if a specific customer already exists using their customer id (their email) (for creating an account).
      * @param emailId
      * @return
      * @throws Exception
@@ -85,6 +85,38 @@ public class CustomerService {
             throw new Exception(e.getMessage());
         }
     }
+
+    /**
+     * Check if a customer exists in the database using their email and password (for logging in)
+     * @param emailId
+     * @param password
+     * @return
+     * @throws Exception
+     */
+    public static boolean checkSpecificCustomerWithPassword(String emailId, String password) throws Exception {
+        String sql = "SELECT * FROM relational_schema.customer WHERE customer_id = ? AND password = ?";
+        ConnectionDB db = new ConnectionDB();
+        try (Connection con = db.getConnection()) {
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, emailId);
+            stmt.setString(2, password);
+            ResultSet rs = stmt.executeQuery();
+
+            // if there is no next that means it does not exist
+            if (!rs.next()) {
+                return false;
+            }
+            else {
+                return true;
+            }
+
+        } catch (Exception e) {
+
+            throw new Exception(e.getMessage());
+        }
+    }
+
 
     /**
      * Creates a new customer account and puts it in the database.

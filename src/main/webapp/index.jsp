@@ -10,24 +10,34 @@
     <title>Document</title>
 </head>
 <body>
+<!-- First message for a successfully account creation -->
 <%
      String message = (String) request.getAttribute("message");
      if (message != null) {
  %>
-     <div id="message-box" style="color: red; margin-top: 20px;"><%= message %></div>
 
      <script>
-         setTimeout(function() {
-             document.getElementById("message-box").style.display = "none";
-         }, 3000);
+         alert("<%= message %>");
      </script>
+
  <% } %>
+ <!-- Second message for incorrect password -->
+ <%
+      String message2 = (String) request.getAttribute("message2");
+      if (message2 != null) {
+  %>
+
+      <script>
+          alert("<%= message2 %>");
+      </script>
+  <% } %>
     <nav class="menu">
         <ul>
             <li><a>About Us</a></li>
             <li><a>About the Hotels</a></li>
         </ul>
     </nav>
+
     <div class="container1">
 
         <div class="title">
@@ -37,25 +47,23 @@
         
         <div class="signin">
             <h1>Sign In Here!</h1>
-            <form>
+            <form action="logIn" method="post">
                 <label for="user">Username:</label> <br>
                 <input type="text" id="user" name = "user"><br><br>
                 <label for="pass">Password:</label> <br>
                 <input type="password" id="pass" name = "pass"> <br> <br>
+                 <label>User type:</label> <br>
+              <input type="radio" id="customer" name="radiob" value="customer" >
+             <label for="customer">Customer</label><br><br>
+             <input type="radio" id="employee" name="radiob" value="employee" >
+                   <label for="employee">Employee</label><br> <br>
            <button id="signinbutton" >Sign in</button>
-           <script>
-           const signinButton = document.getElementById("signinbutton")
-           signinButton.addEventListener("click", function(){
- event.preventDefault();
-            window.location.href = "welcomeuser.jsp";
 
-           })
-           </script>
 
             </form>
             <p>Don't have an account?</p>
             <a href="signup.jsp">Click here to create one.</a>
-            <a href="welcomeuser.jsp" class="user-button">temp for welcomeuser</a>
+
             <a href="bookaroom.jsp" class="room-button">TEMPORARY BUTTON TO BOOK A ROOM TO TEST</a>
             <a href="changecustomer.jsp" class="customerinfo-button">TEMPORARY BUTTON TO VIEW CUSTOMER CHANGE PAGE</a>
             <a href="changehotel.jsp" class="hotelchange-button">TEMP BUTTON TO VIEW HOTEL UPDATE PAGE</a>
