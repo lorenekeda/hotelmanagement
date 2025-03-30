@@ -5,7 +5,7 @@
 -- Dumped from database version 17.2
 -- Dumped by pg_dump version 17.2
 
--- Started on 2025-03-30 18:50:37
+-- Started on 2025-03-30 19:28:46
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -20,7 +20,7 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- TOC entry 5 (class 2615 OID 33447)
+-- TOC entry 5 (class 2615 OID 19970)
 -- Name: relational_schema; Type: SCHEMA; Schema: -; Owner: postgres
 --
 
@@ -34,19 +34,38 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- TOC entry 218 (class 1259 OID 33448)
+-- TOC entry 236 (class 1259 OID 20194)
 -- Name: archive; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
 CREATE TABLE relational_schema.archive (
-    archive_id integer NOT NULL
+    archive_id bigint NOT NULL,
+    start_date date NOT NULL,
+    room_num integer NOT NULL,
+    hotel_id integer NOT NULL,
+    chain_id integer NOT NULL
 );
 
 
 ALTER TABLE relational_schema.archive OWNER TO postgres;
 
 --
--- TOC entry 219 (class 1259 OID 33451)
+-- TOC entry 235 (class 1259 OID 20193)
+-- Name: archive_archive_id_seq; Type: SEQUENCE; Schema: relational_schema; Owner: postgres
+--
+
+ALTER TABLE relational_schema.archive ALTER COLUMN archive_id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME relational_schema.archive_archive_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- TOC entry 218 (class 1259 OID 19974)
 -- Name: booking; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -63,7 +82,7 @@ CREATE TABLE relational_schema.booking (
 ALTER TABLE relational_schema.booking OWNER TO postgres;
 
 --
--- TOC entry 220 (class 1259 OID 33456)
+-- TOC entry 219 (class 1259 OID 19979)
 -- Name: chain_address; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -76,7 +95,7 @@ CREATE TABLE relational_schema.chain_address (
 ALTER TABLE relational_schema.chain_address OWNER TO postgres;
 
 --
--- TOC entry 221 (class 1259 OID 33461)
+-- TOC entry 220 (class 1259 OID 19984)
 -- Name: chain_email; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -89,7 +108,7 @@ CREATE TABLE relational_schema.chain_email (
 ALTER TABLE relational_schema.chain_email OWNER TO postgres;
 
 --
--- TOC entry 222 (class 1259 OID 33466)
+-- TOC entry 221 (class 1259 OID 19989)
 -- Name: chain_number; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -102,7 +121,7 @@ CREATE TABLE relational_schema.chain_number (
 ALTER TABLE relational_schema.chain_number OWNER TO postgres;
 
 --
--- TOC entry 223 (class 1259 OID 33469)
+-- TOC entry 222 (class 1259 OID 19992)
 -- Name: customer; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -120,7 +139,7 @@ CREATE TABLE relational_schema.customer (
 ALTER TABLE relational_schema.customer OWNER TO postgres;
 
 --
--- TOC entry 224 (class 1259 OID 33474)
+-- TOC entry 223 (class 1259 OID 19997)
 -- Name: employee; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -139,7 +158,7 @@ CREATE TABLE relational_schema.employee (
 ALTER TABLE relational_schema.employee OWNER TO postgres;
 
 --
--- TOC entry 225 (class 1259 OID 33479)
+-- TOC entry 224 (class 1259 OID 20002)
 -- Name: has; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -156,21 +175,7 @@ CREATE TABLE relational_schema.has (
 ALTER TABLE relational_schema.has OWNER TO postgres;
 
 --
--- TOC entry 226 (class 1259 OID 33484)
--- Name: holds; Type: TABLE; Schema: relational_schema; Owner: postgres
---
-
-CREATE TABLE relational_schema.holds (
-    archive_id integer NOT NULL,
-    renting_start_date character varying NOT NULL,
-    booking_start_date character varying NOT NULL
-);
-
-
-ALTER TABLE relational_schema.holds OWNER TO postgres;
-
---
--- TOC entry 227 (class 1259 OID 33489)
+-- TOC entry 225 (class 1259 OID 20012)
 -- Name: hotel; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -187,7 +192,7 @@ CREATE TABLE relational_schema.hotel (
 ALTER TABLE relational_schema.hotel OWNER TO postgres;
 
 --
--- TOC entry 228 (class 1259 OID 33494)
+-- TOC entry 226 (class 1259 OID 20017)
 -- Name: hotel_chain; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -201,7 +206,7 @@ CREATE TABLE relational_schema.hotel_chain (
 ALTER TABLE relational_schema.hotel_chain OWNER TO postgres;
 
 --
--- TOC entry 229 (class 1259 OID 33499)
+-- TOC entry 227 (class 1259 OID 20022)
 -- Name: hotel_email; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -215,7 +220,7 @@ CREATE TABLE relational_schema.hotel_email (
 ALTER TABLE relational_schema.hotel_email OWNER TO postgres;
 
 --
--- TOC entry 230 (class 1259 OID 33504)
+-- TOC entry 228 (class 1259 OID 20027)
 -- Name: hotel_phone; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -229,7 +234,7 @@ CREATE TABLE relational_schema.hotel_phone (
 ALTER TABLE relational_schema.hotel_phone OWNER TO postgres;
 
 --
--- TOC entry 231 (class 1259 OID 33507)
+-- TOC entry 229 (class 1259 OID 20030)
 -- Name: manager; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -247,7 +252,7 @@ CREATE TABLE relational_schema.manager (
 ALTER TABLE relational_schema.manager OWNER TO postgres;
 
 --
--- TOC entry 232 (class 1259 OID 33512)
+-- TOC entry 230 (class 1259 OID 20035)
 -- Name: payment; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -262,7 +267,7 @@ CREATE TABLE relational_schema.payment (
 ALTER TABLE relational_schema.payment OWNER TO postgres;
 
 --
--- TOC entry 233 (class 1259 OID 33517)
+-- TOC entry 231 (class 1259 OID 20040)
 -- Name: renting; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -280,7 +285,7 @@ CREATE TABLE relational_schema.renting (
 ALTER TABLE relational_schema.renting OWNER TO postgres;
 
 --
--- TOC entry 234 (class 1259 OID 33522)
+-- TOC entry 232 (class 1259 OID 20045)
 -- Name: room; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -298,7 +303,7 @@ CREATE TABLE relational_schema.room (
 ALTER TABLE relational_schema.room OWNER TO postgres;
 
 --
--- TOC entry 235 (class 1259 OID 33527)
+-- TOC entry 233 (class 1259 OID 20050)
 -- Name: room_amenity; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -313,7 +318,7 @@ CREATE TABLE relational_schema.room_amenity (
 ALTER TABLE relational_schema.room_amenity OWNER TO postgres;
 
 --
--- TOC entry 236 (class 1259 OID 33532)
+-- TOC entry 234 (class 1259 OID 20055)
 -- Name: room_damage; Type: TABLE; Schema: relational_schema; Owner: postgres
 --
 
@@ -328,16 +333,16 @@ CREATE TABLE relational_schema.room_damage (
 ALTER TABLE relational_schema.room_damage OWNER TO postgres;
 
 --
--- TOC entry 4967 (class 0 OID 33448)
--- Dependencies: 218
+-- TOC entry 4980 (class 0 OID 20194)
+-- Dependencies: 236
 -- Data for Name: archive; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4968 (class 0 OID 33451)
--- Dependencies: 219
+-- TOC entry 4962 (class 0 OID 19974)
+-- Dependencies: 218
 -- Data for Name: booking; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
@@ -345,8 +350,8 @@ INSERT INTO relational_schema.booking (booking_start_date, booking_end_date, roo
 
 
 --
--- TOC entry 4969 (class 0 OID 33456)
--- Dependencies: 220
+-- TOC entry 4963 (class 0 OID 19979)
+-- Dependencies: 219
 -- Data for Name: chain_address; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
@@ -358,8 +363,8 @@ INSERT INTO relational_schema.chain_address (chain_id, c_address) VALUES (56789,
 
 
 --
--- TOC entry 4970 (class 0 OID 33461)
--- Dependencies: 221
+-- TOC entry 4964 (class 0 OID 19984)
+-- Dependencies: 220
 -- Data for Name: chain_email; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
@@ -371,8 +376,8 @@ INSERT INTO relational_schema.chain_email (chain_id, c_email) VALUES (56789, 'st
 
 
 --
--- TOC entry 4971 (class 0 OID 33466)
--- Dependencies: 222
+-- TOC entry 4965 (class 0 OID 19989)
+-- Dependencies: 221
 -- Data for Name: chain_number; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
@@ -384,8 +389,8 @@ INSERT INTO relational_schema.chain_number (chain_id, c_phone_number) VALUES (45
 
 
 --
--- TOC entry 4972 (class 0 OID 33469)
--- Dependencies: 223
+-- TOC entry 4966 (class 0 OID 19992)
+-- Dependencies: 222
 -- Data for Name: customer; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
@@ -396,8 +401,8 @@ INSERT INTO relational_schema.customer (customer_id, registration_date, first_na
 
 
 --
--- TOC entry 4973 (class 0 OID 33474)
--- Dependencies: 224
+-- TOC entry 4967 (class 0 OID 19997)
+-- Dependencies: 223
 -- Data for Name: employee; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
@@ -405,24 +410,16 @@ INSERT INTO relational_schema.employee (employee_ssn, first_name, last_name, add
 
 
 --
--- TOC entry 4974 (class 0 OID 33479)
--- Dependencies: 225
+-- TOC entry 4968 (class 0 OID 20002)
+-- Dependencies: 224
 -- Data for Name: has; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4975 (class 0 OID 33484)
--- Dependencies: 226
--- Data for Name: holds; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
---
-
-
-
---
--- TOC entry 4976 (class 0 OID 33489)
--- Dependencies: 227
+-- TOC entry 4969 (class 0 OID 20012)
+-- Dependencies: 225
 -- Data for Name: hotel; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
@@ -475,8 +472,8 @@ INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, 
 
 
 --
--- TOC entry 4977 (class 0 OID 33494)
--- Dependencies: 228
+-- TOC entry 4970 (class 0 OID 20017)
+-- Dependencies: 226
 -- Data for Name: hotel_chain; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
@@ -488,8 +485,8 @@ INSERT INTO relational_schema.hotel_chain (chain_id, chain_name, num_of_hotel) V
 
 
 --
--- TOC entry 4978 (class 0 OID 33499)
--- Dependencies: 229
+-- TOC entry 4971 (class 0 OID 20022)
+-- Dependencies: 227
 -- Data for Name: hotel_email; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
@@ -542,8 +539,8 @@ INSERT INTO relational_schema.hotel_email (chain_id, hotel_id, h_email) VALUES (
 
 
 --
--- TOC entry 4979 (class 0 OID 33504)
--- Dependencies: 230
+-- TOC entry 4972 (class 0 OID 20027)
+-- Dependencies: 228
 -- Data for Name: hotel_phone; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
@@ -596,32 +593,32 @@ INSERT INTO relational_schema.hotel_phone (chain_id, hotel_id, h_phone_number) V
 
 
 --
--- TOC entry 4980 (class 0 OID 33507)
--- Dependencies: 231
+-- TOC entry 4973 (class 0 OID 20030)
+-- Dependencies: 229
 -- Data for Name: manager; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4981 (class 0 OID 33512)
--- Dependencies: 232
+-- TOC entry 4974 (class 0 OID 20035)
+-- Dependencies: 230
 -- Data for Name: payment; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4982 (class 0 OID 33517)
--- Dependencies: 233
+-- TOC entry 4975 (class 0 OID 20040)
+-- Dependencies: 231
 -- Data for Name: renting; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4983 (class 0 OID 33522)
--- Dependencies: 234
+-- TOC entry 4976 (class 0 OID 20045)
+-- Dependencies: 232
 -- Data for Name: room; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
@@ -858,32 +855,41 @@ INSERT INTO relational_schema.room (room_num, view, extendable, capacity, price,
 
 
 --
--- TOC entry 4984 (class 0 OID 33527)
--- Dependencies: 235
+-- TOC entry 4977 (class 0 OID 20050)
+-- Dependencies: 233
 -- Data for Name: room_amenity; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4985 (class 0 OID 33532)
--- Dependencies: 236
+-- TOC entry 4978 (class 0 OID 20055)
+-- Dependencies: 234
 -- Data for Name: room_damage; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
 
 
 --
--- TOC entry 4768 (class 2606 OID 33538)
--- Name: archive archive_id; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
+-- TOC entry 4987 (class 0 OID 0)
+-- Dependencies: 235
+-- Name: archive_archive_id_seq; Type: SEQUENCE SET; Schema: relational_schema; Owner: postgres
+--
+
+SELECT pg_catalog.setval('relational_schema.archive_archive_id_seq', 1, false);
+
+
+--
+-- TOC entry 4799 (class 2606 OID 20198)
+-- Name: archive archive_pkey; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
 ALTER TABLE ONLY relational_schema.archive
-    ADD CONSTRAINT archive_id PRIMARY KEY (archive_id);
+    ADD CONSTRAINT archive_pkey PRIMARY KEY (archive_id);
 
 
 --
--- TOC entry 4770 (class 2606 OID 33540)
+-- TOC entry 4765 (class 2606 OID 20063)
 -- Name: booking booking_pkey; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -892,7 +898,7 @@ ALTER TABLE ONLY relational_schema.booking
 
 
 --
--- TOC entry 4772 (class 2606 OID 33542)
+-- TOC entry 4767 (class 2606 OID 20065)
 -- Name: chain_address c_address; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -901,7 +907,7 @@ ALTER TABLE ONLY relational_schema.chain_address
 
 
 --
--- TOC entry 4774 (class 2606 OID 33544)
+-- TOC entry 4769 (class 2606 OID 20067)
 -- Name: chain_email c_email; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -910,7 +916,7 @@ ALTER TABLE ONLY relational_schema.chain_email
 
 
 --
--- TOC entry 4776 (class 2606 OID 33546)
+-- TOC entry 4771 (class 2606 OID 20069)
 -- Name: chain_number c_phone_number; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -919,7 +925,7 @@ ALTER TABLE ONLY relational_schema.chain_number
 
 
 --
--- TOC entry 4788 (class 2606 OID 33548)
+-- TOC entry 4781 (class 2606 OID 20071)
 -- Name: hotel_chain chain_id; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -928,7 +934,7 @@ ALTER TABLE ONLY relational_schema.hotel_chain
 
 
 --
--- TOC entry 4778 (class 2606 OID 33550)
+-- TOC entry 4773 (class 2606 OID 20073)
 -- Name: customer customer_id; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -937,7 +943,7 @@ ALTER TABLE ONLY relational_schema.customer
 
 
 --
--- TOC entry 4780 (class 2606 OID 33552)
+-- TOC entry 4775 (class 2606 OID 20075)
 -- Name: employee employee_ssn; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -946,7 +952,7 @@ ALTER TABLE ONLY relational_schema.employee
 
 
 --
--- TOC entry 4790 (class 2606 OID 33554)
+-- TOC entry 4783 (class 2606 OID 20077)
 -- Name: hotel_email h_email_pk; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -955,7 +961,7 @@ ALTER TABLE ONLY relational_schema.hotel_email
 
 
 --
--- TOC entry 4792 (class 2606 OID 33556)
+-- TOC entry 4785 (class 2606 OID 20079)
 -- Name: hotel_phone h_phone_number_pk; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -964,7 +970,7 @@ ALTER TABLE ONLY relational_schema.hotel_phone
 
 
 --
--- TOC entry 4782 (class 2606 OID 33558)
+-- TOC entry 4777 (class 2606 OID 20081)
 -- Name: has has_pkey; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -973,16 +979,7 @@ ALTER TABLE ONLY relational_schema.has
 
 
 --
--- TOC entry 4784 (class 2606 OID 33560)
--- Name: holds holds_pk; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
---
-
-ALTER TABLE ONLY relational_schema.holds
-    ADD CONSTRAINT holds_pk PRIMARY KEY (booking_start_date, renting_start_date, archive_id);
-
-
---
--- TOC entry 4786 (class 2606 OID 33562)
+-- TOC entry 4779 (class 2606 OID 20085)
 -- Name: hotel hotel_pk; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -991,7 +988,7 @@ ALTER TABLE ONLY relational_schema.hotel
 
 
 --
--- TOC entry 4794 (class 2606 OID 33564)
+-- TOC entry 4787 (class 2606 OID 20087)
 -- Name: manager manager_pk; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -1000,7 +997,7 @@ ALTER TABLE ONLY relational_schema.manager
 
 
 --
--- TOC entry 4796 (class 2606 OID 33566)
+-- TOC entry 4789 (class 2606 OID 20089)
 -- Name: payment payment_pk; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -1009,7 +1006,7 @@ ALTER TABLE ONLY relational_schema.payment
 
 
 --
--- TOC entry 4798 (class 2606 OID 33568)
+-- TOC entry 4791 (class 2606 OID 20091)
 -- Name: renting renting_pkey; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -1018,7 +1015,7 @@ ALTER TABLE ONLY relational_schema.renting
 
 
 --
--- TOC entry 4802 (class 2606 OID 33570)
+-- TOC entry 4795 (class 2606 OID 20093)
 -- Name: room_amenity room_amenity_pk; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -1027,7 +1024,7 @@ ALTER TABLE ONLY relational_schema.room_amenity
 
 
 --
--- TOC entry 4804 (class 2606 OID 33572)
+-- TOC entry 4797 (class 2606 OID 20095)
 -- Name: room_damage room_damage_pk; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -1036,7 +1033,7 @@ ALTER TABLE ONLY relational_schema.room_damage
 
 
 --
--- TOC entry 4800 (class 2606 OID 33574)
+-- TOC entry 4793 (class 2606 OID 20097)
 -- Name: room room_pk; Type: CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -1045,7 +1042,7 @@ ALTER TABLE ONLY relational_schema.room
 
 
 --
--- TOC entry 4805 (class 2606 OID 33575)
+-- TOC entry 4800 (class 2606 OID 20098)
 -- Name: booking booking_customer_id_fkey; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -1054,7 +1051,7 @@ ALTER TABLE ONLY relational_schema.booking
 
 
 --
--- TOC entry 4806 (class 2606 OID 33580)
+-- TOC entry 4801 (class 2606 OID 20103)
 -- Name: booking booking_room_num_hotel_id_chain_id_fkey; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -1063,7 +1060,7 @@ ALTER TABLE ONLY relational_schema.booking
 
 
 --
--- TOC entry 4807 (class 2606 OID 33585)
+-- TOC entry 4802 (class 2606 OID 20108)
 -- Name: chain_address chain_address_hotel_chain_chain_id_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -1072,7 +1069,7 @@ ALTER TABLE ONLY relational_schema.chain_address
 
 
 --
--- TOC entry 4808 (class 2606 OID 33590)
+-- TOC entry 4803 (class 2606 OID 20113)
 -- Name: chain_email chain_email_hotel_chain_chain_id_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -1081,7 +1078,7 @@ ALTER TABLE ONLY relational_schema.chain_email
 
 
 --
--- TOC entry 4809 (class 2606 OID 33595)
+-- TOC entry 4804 (class 2606 OID 20118)
 -- Name: chain_number chain_number_hotel_chain_chain_id_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -1090,7 +1087,7 @@ ALTER TABLE ONLY relational_schema.chain_number
 
 
 --
--- TOC entry 4810 (class 2606 OID 33600)
+-- TOC entry 4805 (class 2606 OID 20123)
 -- Name: employee employee_hotel_hotel_id_chain_id_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -1099,7 +1096,7 @@ ALTER TABLE ONLY relational_schema.employee
 
 
 --
--- TOC entry 4811 (class 2606 OID 33605)
+-- TOC entry 4806 (class 2606 OID 20128)
 -- Name: has has_card_number_fkey; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -1108,7 +1105,7 @@ ALTER TABLE ONLY relational_schema.has
 
 
 --
--- TOC entry 4812 (class 2606 OID 33610)
+-- TOC entry 4807 (class 2606 OID 20133)
 -- Name: has has_customer_id_fkey; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -1117,7 +1114,7 @@ ALTER TABLE ONLY relational_schema.has
 
 
 --
--- TOC entry 4813 (class 2606 OID 33615)
+-- TOC entry 4808 (class 2606 OID 20138)
 -- Name: has has_room_num_hotel_id_chain_id_fkey; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -1126,7 +1123,7 @@ ALTER TABLE ONLY relational_schema.has
 
 
 --
--- TOC entry 4814 (class 2606 OID 33620)
+-- TOC entry 4809 (class 2606 OID 20143)
 -- Name: hotel hotel_chain_id_fkey; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -1135,7 +1132,7 @@ ALTER TABLE ONLY relational_schema.hotel
 
 
 --
--- TOC entry 4815 (class 2606 OID 33625)
+-- TOC entry 4810 (class 2606 OID 20148)
 -- Name: hotel_email hotel_email_hotel_chain_id_hotel_id_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -1144,7 +1141,7 @@ ALTER TABLE ONLY relational_schema.hotel_email
 
 
 --
--- TOC entry 4816 (class 2606 OID 33630)
+-- TOC entry 4811 (class 2606 OID 20153)
 -- Name: hotel_phone hotel_phone_hotel_chain_id_hotel_id_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -1153,7 +1150,7 @@ ALTER TABLE ONLY relational_schema.hotel_phone
 
 
 --
--- TOC entry 4817 (class 2606 OID 33635)
+-- TOC entry 4812 (class 2606 OID 20158)
 -- Name: payment payment_customer_customer_id_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -1162,7 +1159,7 @@ ALTER TABLE ONLY relational_schema.payment
 
 
 --
--- TOC entry 4818 (class 2606 OID 33640)
+-- TOC entry 4813 (class 2606 OID 20163)
 -- Name: renting renting_customer_id_fkey; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -1171,7 +1168,7 @@ ALTER TABLE ONLY relational_schema.renting
 
 
 --
--- TOC entry 4819 (class 2606 OID 33645)
+-- TOC entry 4814 (class 2606 OID 20168)
 -- Name: renting renting_employee_ssn_fkey; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -1180,7 +1177,7 @@ ALTER TABLE ONLY relational_schema.renting
 
 
 --
--- TOC entry 4820 (class 2606 OID 33650)
+-- TOC entry 4815 (class 2606 OID 20173)
 -- Name: renting renting_room_num_hotel_id_chain_id_fkey; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -1189,7 +1186,7 @@ ALTER TABLE ONLY relational_schema.renting
 
 
 --
--- TOC entry 4821 (class 2606 OID 33655)
+-- TOC entry 4816 (class 2606 OID 20178)
 -- Name: room room_hotel_hotel_id_chain_id_fk; Type: FK CONSTRAINT; Schema: relational_schema; Owner: postgres
 --
 
@@ -1198,7 +1195,7 @@ ALTER TABLE ONLY relational_schema.room
 
 
 --
--- TOC entry 4991 (class 0 OID 0)
+-- TOC entry 4986 (class 0 OID 0)
 -- Dependencies: 6
 -- Name: SCHEMA public; Type: ACL; Schema: -; Owner: pg_database_owner
 --
@@ -1206,7 +1203,7 @@ ALTER TABLE ONLY relational_schema.room
 REVOKE USAGE ON SCHEMA public FROM PUBLIC;
 
 
--- Completed on 2025-03-30 18:50:37
+-- Completed on 2025-03-30 19:28:46
 
 --
 -- PostgreSQL database dump complete
