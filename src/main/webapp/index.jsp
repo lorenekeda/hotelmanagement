@@ -62,6 +62,7 @@
             <a href="changeinfo.jsp" class="infochange-button">TEMP BUTTON TO VIEW INFORMATION UPDATE PAGE</a>
             <a href="viewcustomerbookings.jsp" class="room-button">TEMP BUTTON TO view customer booking PAGE</a>
             <a href="aboutthehotels.jsp" class="room-button">TEMP BUTTON TO view about the hotels PAGE</a>
+            <a href="archive.jsp" class="room-button">TEMP BUTTON TO archive PAGE</a>
 
 
         </div>
