@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page session="true" %>
 
 <%@ page import="java.util.List" %>
 <%@ page import="com.RoomService" %>
@@ -10,6 +11,8 @@
 
 
 <%
+    String customerID = (String) session.getAttribute("user");
+
     HotelChainService hotelChainService = new HotelChainService();
     List<HotelChain> chains = null;
     try {
@@ -115,14 +118,15 @@
         <% } else if (rooms != null) { %>
             <% for (Room room : rooms) { %>
                 <div>
-                    <form action="createBooking" method="post">
+                    <form id="makeBooking" action="createBooking" method="post">
                         <input type="hidden" id="start" name="start" value= <%=request.getAttribute("start") %> >
                         <input type="hidden" id="end" name="end" value= <%=request.getAttribute("end") %> >
                         <input type="hidden" id="cId" name="cId" value= <%=room.getChainId() %> >
                         <input type="hidden" id="hId" name="hId" value= <%=room.getHotelId() %> >
                         <input type="hidden" id="rNum" name="rNum" value= <%=room.getRoomNum() %> >
+                        <input type="hidden" id="custId" name="custId" value= <%=customerID %> >
 
-                        <button onclick="return confirm('Book this room?)" class="button-room "type="submit">Room Number: <%= room.getRoomNum() %><br>
+                        <button class="button-room "type="submit">Room Number: <%= room.getRoomNum() %><br>
                                               View: <%= room.getView() %><br>
                                               Price: <%= room.getPrice() %><br>
                                               Capacity: <%= room.getCapacity() %>

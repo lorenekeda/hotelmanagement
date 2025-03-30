@@ -19,10 +19,10 @@ public class BookingServlet extends HttpServlet  {
         Integer chainId = Integer.parseInt(request.getParameter("cId"));
         Integer hotelId = Integer.parseInt(request.getParameter("hId"));
         Integer roomNum = Integer.parseInt(request.getParameter("rNum"));
+        String customerId = request.getParameter("custId");
 
-        //!!!add proper customerId later!!!
         try {
-            BookingService.createBooking(start, end, chainId, hotelId, roomNum, "hi");
+            BookingService.createBooking(start, end, chainId, hotelId, roomNum, customerId);
 
         } catch (Exception e) {
             throw new RuntimeException(e);
