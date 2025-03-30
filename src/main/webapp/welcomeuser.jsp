@@ -47,7 +47,16 @@
                         <a href="bookaroom.jsp">Book A Room!</a>
             <%
                     }
-                }
+                    else if (role.equals("manager")) {
+                    int user = (int) session.getAttribute("user");
+                    %>
+                    <h2>Manager Dashboard</h2>
+                  <p>Welcome, Manager. You have access to management features.</p>
+                 <a href="rentaroom.jsp">Rent a room for a customer</a><br>
+                 <a href="viewcustomerbookings.jsp">View all customer bookings</a><br>
+                 <a href="changeinfo.jsp">Change hotel information</a>
+           <%     }
+           }
             %>
 
 

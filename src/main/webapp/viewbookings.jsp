@@ -1,5 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page session="true" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.BookingService" %>
+<%@ page import="com.Booking" %>
+<%
+  String user = (String) session.getAttribute("user");
+List<Booking> bookings = BookingService.getAllCustomerBookings(user);
+%>
 
 <!DOCTYPE html>
 <html lang="en">
