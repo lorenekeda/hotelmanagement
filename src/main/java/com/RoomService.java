@@ -195,8 +195,6 @@ public class RoomService {
             stmt.setDate(index++, start);
             stmt.setDate(index++, end);
 
-            System.out.println(stmt);
-
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {

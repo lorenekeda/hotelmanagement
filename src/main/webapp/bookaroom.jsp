@@ -47,7 +47,7 @@
 
     <div class="filter-section">
         <h2>Search Filter</h2>
-        <form action="filterRoomServlet" method="get">
+        <form id="filterForm" action="filterRoomServlet" method="get">
             <label for="Chain">Chain:</label>
             <select id="Chain" name="Chain">
                 <option value="All">All</option>
@@ -103,7 +103,7 @@
             <label for="EndDate">End Date:</label>
             <input type="date" id="EndDate" name="EndDate" required>
 
-            <button type="submit">Filter</button>
+            <button type="submit" onclick="return validateDate()">Filter</button>
         </form>
     </div>
 
@@ -209,4 +209,26 @@
         font-family: Georgia, 'Times New Roman', Times, serif;
     }
 </style>
+
+<script>
+    function validateDate(){
+        document.getElementById("filterForm").addEventListener("submit", function(event) {
+            var start = document.getElementById("StartDate").value;
+            var end = document.getElementById("EndDate").value;
+
+            var now = (new Date()).toISOString().substring(0,10);
+
+            if (start<now) {
+               alert("Start date cannot be before today");
+               event.preventDefault();
+               return;
+            } else if (start>end) {
+               alert("Start date cannot be after end date");
+               event.preventDefault();
+               return;
+            }
+        });
+    }
+</script>
+
 </html>
