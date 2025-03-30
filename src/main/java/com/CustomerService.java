@@ -15,7 +15,7 @@ public class CustomerService {
      * @return List of com.Customer from database
      * @throws Exception when trying to connect to database
      */
-    public List<Customer> getCustomer() throws Exception {
+    public static List<Customer> getCustomer() throws Exception {
 
         String sql = "SELECT * FROM relational_schema.customer";
 
@@ -54,6 +54,66 @@ public class CustomerService {
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
+    }
+
+    public static boolean checkSpecificCustomer(String emailId) throws Exception {
+        String sql = "SELECT * FROM relational_schema.customer WHERE customer_id = ?";
+        ConnectionDB db = new ConnectionDB();
+        try (Connection con = db.getConnection()) {
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, emailId);
+            ResultSet rs = stmt.executeQuery();
+
+
+            if (!rs.next()) {
+                return false;
+            }
+            else {
+                return true;
+            }
+
+        } catch (Exception e) {
+
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    /**
+     * Creates a new customer account and puts it in the database.
+     * @param registrationDate
+     * @param firstName
+     * @param lastName
+     * @param idType
+     * @param address
+     * @param id
+     * @throws Exception
+     */
+    public static boolean createCustomer(String registrationDate, String firstName, String lastName, String idType, String address, String id) throws Exception {
+      //  Customer newCustomer = new Customer(registrationDate, firstName, lastName, idType, address);
+        String sql = "INSERT INTO relational_schema.customer (customer_id, registration_date, first_name, last_name, id_type, address) VALUES (?, ?, ?, ?, ?, ?)";
+        ConnectionDB db = new ConnectionDB();
+
+        try (Connection con = db.getConnection()) {
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, id);
+            stmt.setString(2, registrationDate);
+            stmt.setString(3, firstName);
+            stmt.setString(4, lastName);
+            stmt.setString(5, idType);
+            stmt.setString(6, address);
+            int rowsAffected = stmt.executeUpdate();
+            stmt.close();
+            con.close();
+            db.close();
+            // If insertion is successful, return true
+            return rowsAffected > 0;
+
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+
     }
     public static boolean updateCustomer(String customerId, String firstName, String lastName, String email, String phone, String address) throws Exception {
         String sql = "UPDATE relational_schema.customer SET first_name = ?, last_name = ?, email = ?, phone = ?, address = ? WHERE customer_id = ?";

@@ -31,6 +31,14 @@
                 <label for="pass">Password:</label> <br>
                 <input type="password" id="pass" name = "pass"> <br> <br>
            <button id="signinbutton" >Sign in</button>
+           <script>
+           const signinButton = document.getElementById("signinbutton")
+           signinButton.addEventListener("click", function(){
+ event.preventDefault();
+            window.location.href = "welcomeuser.jsp";
+
+           })
+           </script>
 
             </form>
             <p>Don't have an account?</p>
