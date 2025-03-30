@@ -12,7 +12,7 @@ public class Customer {
 
 
     /**
-     * Constructor to create com.Customer object with customerId, registrationDate, firstName, lastName, idType, address
+     * Constructor to create com.Customer object with customerId, registrationDate, firstName, lastName, idType, address, password
      *
      * @param customerId id of customer
      * @param registrationDate registration date of customer
@@ -20,6 +20,7 @@ public class Customer {
      * @param lastName last name of customer
      * @param idType id type given from customer
      * @param address address of customer
+     * @param password password of customer
      */
     public Customer(String customerId, String registrationDate, String firstName, String lastName, String idType, String address, String password) {
         this.customerId = customerId;
@@ -55,6 +56,7 @@ public class Customer {
     public String getLastName() { return this.lastName; }
     public String getIdType() { return this.idType; }
     public String getAddress() { return this.address; }
+    public String getPassword() { return this.password; }
 
     /* Setters */
     public void setCustomerId(String id) { this.customerId = id; }
@@ -63,6 +65,7 @@ public class Customer {
     public void setLastName(String name) { this.lastName = name; }
     public void setIdType(String type) { this.idType = type; }
     public void setAddress(String address) { this.address = address; }
+    public void setPassword(String password) { this.password = password; }
 
     @Override
     public String toString() {
@@ -71,6 +74,7 @@ public class Customer {
                 + "<li>com.Customer= " + firstName + "</li>"
                 + "<li>com.Customer= " + lastName + "</li>"
                 + "<li>com.Customer= " + idType + "</li>"
-                + "<li>com.Customer= " + address + "</li>";
+                + "<li>com.Customer= " + address + "</li>"
+                + "<li>com.Customer= " + password + "</li>";
     }
 }

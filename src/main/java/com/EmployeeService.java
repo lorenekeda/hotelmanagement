@@ -39,7 +39,8 @@ public class EmployeeService {
                         rs.getString("first_name"),
                         rs.getString("last_name"),
                         rs.getString("address"),
-                        rs.getString("position")
+                        rs.getString("position"),
+                        rs.getString("password")
                 );
 
                 employees.add(employee);
