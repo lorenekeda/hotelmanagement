@@ -17,13 +17,18 @@ public class FilterRoomServlet extends HttpServlet {
             String location = request.getParameter("Area");
             String capacity = request.getParameter("Capacity");
             String num = request.getParameter("Price");
-            String minHotelSize = request.getParameter("HotelSize");
+            String size = request.getParameter("HotelSize");
             Date start = Date.valueOf(request.getParameter("StartDate"));
             Date end = Date.valueOf(request.getParameter("EndDate"));
 
             int price = 0;
             if (!(num.isEmpty())) {
                 price = Integer.parseInt(num);
+            }
+
+            int minHotelSize = 0;
+            if (!(size.isEmpty())) {
+                minHotelSize = Integer.parseInt(size);
             }
 
             String ratingDetail = request.getParameter("RatingDetail");
