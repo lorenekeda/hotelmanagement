@@ -21,13 +21,14 @@
      <%
             // first grab the type attribute set in the LoginServlet
                 String role = (String) session.getAttribute("type");
-                String user = (String) session.getAttribute("user");
+
 
                 // check if it is null
                 if (role != null) {
 
                 //if it is an employee then show these options
                     if (role.equals("employee")) {
+                     int user = (int) session.getAttribute("user");
             %>
                         <h2>Employee Dashboard</h2>
                         <p>Welcome, Employee. You have access to management features.</p>
@@ -37,6 +38,7 @@
 
                 // if it is a customer then show these options
                     } else if (role.equals("customer")) {
+                     String user = (String) session.getAttribute("user");
             %>
                         <h1>Welcome <%= user %></h1>
                         <h2>Customer Dashboard</h2>

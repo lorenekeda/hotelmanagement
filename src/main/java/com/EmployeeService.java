@@ -86,13 +86,13 @@ public class EmployeeService {
      * @return
      * @throws Exception
      */
-    public static boolean checkSpecificEmployeeWithPassword(String empSSN, String password) throws Exception {
+    public static boolean checkSpecificEmployeeWithPassword(int empSSN, String password) throws Exception {
         String sql = "SELECT * FROM relational_schema.employee WHERE employee_ssn = ? AND password = ?";
         ConnectionDB db = new ConnectionDB();
         try (Connection con = db.getConnection()) {
 
             PreparedStatement stmt = con.prepareStatement(sql);
-            stmt.setString(1, empSSN);
+            stmt.setInt(1, empSSN);
             stmt.setString(2, password);
             ResultSet rs = stmt.executeQuery();
 

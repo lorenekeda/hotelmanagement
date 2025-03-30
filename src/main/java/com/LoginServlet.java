@@ -22,13 +22,15 @@ public class LoginServlet extends HttpServlet  {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         logger.info("in");
         //getting customer info as strings
-        String email = request.getParameter("user");
+
         String password = request.getParameter("pass");
         String type = request.getParameter("radiob");
         //CHECK IF IT IS AN EMPLOYEE OR CUSTOMER
         //THEN CHECK PASSWORDS
         if (type.equals("customer")) {
             try {
+                //IF IT IS A CUSTOMER THE USERNAME WILL BE A STRING
+                String email = request.getParameter("user");
                 boolean validCustomer = CustomerService.checkSpecificCustomerWithPassword(email, password);
                 logger.info("checked if valid");
                 //if customer exists
@@ -57,14 +59,16 @@ public class LoginServlet extends HttpServlet  {
         else if (type.equals("employee")){
             logger.info("checking employee instead!!!!");
             try {
-                boolean validEmp = EmployeeService.checkSpecificEmployeeWithPassword(email, password);
+                //IF IT IS AN EMPLOYEE THE USERNAME WILL BE AN INTEGER
+                int empSSN = Integer.parseInt(request.getParameter("user"));
+                boolean validEmp = EmployeeService.checkSpecificEmployeeWithPassword(empSSN, password);
                 logger.info("checked if valid");
                 //if employee  exists
                 if (validEmp) {
                     logger.info("its valid");
                     //do the same http stuff if its an employee
                     HttpSession session = request.getSession();
-                    session.setAttribute("user", email);
+                    session.setAttribute("user", empSSN);
                     session.setAttribute("type", type);
 
                     response.sendRedirect("welcomeuser.jsp");
