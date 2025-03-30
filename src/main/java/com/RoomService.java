@@ -55,6 +55,94 @@ public class RoomService {
     }
 
     /**
+     * Method to get amenities for given Room from the database
+     *
+     * @return String listing the amenities a Room
+     * @throws Exception when trying to connect to database
+     */
+    public String getRoomAmenities(Integer roomNum, Integer hotelId, Integer chainId) throws Exception {
+
+        String sql = "SELECT * FROM relational_schema.room_amenity WHERE room_num=? AND hotel_id=? AND chain_id=?";
+
+        ConnectionDB db = new ConnectionDB();
+
+        //connect to database, catch any exceptions
+        try (Connection con = db.getConnection()) {
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setInt(1, roomNum);
+            stmt.setInt(2, hotelId);
+            stmt.setInt(3, chainId);
+
+            ResultSet rs = stmt.executeQuery();
+
+            String amenities = "";
+
+            while (rs.next()) {
+                amenities += rs.getString("amenity") + ", ";
+            }
+
+            if (amenities.isEmpty()){
+                amenities = "none";
+            }
+
+            rs.close();
+            stmt.close();
+            con.close();
+            db.close();
+
+            return amenities;
+
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    /**
+     * Method to get damages for given Room from the database
+     *
+     * @return String listing the damages a Room
+     * @throws Exception when trying to connect to database
+     */
+    public String getRoomDamages(Integer roomNum, Integer hotelId, Integer chainId) throws Exception {
+
+        String sql = "SELECT * FROM relational_schema.room_damage WHERE room_num=? AND hotel_id=? AND chain_id=?";
+
+        ConnectionDB db = new ConnectionDB();
+
+        //connect to database, catch any exceptions
+        try (Connection con = db.getConnection()) {
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setInt(1, roomNum);
+            stmt.setInt(2, hotelId);
+            stmt.setInt(3, chainId);
+
+            ResultSet rs = stmt.executeQuery();
+
+            String damages = "";
+
+            while (rs.next()) {
+                damages += rs.getString("damage") + ", ";
+            }
+
+            if (damages.isEmpty()){
+                damages = "none";
+            }
+
+            rs.close();
+            stmt.close();
+            con.close();
+            db.close();
+
+            return damages;
+
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    /**
      * Method to get all com.Room from the database
      *
      * @return List of com.Room from database
