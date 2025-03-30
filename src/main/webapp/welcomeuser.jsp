@@ -33,7 +33,7 @@
                         <a href="rentaroom.jsp">Rent a room for a customer</a><br>
                         <a href="viewcustomerbookings.jsp">View all customer bookings</a>
             <%
-            
+
                 <!-- if it is a customer then show these options-->
                     } else if (role.equals("customer")) {
             %>
