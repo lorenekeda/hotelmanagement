@@ -19,13 +19,14 @@
     <div class="welcome-box">
 
      <%
-            <!-- first grab the type attribute set in the LoginServlet-->
+            // first grab the type attribute set in the LoginServlet
                 String role = (String) session.getAttribute("type");
+                String user = (String) session.getAttribute("user");
 
-                <!-- check if it is null-->
+                // check if it is null
                 if (role != null) {
 
-                <!-- if it is an employee then show these options-->
+                //if it is an employee then show these options
                     if (role.equals("employee")) {
             %>
                         <h2>Employee Dashboard</h2>
@@ -34,7 +35,7 @@
                         <a href="viewcustomerbookings.jsp">View all customer bookings</a>
             <%
 
-                <!-- if it is a customer then show these options-->
+                // if it is a customer then show these options
                     } else if (role.equals("customer")) {
             %>
                         <h1>Welcome <%= user %></h1>
