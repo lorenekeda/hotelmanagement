@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Hotel Chain</title>
+</head>
+<body>
+
+<div class="about-title">
+    <div class="container">
+        <h1>About The Hotels</h1>
+        <p>Learn more about what our chains have to offer.</p>
+    </div>
+</div>
+
+<div class="companies">
+    <div class="container">
+
+        <div class="company">
+            <h2>First</h2>
+            <p>Line one</p>
+            <p>Line two</p>
+            <p>Line three</p>
+        </div>
+
+        <div class="company">
+            <h2>Second</h2>
+            <p>Line one</p>
+            <p>Line two</p>
+            <p>Line three</p>
+        </div>
+
+        <div class="company">
+            <h2>Third</h2>
+            <p>Line one</p>
+            <p>Line two</p>
+            <p>Line three</p>
+        </div>
+
+        <div class="company">
+            <h2>Fourth</h2>
+            <p>Line one</p>
+            <p>Line two</p>
+            <p>Line three</p>
+        </div>
+
+        <div class="company">
+            <h2>Fifth</h2>
+            <p>Line one</p>
+            <p>Line two</p>
+            <p>Line three</p>
+        </div>
+    </div>
+</div>
+</body>
+<style>
+    .about-title {
+        background-color: #528AAE;
+        padding: 40px 0;
+        text-align: center;
+    }
+
+    .companies {
+        width: 80%;
+        margin: 50px auto;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 15px 15px 15px 15px lightblue;
+    }
+
+    .company{
+        padding: 10px;
+    }
+
+    .company h2 {
+        font-size: 2rem;
+        color: #2c3e50;
+        margin-bottom: 10px;
+    }
+
+    .company p {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+</style>
+</html>
