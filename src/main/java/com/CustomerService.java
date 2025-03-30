@@ -56,6 +56,12 @@ public class CustomerService {
         }
     }
 
+    /**
+     * Checks if a specific customer already exists using their customer id (their email).
+     * @param emailId
+     * @return
+     * @throws Exception
+     */
     public static boolean checkSpecificCustomer(String emailId) throws Exception {
         String sql = "SELECT * FROM relational_schema.customer WHERE customer_id = ?";
         ConnectionDB db = new ConnectionDB();
@@ -65,7 +71,7 @@ public class CustomerService {
             stmt.setString(1, emailId);
             ResultSet rs = stmt.executeQuery();
 
-
+            // if there is no next that means it does not exist
             if (!rs.next()) {
                 return false;
             }
@@ -115,8 +121,7 @@ public class CustomerService {
         }
 
     }
-    public static boolean updateCustomer(String customerId, String firstName, String lastName, String email, String phone, String address) throws Exception {
-        String sql = "UPDATE relational_schema.customer SET first_name = ?, last_name = ?, email = ?, phone = ?, address = ? WHERE customer_id = ?";
+
     public static boolean updateCustomer(String customerId, String firstName, String lastName, String idType, String registrationDate, String address) throws Exception {
         String sql = "UPDATE relational_schema.customer SET first_name = ?, last_name = ?, id_type = ?, registration_date = ?, address = ? WHERE customer_id = ?";
 

@@ -11,9 +11,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Logger;
 
-
+//Maybe this is incorrect??
 @WebServlet("/hotelchain/CreateCustomerServlet")
 public class CreateCustomerServlet extends HttpServlet  {
+    //logger to help debug but i cant find where the log messages go
     private static final Logger logger = Logger.getLogger(CreateCustomerServlet.class.getName());
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,7 +27,9 @@ public class CreateCustomerServlet extends HttpServlet  {
         String address = request.getParameter("address");
         String verID = request.getParameter("radiob");
         try {
+            //first check if the customer exists
            boolean customerExists = CustomerService.checkSpecificCustomer(email);
+           //if it exists then send a message that it already exists
            if(customerExists){
                request.setAttribute("message", "Customer account already exists.");
                RequestDispatcher dispatcher = request.getRequestDispatcher("signin.jsp");
@@ -36,6 +39,7 @@ public class CreateCustomerServlet extends HttpServlet  {
            else {
                logger.info("DONT HAVE CUSTOMER");
                try {
+                   //if it does not exist try to create a customer
                    boolean created = CustomerService.createCustomer(customerId, firstName, lastName, email, verID, address); //change to create customer
                    if (created) {
                        logger.info("CREATED");
