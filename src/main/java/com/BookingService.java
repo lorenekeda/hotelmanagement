@@ -102,14 +102,17 @@ public class BookingService {
     }
 
     /**
-     * Method to get all Booking that belong to a Customer
+     * Method to get all Booking that belong to a Customer with no matching Renting
      *
      * @return List of com.Booking from database
      * @throws Exception when trying to connect to database
      */
-    public List<Booking> getCustomerBooking(String customerId) throws Exception {
+    public static List<Booking> getCustomerBookingWithoutRenting(String customerId) throws Exception {
 
-        String sql = "SELECT * FROM relational_schema.booking WHERE customer_id = ?";
+        String sql = "SELECT * FROM relational_schema.booking WHERE customer_id = ? " +
+                "EXCEPT (" +
+                "SELECT start_date as booking_start_date, end_date as booking_end_date, room_num, customer_id, hotel_id, chain_id " +
+                "FROM relational_schema.renting)";
 
         ConnectionDB db = new ConnectionDB();
 
@@ -120,6 +123,7 @@ public class BookingService {
 
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, customerId);
+
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -154,7 +158,7 @@ public class BookingService {
      * @return List of com.Booking from database
      * @throws Exception when trying to connect to database
      */
-    public List<Booking> getBookingWithoutRenting() throws Exception {
+    public static List<Booking> getBookingWithoutRenting() throws Exception {
 
         String sql = "SELECT * FROM relational_schema.booking " +
                         "EXCEPT (" +

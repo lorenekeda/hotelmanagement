@@ -40,6 +40,8 @@
             <a href="changecustomer.jsp" class="customerinfo-button">TEMPORARY BUTTON TO VIEW CUSTOMER CHANGE PAGE</a>
             <a href="changehotel.jsp" class="hotelchange-button">TEMP BUTTON TO VIEW HOTEL UPDATE PAGE</a>
             <a href="changeinfo.jsp" class="infochange-button">TEMP BUTTON TO VIEW INFORMATION UPDATE PAGE</a>
+            <a href="viewcustomerbookings.jsp" class="room-button">TEMP BUTTON TO view customer booking PAGE</a>
+
         </div>
     </div>
    
