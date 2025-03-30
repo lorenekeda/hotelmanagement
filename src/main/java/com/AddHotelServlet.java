@@ -24,13 +24,13 @@ public class AddHotelServlet extends HttpServlet {
             int numOfRoom = Integer.parseInt(numOfRoomStr);
 
             // Call the updateHotel method
-            boolean updateSuccess = HotelService.updateHotel(hotelId, chainId, address, name, rating, numOfRoomStr);
+            boolean addSuccess = HotelService.createHotel(hotelId, chainId, address, name, rating, numOfRoomStr);
 
-            if (updateSuccess) {
-                request.setAttribute("message", "Hotel updated successfully!");
+            if (addSuccess) {
+                request.setAttribute("message", "Hotel added successfully!");
                 request.setAttribute("messageType", "success");
             } else {
-                request.setAttribute("message", "Hotel not found!");
+                request.setAttribute("message", "Hotel not created!");
                 request.setAttribute("messageType", "error");
             }
 
@@ -46,6 +46,6 @@ public class AddHotelServlet extends HttpServlet {
         }
 
         // Forward back to the form page
-        request.getRequestDispatcher("changehotel.jsp").forward(request, response);
+        request.getRequestDispatcher("createhotel.jsp").forward(request, response);
     }
 }

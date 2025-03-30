@@ -22,13 +22,13 @@ public class AddRoomServlet extends HttpServlet {
 
 
             // Call the updateHotel method
-            boolean updateSuccess = RoomService.updateRoom(hotelId, chainId, Boolean.parseBoolean(extendable), view, price, roomNum);
+            boolean addSuccess = RoomService.createRoom(hotelId, chainId, Boolean.parseBoolean(extendable), view, price, roomNum);
 
-            if (updateSuccess) {
-                request.setAttribute("message", "Room updated successfully!");
+            if (addSuccess) {
+                request.setAttribute("message", "Room added successfully!");
                 request.setAttribute("messageType", "success");
             } else {
-                request.setAttribute("message", "Room not found!");
+                request.setAttribute("message", "Room not created!");
                 request.setAttribute("messageType", "error");
             }
 
@@ -44,6 +44,6 @@ public class AddRoomServlet extends HttpServlet {
         }
 
         // Forward back to the form page
-        request.getRequestDispatcher("changeroom.jsp").forward(request, response);
+        request.getRequestDispatcher("createroom.jsp").forward(request, response);
     }
 }

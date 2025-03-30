@@ -23,13 +23,13 @@ public class AddEmployeeServlet extends HttpServlet {
 
 
 
-            boolean updateSuccess = EmployeeService.updateEmployee(address, firstName, lastName, position, hotelId, chainId, employeeSsn);
+            boolean addSuccess = EmployeeService.createEmployee(address, firstName, lastName, position, hotelId, chainId, employeeSsn);
 
-            if (updateSuccess) {
-                request.setAttribute("message", "Employee updated successfully!");
+            if (addSuccess) {
+                request.setAttribute("message", "Employee added successfully!");
                 request.setAttribute("messageType", "success");
             } else {
-                request.setAttribute("message", "Employee not found!");
+                request.setAttribute("message", "Employee not created!");
                 request.setAttribute("messageType", "error");
             }
 
@@ -45,6 +45,6 @@ public class AddEmployeeServlet extends HttpServlet {
         }
 
         // Forward back to the form page
-        request.getRequestDispatcher("changeemployee.jsp").forward(request, response);
+        request.getRequestDispatcher("createemployee.jsp").forward(request, response);
     }
 }
