@@ -31,6 +31,7 @@ public class ConvertBookingServlet extends HttpServlet  {
                 PaymentService.createPayment(cardNumber,cvv,expiry,customerId);
             }
             RentingService.createRenting(start, end, chainId, hotelId, roomNum, customerId, employeeSsn, cardNumber);
+            request.setAttribute("bookingConvert", true);
 
         } catch (Exception e) {
             throw new RuntimeException(e);

@@ -21,6 +21,19 @@
     <title>Convert Booking</title>
 </head>
 <body>
+    <%
+        Boolean bookingConvert = (Boolean) request.getAttribute("bookingConvert");
+    %>
+    <%
+        if (bookingConvert != null && bookingConvert) {
+    %>
+        <script type="text/javascript">
+            alert("Your booking transformation was successful!");
+        </script>
+    <%
+        }
+    %>
+
     <div class="container1">
         <div class="title">
             <h1>Convert Booking To Renting</h1>
