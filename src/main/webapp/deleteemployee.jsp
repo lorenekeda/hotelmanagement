@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: lorenekeda
-  Date: 24.03.25
-  Time: 14:42
+  Date: 30.03.25
+  Time: 16:34
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -10,11 +10,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Employee Information</title>
+    <title>Delete Employee Information</title>
 </head>
 <body>
-<h2>Update Employee Information</h2>
-<form action="updateEmployeeServlet" method="post">
+<h2>Delete Employee Information</h2>
+<form action="deleteEmployeeServlet" method="post">
     <label for="hotel_id">Hotel ID:</label>
     <input type="text" id="hotel_id" name="hotel_id" required><br>
 
@@ -24,21 +24,9 @@
     <label for="employee_ssn">Employee SSN:</label>
     <input type="text" id="employee_ssn" name="employee_ssn" required><br>
 
-    <label for="first_name">First Name:</label>
-    <input type="text" id="first_name" name="first_name" ><br>
-
-    <label for="last_name">Last Name:</label>
-    <input type="text" id="last_name" name="last_name" ><br>
-
-    <label for="position">Position:</label>
-    <input type="text" id="position" name="position"><br>
-
-    <label for="address">Address:</label>
-    <textarea id="address" name="address"></textarea><br>
 
 
-
-    <button type="submit">Update Employee</button>
+    <button type="submit">Delete Employee</button>
 </form>
 
 </body>

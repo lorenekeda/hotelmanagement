@@ -8,27 +8,29 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.ServletException;
 
-@WebServlet("/updateRoomServlet")
-public class UpdateRoomServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+@WebServlet("/addHotelServlet")
+public class AddHotelServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, IOException {
+        // Retrieve form parameters
         int hotelId = Integer.parseInt(request.getParameter("hotel_id"));
         int chainId = Integer.parseInt(request.getParameter("chain_id"));
-        String roomNum = request.getParameter("room_num");
-        String view = request.getParameter("view");
-        String price = request.getParameter("price");
-        String extendable = request.getParameter("extendable");
+        String name = request.getParameter("name");
+        String address = request.getParameter("address");
+        String rating = request.getParameter("rating");
+        String numOfRoomStr = request.getParameter("num_of_room");
 
         try {
-
+            // Convert numOfRoom from String to an Integer (for validation)
+            int numOfRoom = Integer.parseInt(numOfRoomStr);
 
             // Call the updateHotel method
-            boolean updateSuccess = RoomService.updateRoom(hotelId, chainId, Boolean.parseBoolean(extendable), view, price, roomNum);
+            boolean addSuccess = HotelService.createHotel(hotelId, chainId, address, name, rating, numOfRoomStr);
 
-            if (updateSuccess) {
-                request.setAttribute("message", "Room updated successfully!");
+            if (addSuccess) {
+                request.setAttribute("message", "Hotel added successfully!");
                 request.setAttribute("messageType", "success");
             } else {
-                request.setAttribute("message", "Room not found!");
+                request.setAttribute("message", "Hotel not created!");
                 request.setAttribute("messageType", "error");
             }
 
@@ -44,8 +46,6 @@ public class UpdateRoomServlet extends HttpServlet {
         }
 
         // Forward back to the form page
-        request.getRequestDispatcher("changeroom.jsp").forward(request, response);
+        request.getRequestDispatcher("createhotel.jsp").forward(request, response);
     }
-
-
 }

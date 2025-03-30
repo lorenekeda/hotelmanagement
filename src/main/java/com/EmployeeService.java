@@ -110,4 +110,50 @@ public class EmployeeService {
         }
     }
 
+    public static boolean deleteEmployee(int hotelId, int chainId, int employeeSsn) throws SQLException {
+        String sql = "DELETE FROM relational_schema.employee " +
+                "WHERE hotel_id = ? AND chain_id = ? AND employee_ssn = ?";
+
+        try (Connection con = new ConnectionDB().getConnection();
+             PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            stmt.setInt(1, hotelId);
+            stmt.setInt(2, chainId);
+            stmt.setInt(3, employeeSsn);
+
+            int rowsDeleted = stmt.executeUpdate();
+            return rowsDeleted > 0;
+
+        } catch (SQLException e) {
+            throw new SQLException("Error deleting employee: " + e.getMessage(), e);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static boolean createEmployee(String address, String firstName, String lastName, String position, int hotelId, int chainId, int employeeSsn) throws SQLException {
+        String sql = "INSERT INTO relational_schema.employee (address, first_name, last_name, position, hotel_id, chain_id, employee_ssn) VALUES (?, ?, ?, ?, ?, ?, ?);";
+
+        try (Connection con = new ConnectionDB().getConnection();
+             PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            stmt.setString(1, address);
+            stmt.setString(2, firstName);
+            stmt.setString(3, lastName);
+            stmt.setString(4, position);
+            stmt.setInt(5, hotelId);
+            stmt.setInt(6, chainId);
+            stmt.setInt(7, employeeSsn);
+
+            int rowsInserted = stmt.executeUpdate();
+            return rowsInserted > 0;
+
+        } catch (SQLException e) {
+            throw new SQLException("Error adding employee info: " + e.getMessage(), e);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
 }

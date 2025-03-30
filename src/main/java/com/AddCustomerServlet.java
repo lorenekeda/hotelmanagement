@@ -8,27 +8,27 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.ServletException;
 
-@WebServlet("/updateRoomServlet")
-public class UpdateRoomServlet extends HttpServlet {
+@WebServlet("/addCustomerServlet")
+public class AddCustomerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int hotelId = Integer.parseInt(request.getParameter("hotel_id"));
-        int chainId = Integer.parseInt(request.getParameter("chain_id"));
-        String roomNum = request.getParameter("room_num");
-        String view = request.getParameter("view");
-        String price = request.getParameter("price");
-        String extendable = request.getParameter("extendable");
+
+        //getting customer info as strings
+        String firstName = request.getParameter("first_name");
+        String lastName = request.getParameter("last_name");
+        String idType = request.getParameter("id_type");
+        String customerId = request.getParameter("customer_id");
+        String address = request.getParameter("address");
+        String registrationDate = request.getParameter("registration_date");
+        String password = ""; //no need for password if manager is the one making customer acc
+
 
         try {
-
-
-            // Call the updateHotel method
-            boolean updateSuccess = RoomService.updateRoom(hotelId, chainId, Boolean.parseBoolean(extendable), view, price, roomNum);
-
-            if (updateSuccess) {
-                request.setAttribute("message", "Room updated successfully!");
+            boolean created = CustomerService.createCustomer(customerId,  registrationDate, firstName,  lastName,  idType, address, password);
+            if (created) {
+                request.setAttribute("message", "Customer added successfully!");
                 request.setAttribute("messageType", "success");
             } else {
-                request.setAttribute("message", "Room not found!");
+                request.setAttribute("message", " Customer not created!");
                 request.setAttribute("messageType", "error");
             }
 
@@ -44,8 +44,6 @@ public class UpdateRoomServlet extends HttpServlet {
         }
 
         // Forward back to the form page
-        request.getRequestDispatcher("changeroom.jsp").forward(request, response);
+        request.getRequestDispatcher("createcustomer.jsp").forward(request, response);
     }
-
-
 }

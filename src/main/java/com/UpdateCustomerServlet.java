@@ -28,19 +28,30 @@ public class UpdateCustomerServlet extends HttpServlet  {
         try {
             boolean updated = CustomerService.updateCustomer(customerId, firstName, lastName, idType, registrationDate, address);
             if (updated) {
-                response.sendRedirect("success.jsp"); // Redirect to success page
+                request.setAttribute("message", "Customer updated successfully!");
+                request.setAttribute("messageType", "success");
             } else {
-                response.sendRedirect("error.jsp"); // Redirect to error page
+                request.setAttribute("message", " Customer not found!");
+                request.setAttribute("messageType", "error");
             }
+
+        } catch (NumberFormatException e) {
+            request.setAttribute("message", "Invalid ID format!");
+            request.setAttribute("messageType", "error");
         } catch (SQLException e) {
-            e.printStackTrace();
-            response.sendRedirect("error.jsp");
+            request.setAttribute("message", "Database error: " + e.getMessage());
+            request.setAttribute("messageType", "error");
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            request.setAttribute("message", "Unexpected error: " + e.getMessage());
+            request.setAttribute("messageType", "error");
         }
+
+        // Forward back to the form page
+        request.getRequestDispatcher("changecustomer.jsp").forward(request, response);
+    }
 
 
     }
 
 
-}
+
