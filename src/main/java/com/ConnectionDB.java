@@ -12,7 +12,7 @@ public class ConnectionDB {
     private final String dbServerPort = "5432";
     private final String dbName = "hotelchain2";
     private final String dbusername = "postgres";
-    private final String dbpassword = "Roblox12345!@#$%";
+    private final String dbpassword = "";
 
 
     private Connection con = null;
