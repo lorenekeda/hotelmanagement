@@ -55,16 +55,16 @@ public class CustomerService {
             throw new Exception(e.getMessage());
         }
     }
-    public static boolean updateCustomer(String customerId, String firstName, String lastName, String email, String phone, String address) throws Exception {
-        String sql = "UPDATE relational_schema.customer SET first_name = ?, last_name = ?, email = ?, phone = ?, address = ? WHERE customer_id = ?";
+    public static boolean updateCustomer(String customerId, String firstName, String lastName, String idType, String registrationDate, String address) throws Exception {
+        String sql = "UPDATE relational_schema.customer SET first_name = ?, last_name = ?, id_type = ?, registration_date = ?, address = ? WHERE customer_id = ?";
 
         try (Connection con = new ConnectionDB().getConnection();
              PreparedStatement stmt = con.prepareStatement(sql)) {
 
             stmt.setString(1, firstName);
             stmt.setString(2, lastName);
-            stmt.setString(3, email);
-            stmt.setString(4, phone);
+            stmt.setString(3, idType);
+            stmt.setString(4, registrationDate);
             stmt.setString(5, address);
             stmt.setString(6, customerId);
 
