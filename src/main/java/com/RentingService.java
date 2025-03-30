@@ -105,6 +105,8 @@ public class RentingService {
 
         String sqlHas = "INSERT INTO relational_schema.has (booking_start_date, room_num, customer_id, card_number, hotel_id, chain_id) VALUES (?, ?, ?, ?, ?, ?)";
 
+        String sqlArchive = "INSERT INTO relational_schema.archive (start_date, room_num, hotel_id, chain_id) VALUES (?, ?, ?, ?)";
+
         try (Connection con = new ConnectionDB().getConnection();
 
             PreparedStatement stmt = con.prepareStatement(sqlPymt)) {
@@ -131,6 +133,20 @@ public class RentingService {
             stmt2.setInt(4, cardNumber);
             stmt2.setInt(5, hotelId);
             stmt2.setInt(6, chainId);
+
+            stmt2.executeUpdate();
+
+        } catch (Exception e) {
+            throw new Exception(e.getMessage(), e);
+        }
+
+        try (Connection con = new ConnectionDB().getConnection();
+
+             PreparedStatement stmt2 = con.prepareStatement(sqlArchive)) {
+            stmt2.setDate(1, start);
+            stmt2.setInt(2, roomNum);
+            stmt2.setInt(3, hotelId);
+            stmt2.setInt(4, chainId);
 
             stmt2.executeUpdate();
 

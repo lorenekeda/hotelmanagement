@@ -248,9 +248,11 @@ public class BookingService {
     public static void createBooking(Date start, Date end, Integer chainId, Integer hotelId, Integer roomNum, String customerId) throws Exception {
         String sql = "INSERT INTO relational_schema.booking (booking_start_date, booking_end_date, room_num, customer_id, hotel_id, chain_id) VALUES (?, ?, ?, ?, ?, ?)";
 
+        String sqlArchive = "INSERT INTO relational_schema.archive (start_date, room_num, hotel_id, chain_id) VALUES (?, ?, ?, ?)";
+
         try (Connection con = new ConnectionDB().getConnection();
 
-            PreparedStatement stmt = con.prepareStatement(sql)) {
+             PreparedStatement stmt = con.prepareStatement(sql)) {
             stmt.setDate(1, start);
             stmt.setDate(2, end);
             stmt.setInt(3, roomNum);
@@ -259,6 +261,20 @@ public class BookingService {
             stmt.setInt(6, chainId);
 
             stmt.executeUpdate();
+
+        } catch (Exception e) {
+            throw new Exception(e.getMessage(), e);
+        }
+
+        try (Connection con = new ConnectionDB().getConnection();
+
+             PreparedStatement stmt2 = con.prepareStatement(sqlArchive)) {
+            stmt2.setDate(1, start);
+            stmt2.setInt(2, roomNum);
+            stmt2.setInt(3, hotelId);
+            stmt2.setInt(4, chainId);
+
+            stmt2.executeUpdate();
 
         } catch (Exception e) {
             throw new Exception(e.getMessage(), e);
