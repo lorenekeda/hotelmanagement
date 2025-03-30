@@ -10,6 +10,18 @@
     <title>Document</title>
 </head>
 <body>
+<%
+     String message = (String) request.getAttribute("message");
+     if (message != null) {
+ %>
+     <div id="message-box" style="color: red; margin-top: 20px;"><%= message %></div>
+
+     <script>
+         setTimeout(function() {
+             document.getElementById("message-box").style.display = "none";
+         }, 3000);
+     </script>
+ <% } %>
     <nav class="menu">
         <ul>
             <li><a>About Us</a></li>

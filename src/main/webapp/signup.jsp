@@ -44,11 +44,20 @@
                  <input type="text" id="address" name = "address"><br><br>
             <button id="create" >Create Account</button>
             </form>
-            <% String message = (String) request.getAttribute("message"); %>
-            <% if (message != null) { %>
-                <p style="color: red; font-weight: bold;"><%= message %></p>
-            <% } %>
+
     </div>
+    <%
+         String message = (String) request.getAttribute("message");
+         if (message != null) {
+     %>
+         <div id="message-box" style="color: red; margin-top: 20px;"><%= message %></div>
+
+         <script>
+             setTimeout(function() {
+                 document.getElementById("message-box").style.display = "none";
+             }, 3000);
+         </script>
+     <% } %>
 </body>
 <style>
 .sign-in-box {
