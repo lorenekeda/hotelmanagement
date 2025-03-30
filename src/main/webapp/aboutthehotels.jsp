@@ -44,7 +44,7 @@
                 <h2><%= chain.getChainName() %></h2>
                 <p>Come enjoy your stay at <%= chain.getChainName() %></p>
                 <p>With an average rating of <%= ratings.get(chain.getChainName()) %></p>
-                <p>And <%= locations.get(chain.getChainName()) %> different hotel locations</p>
+                <p>And <%= chain.getNumOfHotel() %> hotels across <%= locations.get(chain.getChainName()) %> different locations</p>
             </div>
         <% } %>
     </div>
