@@ -23,7 +23,7 @@
 
     <div class="sign-in-box">
 
-        <form class="signin" action="/createCustomerServlet" method="post">
+        <form class="signin" action="signIn" method="post">
             <h1>Create an Account:</h1>
             <label for="fname">First Name:</label> <br>
             <input type="text" id="fname" name = "fname"><br><br>
@@ -40,6 +40,8 @@
                              <label for="passport">Passport</label><br><br>
                 <label for="pass">Password:</label> <br>
                 <input type="password" id="pass" name = "pass"><br><br>
+                <label for="address">Address:</label> <br>
+                 <input type="text" id="address" name = "address"><br><br>
             <button id="create" >Create Account</button>
             </form>
     </div>

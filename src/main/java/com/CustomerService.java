@@ -95,7 +95,7 @@ public class CustomerService {
      * @param id
      * @throws Exception
      */
-    public static boolean createCustomer(String registrationDate, String firstName, String lastName, String idType, String address, String id) throws Exception {
+    public static boolean createCustomer(String id, String registrationDate, String firstName, String lastName, String idType, String address) throws Exception {
       //  Customer newCustomer = new Customer(registrationDate, firstName, lastName, idType, address);
         String sql = "INSERT INTO relational_schema.customer (customer_id, registration_date, first_name, last_name, id_type, address) VALUES (?, ?, ?, ?, ?, ?)";
         ConnectionDB db = new ConnectionDB();
