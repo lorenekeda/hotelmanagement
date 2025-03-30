@@ -84,6 +84,9 @@
             <label for="Price">Max Price $:</label>
             <input type="number" placeholder="0" min="0" id="Price" name="Price" required>
 
+            <label for="HotelSize">Min Hotel Size:</label>
+            <input type="number" placeholder="0" min="0" id="HotelSize" name="HotelSize" required>
+
             <label for="Capacity">Capacity:</label>
             <select id="Capacity" name="Capacity">
                 <option value="single room">single room</option>

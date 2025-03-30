@@ -17,6 +17,7 @@ public class FilterRoomServlet extends HttpServlet {
             String location = request.getParameter("Area");
             String capacity = request.getParameter("Capacity");
             String num = request.getParameter("Price");
+            String minHotelSize = request.getParameter("HotelSize");
             Date start = Date.valueOf(request.getParameter("StartDate"));
             Date end = Date.valueOf(request.getParameter("EndDate"));
 
@@ -28,7 +29,7 @@ public class FilterRoomServlet extends HttpServlet {
             String ratingDetail = request.getParameter("RatingDetail");
             int rating = Integer.parseInt(request.getParameter("Rating"));
 
-            List<Room> filteredRooms = RoomService.getFilteredRooms(chain, location, ratingDetail, rating, price, capacity, start, end);
+            List<Room> filteredRooms = RoomService.getFilteredRooms(chain, location, ratingDetail, rating, price, capacity, start, end, minHotelSize);
 
             request.setAttribute("filteredRooms", filteredRooms);
             request.setAttribute("start", start);

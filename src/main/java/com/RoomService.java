@@ -60,11 +60,11 @@ public class RoomService {
      * @return List of com.Room from database
      * @throws Exception when trying to connect to database
      */
-    public static List<Room> getFilteredRooms(String chainName, String address, String ratingDetail, int rating, int price, String capacity, Date start, Date end) throws Exception {
+    public static List<Room> getFilteredRooms(String chainName, String address, String ratingDetail, int rating, int price, String capacity, Date start, Date end, String minHotelSize) throws Exception {
 
         String sql = "SELECT relational_schema.room.* " +
                         "FROM relational_schema.room NATURAL JOIN relational_schema.hotel NATURAL JOIN relational_schema.hotel_chain " +
-                        "WHERE rating "+ratingDetail+" ? AND price < ? AND capacity = ?";
+                        "WHERE rating "+ratingDetail+" ? AND price < ? AND capacity = ? AND num_of_room >= ? ";
 
         if (!(address.equals("All"))){
             sql += " AND address = ? ";
@@ -92,6 +92,7 @@ public class RoomService {
             stmt.setInt(index++, rating);
             stmt.setInt(index++, price);
             stmt.setString(index++, capacity);
+            stmt.setString(index++, minHotelSize);
 
             if (!(address.equals("All"))){
                 stmt.setString(index++, address);
