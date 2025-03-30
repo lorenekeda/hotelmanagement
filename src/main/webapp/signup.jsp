@@ -23,7 +23,7 @@
 
     <div class="sign-in-box">
 
-        <form class="signin" action="/hotelchain/CreateCustomerServlet" method="post">
+        <form class="signin" action="/createCustomerServlet" method="post">
             <h1>Create an Account:</h1>
             <label for="fname">First Name:</label> <br>
             <input type="text" id="fname" name = "fname"><br><br>

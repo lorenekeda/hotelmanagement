@@ -12,7 +12,7 @@ import java.io.PrintWriter;
 import java.util.logging.Logger;
 
 //Maybe this is incorrect??
-@WebServlet("/hotelchain/CreateCustomerServlet")
+@WebServlet("/createCustomerServlet")
 public class CreateCustomerServlet extends HttpServlet  {
     //logger to help debug but i cant find where the log messages go
     private static final Logger logger = Logger.getLogger(CreateCustomerServlet.class.getName());
@@ -54,11 +54,13 @@ public class CreateCustomerServlet extends HttpServlet  {
                    throw new RuntimeException(e);
                }
            }
+        } catch (ServletException e) {
+            e.getMessage();
+            throw new RuntimeException(e);
+
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-
-
 
 
     }
