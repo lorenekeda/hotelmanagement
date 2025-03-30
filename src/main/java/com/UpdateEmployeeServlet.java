@@ -23,29 +23,29 @@ public class UpdateEmployeeServlet extends HttpServlet {
         try {
 
 
-            // Call the updateHotel method
+
             boolean updateSuccess = EmployeeService.updateEmployee(address, firstName, lastName, position, hotelId, chainId, employeeSsn);
 
             if (updateSuccess) {
-                // Redirect to success page or display success message
-                response.sendRedirect("updateSuccess.jsp");
+                request.setAttribute("message", "Employee updated successfully!");
+                request.setAttribute("messageType", "success");
             } else {
-                // Redirect to failure page
-                response.sendRedirect("updateFail.jsp");
+                request.setAttribute("message", "Employee not found!");
+                request.setAttribute("messageType", "error");
             }
+
         } catch (NumberFormatException e) {
-            // Handle invalid number format (if numOfRoom is not an integer)
-            request.setAttribute("errorMessage", "Invalid number format for Number of Rooms.");
-            request.getRequestDispatcher("updateFail.jsp").forward(request, response);
+            request.setAttribute("message", "Invalid ID format!");
+            request.setAttribute("messageType", "error");
         } catch (SQLException e) {
-            // Handle database errors
-            request.setAttribute("errorMessage", "Database error: " + e.getMessage());
-            request.getRequestDispatcher("updateFail.jsp").forward(request, response);
+            request.setAttribute("message", "Database error: " + e.getMessage());
+            request.setAttribute("messageType", "error");
         } catch (Exception e) {
-            // Handle other errors
-            request.setAttribute("errorMessage", "Unexpected error: " + e.getMessage());
-            request.getRequestDispatcher("updateFail.jsp").forward(request, response);
+            request.setAttribute("message", "Unexpected error: " + e.getMessage());
+            request.setAttribute("messageType", "error");
         }
 
+        // Forward back to the form page
+        request.getRequestDispatcher("changeemployee.jsp").forward(request, response);
     }
 }

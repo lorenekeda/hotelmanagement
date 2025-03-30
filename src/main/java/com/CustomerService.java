@@ -179,6 +179,26 @@ public class CustomerService {
             throw new SQLException("Error updating customer info: " + e.getMessage(), e);
         }
     }
+    public static boolean deleteCustomer(String customerId) throws Exception {
+        // Input validation
+        if (customerId == null || customerId.trim().isEmpty()) {
+            throw new IllegalArgumentException("Customer ID cannot be null or empty");
+        }
+
+        String sql = "DELETE FROM relational_schema.customer WHERE customer_id = ?";
+
+        try (Connection con = new ConnectionDB().getConnection();
+             PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            stmt.setString(1, customerId);
+
+            int rowsDeleted = stmt.executeUpdate();
+            return rowsDeleted > 0; // Returns true if deletion was successful
+
+        } catch (SQLException e) {
+            throw new Exception("Error deleting customer with ID: " + customerId, e);
+        }
+    }
     }
 
 

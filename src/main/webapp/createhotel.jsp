@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: lorenekeda
-  Date: 24.03.25
-  Time: 14:42
+  Date: 30.03.25
+  Time: 16:34
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -10,35 +10,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Employee Information</title>
+    <title>Add Hotel Information</title>
 </head>
 <body>
-<h2>Update Employee Information</h2>
-<form action="updateEmployeeServlet" method="post">
+<h2>Add Hotel Information</h2>
+<form action="addHotelServlet" method="post">
     <label for="hotel_id">Hotel ID:</label>
     <input type="text" id="hotel_id" name="hotel_id" required><br>
 
     <label for="chain_id">Chain ID:</label>
     <input type="text" id="chain_id" name="chain_id" required><br>
 
-    <label for="employee_ssn">Employee SSN:</label>
-    <input type="text" id="employee_ssn" name="employee_ssn" required><br>
-
-    <label for="first_name">First Name:</label>
-    <input type="text" id="first_name" name="first_name" ><br>
-
-    <label for="last_name">Last Name:</label>
-    <input type="text" id="last_name" name="last_name" ><br>
-
-    <label for="position">Position:</label>
-    <input type="text" id="position" name="position"><br>
+    <label for="name">Hotel Name:</label>
+    <input type="text" id="name" name="name" ><br>
 
     <label for="address">Address:</label>
-    <textarea id="address" name="address"></textarea><br>
+    <textarea id="address" name="address" ></textarea><br>
 
+    <label for="rating">Rating:</label>
+    <input type="text" id="rating" name="rating"><br>
 
+    <label for="num_of_room">Number of Rooms:</label>
+    <input type="text" id="num_of_room" name="num_of_room"><br>
 
-    <button type="submit">Update Employee</button>
+    <button type="submit">Add Hotel</button>
 </form>
 
 </body>

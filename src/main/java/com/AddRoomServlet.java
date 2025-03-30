@@ -8,8 +8,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.ServletException;
 
-@WebServlet("/updateRoomServlet")
-public class UpdateRoomServlet extends HttpServlet {
+@WebServlet("/addRoomServlet")
+public class AddRoomServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int hotelId = Integer.parseInt(request.getParameter("hotel_id"));
         int chainId = Integer.parseInt(request.getParameter("chain_id"));
@@ -46,6 +46,4 @@ public class UpdateRoomServlet extends HttpServlet {
         // Forward back to the form page
         request.getRequestDispatcher("changeroom.jsp").forward(request, response);
     }
-
-
 }

@@ -8,27 +8,28 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.ServletException;
 
-@WebServlet("/updateRoomServlet")
-public class UpdateRoomServlet extends HttpServlet {
+@WebServlet("/addEmployeeServlet")
+public class AddEmployeeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int hotelId = Integer.parseInt(request.getParameter("hotel_id"));
         int chainId = Integer.parseInt(request.getParameter("chain_id"));
-        String roomNum = request.getParameter("room_num");
-        String view = request.getParameter("view");
-        String price = request.getParameter("price");
-        String extendable = request.getParameter("extendable");
+        int employeeSsn = Integer.parseInt(request.getParameter("employee_ssn"));
+        String firstName = request.getParameter("first_name");
+        String lastName = request.getParameter("last_name");
+        String address = request.getParameter("address");
+        String position = request.getParameter("position");
 
         try {
 
 
-            // Call the updateHotel method
-            boolean updateSuccess = RoomService.updateRoom(hotelId, chainId, Boolean.parseBoolean(extendable), view, price, roomNum);
+
+            boolean updateSuccess = EmployeeService.updateEmployee(address, firstName, lastName, position, hotelId, chainId, employeeSsn);
 
             if (updateSuccess) {
-                request.setAttribute("message", "Room updated successfully!");
+                request.setAttribute("message", "Employee updated successfully!");
                 request.setAttribute("messageType", "success");
             } else {
-                request.setAttribute("message", "Room not found!");
+                request.setAttribute("message", "Employee not found!");
                 request.setAttribute("messageType", "error");
             }
 
@@ -44,8 +45,6 @@ public class UpdateRoomServlet extends HttpServlet {
         }
 
         // Forward back to the form page
-        request.getRequestDispatcher("changeroom.jsp").forward(request, response);
+        request.getRequestDispatcher("changeemployee.jsp").forward(request, response);
     }
-
-
 }
