@@ -19,14 +19,14 @@ public class UpdateCustomerServlet extends HttpServlet  {
         //getting customer info as strings
         String firstName = request.getParameter("first_name");
         String lastName = request.getParameter("last_name");
-        String email = request.getParameter("email");
+        String idType = request.getParameter("id_type");
         String customerId = request.getParameter("customer_id");
         String address = request.getParameter("address");
-        String phone = request.getParameter("phone");
+        String registrationDate = request.getParameter("registration_date");
 
 
         try {
-            boolean updated = CustomerService.updateCustomer(customerId, firstName, lastName, email, phone, address);
+            boolean updated = CustomerService.updateCustomer(customerId, firstName, lastName, idType, registrationDate, address);
             if (updated) {
                 response.sendRedirect("success.jsp"); // Redirect to success page
             } else {

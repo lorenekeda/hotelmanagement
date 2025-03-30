@@ -58,13 +58,13 @@ public class HotelChainService {
      * @return HashMap of HotelChain name and rating from database
      * @throws Exception when trying to connect to database
      */
-    public HashMap<Integer, Double> getHotelChainAverageRating() throws Exception {
+    public HashMap<String, Double> getHotelChainAverageRating() throws Exception {
 
         String sql = "SELECT chain_name, avg(rating) as average FROM relational_schema.hotel_chain NATURAL JOIN relational_schema.hotel GROUP BY chain_name";
 
         ConnectionDB db = new ConnectionDB();
 
-        HashMap<Integer, Double> info = new HashMap<>();
+        HashMap<String, Double> info = new HashMap<>();
 
         //connect to database, catch any exceptions
         try (Connection con = db.getConnection()) {
@@ -73,7 +73,43 @@ public class HotelChainService {
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                info.put(rs.getInt("chain_id"), rs.getDouble("average"));
+                info.put(rs.getString("chain_name"), rs.getDouble("average"));
+            }
+
+            rs.close();
+            stmt.close();
+            con.close();
+            db.close();
+
+            return info;
+
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    /**
+     * Method to get number of locations HotelChains have Hotels in
+     *
+     * @return HashMap of HotelChain name and number of locations from database
+     * @throws Exception when trying to connect to database
+     */
+    public HashMap<String, Integer> getHotelChainLocationNumber() throws Exception {
+
+        String sql = "SELECT chain_name, count(DISTINCT address) as amount FROM relational_schema.hotel_chain NATURAL JOIN relational_schema.hotel GROUP BY chain_name";
+
+        ConnectionDB db = new ConnectionDB();
+
+        HashMap<String, Integer> info = new HashMap<>();
+
+        //connect to database, catch any exceptions
+        try (Connection con = db.getConnection()) {
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                info.put(rs.getString("chain_name"), rs.getInt("amount"));
             }
 
             rs.close();

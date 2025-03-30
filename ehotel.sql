@@ -178,7 +178,7 @@ CREATE TABLE relational_schema.hotel (
     address character varying,
     name character varying,
     rating integer,
-    num_of_room character varying
+    num_of_room integer
 );
 
 
@@ -418,52 +418,52 @@ INSERT INTO relational_schema.chain_number (chain_id, c_phone_number) VALUES (45
 -- Data for Name: hotel; Type: TABLE DATA; Schema: relational_schema; Owner: postgres
 --
 
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (11111, 12345, 'Kanata', 'Milton', 4, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (33333, 56789, 'River Bend', 'Star co.', 4, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (44444, 45678, 'Gardiners', 'Asco', 5, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (99999, 56789, 'River Bend', 'Star co.', 5, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (66666, 56789, 'Stoneybrook', 'Star co.', 5, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (77777, 45678, 'Westwoods', 'Asco', 4, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (44444, 12345, 'Orleans', 'Milton', 3, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (33333, 34567, 'Richmond', 'Skye Hotels', 5, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (66666, 34567, 'North Vancouver', 'Skye Hotels', 4, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (10111, 45678, 'Alwington', 'Asco', 3, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (99999, 23456, 'Etobicoke', 'Larriott', 5, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (66666, 23456, 'Markham', 'Larriott', 1, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (11111, 45678, 'Alwington', 'Asco', 5, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (22222, 23456, 'Mississauga', 'Larriott', 4, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (77777, 12345, 'Stittsville', 'Milton', 2, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (33333, 23456, 'Markham', 'Larriott', 5, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (11111, 56789, 'Byron', 'Star co.', 3, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (22222, 34567, 'Surrey', 'Skye Hotels', 4, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (44444, 56789, 'Summerside', 'Star co.', 4, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (66666, 45678, 'Inner Harbour', 'Asco', 4, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (77777, 34567, 'Richmond', 'Skye Hotels', 5, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (11000, 56789, 'Blackfriars', 'Star co.', 4, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (44444, 23456, 'Vaughan', 'Larriott', 3, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (88888, 45678, 'Polson Park', 'Asco', 5, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (88888, 23456, 'Brampton', 'Larriott', 4, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (77777, 56789, 'Byron', 'Star co.', 2, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (88888, 56789, 'Bostwick', 'Star co.', 2, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (22222, 45678, 'Inner Harbour', 'Asco', 3, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (55555, 34567, 'West Vancouver', 'Skye Hotels', 3, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (33333, 45678, 'Hillendale', 'Asco', 3, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (11111, 34567, 'Burnaby', 'Skye Hotels', 3, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (55555, 12345, 'Barrhaven', 'Milton', 4, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (22222, 12345, 'Barrhaven', 'Milton', 5, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (33333, 12345, 'South Keys', 'Milton', 3, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (55555, 56789, 'Oakridge', 'Star co.', 3, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (22222, 56789, 'Lambeth', 'Star co.', 5, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (11111, 23456, 'Scarborough', 'Larriott', 2, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (10111, 56789, 'Summerside', 'Star co.', 3, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (77777, 23456, 'York', 'Larriott', 2, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (88888, 12345, 'Gloucester', 'Milton', 3, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (55555, 23456, 'Scarborough', 'Larriott', 4, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (88888, 34567, 'Burnaby', 'Skye Hotels', 5, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (99999, 45678, 'Reddendale', 'Asco', 4, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (44444, 34567, 'Surrey', 'Skye Hotels', 2, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (55555, 45678, 'Glenburnie', 'Asco', 2, '5');
-INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (66666, 12345, 'Orleans', 'Milton', 5, '5');
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (11111, 12345, 'Kanata', 'Milton', 4, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (33333, 56789, 'River Bend', 'Star co.', 4, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (44444, 45678, 'Gardiners', 'Asco', 5, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (99999, 56789, 'River Bend', 'Star co.', 5, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (66666, 56789, 'Stoneybrook', 'Star co.', 5, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (77777, 45678, 'Westwoods', 'Asco', 4, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (44444, 12345, 'Orleans', 'Milton', 3, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (33333, 34567, 'Richmond', 'Skye Hotels', 5, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (66666, 34567, 'North Vancouver', 'Skye Hotels', 4, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (10111, 45678, 'Alwington', 'Asco', 3, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (99999, 23456, 'Etobicoke', 'Larriott', 5, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (66666, 23456, 'Markham', 'Larriott', 1, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (11111, 45678, 'Alwington', 'Asco', 5, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (22222, 23456, 'Mississauga', 'Larriott', 4, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (77777, 12345, 'Stittsville', 'Milton', 2, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (33333, 23456, 'Markham', 'Larriott', 5, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (11111, 56789, 'Byron', 'Star co.', 3, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (22222, 34567, 'Surrey', 'Skye Hotels', 4, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (44444, 56789, 'Summerside', 'Star co.', 4, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (66666, 45678, 'Inner Harbour', 'Asco', 4, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (77777, 34567, 'Richmond', 'Skye Hotels', 5, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (11000, 56789, 'Blackfriars', 'Star co.', 4, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (44444, 23456, 'Vaughan', 'Larriott', 3, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (88888, 45678, 'Polson Park', 'Asco', 5, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (88888, 23456, 'Brampton', 'Larriott', 4, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (77777, 56789, 'Byron', 'Star co.', 2, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (88888, 56789, 'Bostwick', 'Star co.', 2, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (22222, 45678, 'Inner Harbour', 'Asco', 3, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (55555, 34567, 'West Vancouver', 'Skye Hotels', 3, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (33333, 45678, 'Hillendale', 'Asco', 3, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (11111, 34567, 'Burnaby', 'Skye Hotels', 3, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (55555, 12345, 'Barrhaven', 'Milton', 4, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (22222, 12345, 'Barrhaven', 'Milton', 5, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (33333, 12345, 'South Keys', 'Milton',5, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (55555, 56789, 'Oakridge', 'Star co.',5, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (22222, 56789, 'Lambeth', 'Star co.', 5, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (11111, 23456, 'Scarborough', 'Larriott', 2, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (10111, 56789, 'Summerside', 'Star co.', 3, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (77777, 23456, 'York', 'Larriott', 2, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (88888, 12345, 'Gloucester', 'Milton', 3, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (55555, 23456, 'Scarborough', 'Larriott', 4, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (88888, 34567, 'Burnaby', 'Skye Hotels', 5, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (99999, 45678, 'Reddendale', 'Asco', 4, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (44444, 34567, 'Surrey', 'Skye Hotels', 2, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (55555, 45678, 'Glenburnie', 'Asco', 2, 5);
+INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (66666, 12345, 'Orleans', 'Milton', 5, 5);
 
 
 --
@@ -1051,7 +1051,7 @@ ALTER TABLE ONLY relational_schema.booking
 --
 
 ALTER TABLE ONLY relational_schema.booking
-    ADD CONSTRAINT booking_room_num_hotel_id_chain_id_fkey FOREIGN KEY (room_num, hotel_id, chain_id) REFERENCES relational_schema.room(room_num, chain_id, hotel_id);
+    ADD CONSTRAINT booking_room_num_hotel_id_chain_id_fkey FOREIGN KEY (room_num, hotel_id, chain_id) REFERENCES relational_schema.room(room_num, hotel_id, chain_id);
 
 
 --
@@ -1114,7 +1114,7 @@ ALTER TABLE ONLY relational_schema.has
 --
 
 ALTER TABLE ONLY relational_schema.has
-    ADD CONSTRAINT has_room_num_hotel_id_chain_id_fkey FOREIGN KEY (room_num, hotel_id, chain_id) REFERENCES relational_schema.room(room_num, chain_id, hotel_id);
+    ADD CONSTRAINT has_room_num_hotel_id_chain_id_fkey FOREIGN KEY (room_num, hotel_id, chain_id) REFERENCES relational_schema.room(room_num, hotel_id, chain_id);
 
 
 --
@@ -1177,7 +1177,7 @@ ALTER TABLE ONLY relational_schema.renting
 --
 
 ALTER TABLE ONLY relational_schema.renting
-    ADD CONSTRAINT renting_room_num_hotel_id_chain_id_fkey FOREIGN KEY (room_num, hotel_id, chain_id) REFERENCES relational_schema.room(room_num, chain_id, hotel_id);
+    ADD CONSTRAINT renting_room_num_hotel_id_chain_id_fkey FOREIGN KEY (room_num, hotel_id, chain_id) REFERENCES relational_schema.room(room_num, hotel_id, chain_id);
 
 
 --

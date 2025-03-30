@@ -1,9 +1,6 @@
 package com;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,17 +60,24 @@ public class RoomService {
      * @return List of com.Room from database
      * @throws Exception when trying to connect to database
      */
-    public static List<Room> getFilteredRooms(String chainName, String address, int rating, int price, String capacity) throws Exception {
+    public static List<Room> getFilteredRooms(String chainName, String address, String ratingDetail, int rating, int price, String capacity, Date start, Date end, int minHotelSize) throws Exception {
 
-
-        String sql = "SELECT relational_schema.room.* FROM relational_schema.room NATURAL JOIN relational_schema.hotel NATURAL JOIN relational_schema.hotel_chain WHERE rating = ? AND price < ? AND capacity = ?";
+        String sql = "SELECT relational_schema.room.* " +
+                        "FROM relational_schema.room NATURAL JOIN relational_schema.hotel NATURAL JOIN relational_schema.hotel_chain " +
+                        "WHERE rating "+ratingDetail+" ? AND price < ? AND capacity = ? AND num_of_room >= ? ";
 
         if (!(address.equals("All"))){
-            sql += "AND address = "+address;
+            sql += " AND address = ? ";
         }
         if (!(chainName.equals("All"))){
-            sql += "AND chain_name = "+chainName;
+            sql += " AND chain_name = ? ";
         }
+
+         sql += " EXCEPT " +
+                        "((SELECT relational_schema.room.* FROM relational_schema.booking NATURAL JOIN relational_schema.room WHERE NOT (booking_end_date<? OR booking_start_date>?)) " +
+                        "UNION " +
+                        "(SELECT relational_schema.room.* FROM relational_schema.renting NATURAL JOIN relational_schema.room WHERE NOT (end_date<? OR start_date>?)))";
+
 
         ConnectionDB db = new ConnectionDB();
 
@@ -84,9 +88,26 @@ public class RoomService {
 
             PreparedStatement stmt = con.prepareStatement(sql);
 
-            stmt.setInt(1, rating);
-            stmt.setInt(2, price);
-            stmt.setString(3, capacity);
+            int index = 1;
+            stmt.setInt(index++, rating);
+            stmt.setInt(index++, price);
+            stmt.setString(index++, capacity);
+            stmt.setInt(index++, minHotelSize);
+
+            if (!(address.equals("All"))){
+                stmt.setString(index++, address);
+            }
+
+            if (!(chainName.equals("All"))) {
+                stmt.setString(index++, chainName);
+            }
+
+            stmt.setDate(index++, start);
+            stmt.setDate(index++, end);
+            stmt.setDate(index++, start);
+            stmt.setDate(index++, end);
+
+            System.out.println(stmt);
 
             ResultSet rs = stmt.executeQuery();
 

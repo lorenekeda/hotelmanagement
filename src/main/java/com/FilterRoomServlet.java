@@ -5,6 +5,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+import java.sql.Date;
 import java.util.List;
 
 @WebServlet("/filterRoomServlet")
@@ -16,16 +17,24 @@ public class FilterRoomServlet extends HttpServlet {
             String location = request.getParameter("Area");
             String capacity = request.getParameter("Capacity");
             String num = request.getParameter("Price");
-            String start = request.getParameter("StartDate");
-            String end = request.getParameter("EndDate");
+            String size = request.getParameter("HotelSize");
+            Date start = Date.valueOf(request.getParameter("StartDate"));
+            Date end = Date.valueOf(request.getParameter("EndDate"));
 
             int price = 0;
             if (!(num.isEmpty())) {
                 price = Integer.parseInt(num);
             }
+
+            int minHotelSize = 0;
+            if (!(size.isEmpty())) {
+                minHotelSize = Integer.parseInt(size);
+            }
+
+            String ratingDetail = request.getParameter("RatingDetail");
             int rating = Integer.parseInt(request.getParameter("Rating"));
 
-            List<Room> filteredRooms = RoomService.getFilteredRooms(chain, location, rating, price, capacity);
+            List<Room> filteredRooms = RoomService.getFilteredRooms(chain, location, ratingDetail, rating, price, capacity, start, end, minHotelSize);
 
             request.setAttribute("filteredRooms", filteredRooms);
             request.setAttribute("start", start);

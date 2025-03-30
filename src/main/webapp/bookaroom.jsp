@@ -52,29 +52,40 @@
             <select id="Chain" name="Chain">
                 <option value="All">All</option>
                 <% for (HotelChain chain : chains) { %>
-                    <option value=<%= chain.getChainName() %>> <%= chain.getChainName() %></option>
+                    <option value="<%= chain.getChainName() %>"> <%= chain.getChainName() %></option>
                 <% } %>
             </select>
 
-            <label for="Rating">Rating:</label>
-            <select id="Rating" name="Rating">
-                <option value=1>1</option>
-                <option value=2>2</option>
-                <option value=3>3</option>
-                <option value=4>4</option>
-                <option value=5>5</option>
-            </select>
+            <div class="filter-rating">
+                <label for="RatingDetail">Rating:</label>
+                <select id="RatingDetail" name="RatingDetail">
+                    <option value="=">Exactly</option>
+                    <option value=">=">At least</option>
+                </select>
+
+                <label for="Rating"></label>
+                <select id="Rating" name="Rating">
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                    <option value=4>4</option>
+                    <option value=5>5</option>
+                </select>
+            </div>
 
             <label for="Area">Area:</label>
             <select id="Area" name="Area">
                 <option value="All">All</option>
                 <% for (String area : locations) { %>
-                    <option value=<%=area%>> <%= area %></option>
+                    <option value="<%=area%>"> <%= area %></option>
                 <% } %>
             </select>
 
             <label for="Price">Max Price $:</label>
-            <input type="number" placeholder="0" min="0" id="Price" name="Price">
+            <input type="number" placeholder="0" min="0" id="Price" name="Price" required>
+
+            <label for="HotelSize">Min Hotel Size:</label>
+            <input type="number" placeholder="0" min="0" id="HotelSize" name="HotelSize" required>
 
             <label for="Capacity">Capacity:</label>
             <select id="Capacity" name="Capacity">
@@ -87,10 +98,10 @@
             </select>
 
             <label for="StartDate">Start Date:</label>
-            <input type="date" id="StartDate" name="StartDate">
+            <input type="date" id="StartDate" name="StartDate" required>
 
             <label for="EndDate">End Date:</label>
-            <input type="date" id="EndDate" name="EndDate">
+            <input type="date" id="EndDate" name="EndDate" required>
 
             <button type="submit">Filter</button>
         </form>
@@ -103,7 +114,7 @@
             <h1 style="margin-top: 5rem;">No Rooms found!</h1>
         <% } else if (rooms != null) { %>
             <% for (Room room : rooms) { %>
-                <div class="room-item">
+                <div>
                     <form action="createBooking" method="post">
                         <input type="hidden" id="start" name="start" value= <%=request.getAttribute("start") %> >
                         <input type="hidden" id="end" name="end" value= <%=request.getAttribute("end") %> >
@@ -111,7 +122,7 @@
                         <input type="hidden" id="hId" name="hId" value= <%=room.getHotelId() %> >
                         <input type="hidden" id="rNum" name="rNum" value= <%=room.getRoomNum() %> >
 
-                        <button type="submit">Room Number: <%= room.getRoomNum() %><br>
+                        <button onclick="return confirm('Book this room?)" class="button-room "type="submit">Room Number: <%= room.getRoomNum() %><br>
                                               View: <%= room.getView() %><br>
                                               Price: <%= room.getPrice() %><br>
                                               Capacity: <%= room.getCapacity() %>
@@ -159,6 +170,12 @@
         flex-wrap: wrap;
     }
 
+    .filter-rating {
+        display: flex;
+        justify-content: left;
+        flex-wrap: wrap;
+    }
+
     .filter-section select {
         padding: 5px;
         border-radius: 5px;
@@ -174,6 +191,7 @@
 
     .button-room {
         width: 75%;
+        font-family: Georgia, 'Times New Roman', Times, serif;
         border: none;
         border-radius: 10px;
         margin: 10px;
