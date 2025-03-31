@@ -45,9 +45,12 @@ public class FilterRoomByHotelServlet extends HttpServlet {
             logger.info("got the price"+price);
             logger.info("got the hotelsize1");
             int minHotelSize = 0;
-            if (!(size.isEmpty())) {
-                minHotelSize = Integer.parseInt(size);
-
+            try {
+                if (size != null && !size.isEmpty()) {
+                    minHotelSize = Integer.parseInt(size);
+                }
+            } catch (NumberFormatException e) {
+                logger.severe("Invalid hotel size: " + size);
             }
             //it stops logging here
             logger.info("got the hotelsize");
