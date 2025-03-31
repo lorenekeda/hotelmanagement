@@ -102,6 +102,50 @@ public class BookingService {
     }
 
     /**
+     * Returns ALL bookings of a customer, past and present
+     * @param customerID
+     * @return
+     * @throws Exception
+     */
+    public static List<Booking> getAllCustomerBookings(String customerID) throws Exception {
+        String sql = "SELECT * FROM relational_schema.booking WHERE customer_id = ? ";
+        ConnectionDB db = new ConnectionDB();
+
+        List<Booking> bookings = new ArrayList<>();
+        try (Connection con = db.getConnection()) {
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, customerID);
+
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                // create com.Booking object from result
+                Booking booking = new Booking(
+                        rs.getInt("chain_id"),
+                        rs.getInt("hotel_id"),
+                        rs.getInt("room_num"),
+                        rs.getString("booking_start_date"),
+                        rs.getString("booking_end_date"),
+                        rs.getString("customer_id")
+                );
+
+                bookings.add(booking);
+            }
+
+            rs.close();
+            stmt.close();
+            con.close();
+            db.close();
+
+            return bookings;
+
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+
+    }
+    /**
      * Method to get all Booking that belong to a Customer with no matching Renting
      *
      * @return List of com.Booking from database
@@ -204,9 +248,11 @@ public class BookingService {
     public static void createBooking(Date start, Date end, Integer chainId, Integer hotelId, Integer roomNum, String customerId) throws Exception {
         String sql = "INSERT INTO relational_schema.booking (booking_start_date, booking_end_date, room_num, customer_id, hotel_id, chain_id) VALUES (?, ?, ?, ?, ?, ?)";
 
+        String sqlArchive = "INSERT INTO relational_schema.archive (start_date, room_num, hotel_id, chain_id) VALUES (?, ?, ?, ?)";
+
         try (Connection con = new ConnectionDB().getConnection();
 
-            PreparedStatement stmt = con.prepareStatement(sql)) {
+             PreparedStatement stmt = con.prepareStatement(sql)) {
             stmt.setDate(1, start);
             stmt.setDate(2, end);
             stmt.setInt(3, roomNum);
@@ -215,6 +261,20 @@ public class BookingService {
             stmt.setInt(6, chainId);
 
             stmt.executeUpdate();
+
+        } catch (Exception e) {
+            throw new Exception(e.getMessage(), e);
+        }
+
+        try (Connection con = new ConnectionDB().getConnection();
+
+             PreparedStatement stmt2 = con.prepareStatement(sqlArchive)) {
+            stmt2.setDate(1, start);
+            stmt2.setInt(2, roomNum);
+            stmt2.setInt(3, hotelId);
+            stmt2.setInt(4, chainId);
+
+            stmt2.executeUpdate();
 
         } catch (Exception e) {
             throw new Exception(e.getMessage(), e);

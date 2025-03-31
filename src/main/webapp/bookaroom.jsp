@@ -41,6 +41,19 @@
     <title>Hotel Room Filter</title>
 </head>
 <body>
+    <%
+        Boolean bookingMade = (Boolean) request.getAttribute("bookingMade");
+    %>
+    <%
+        if (bookingMade != null && bookingMade) {
+    %>
+        <script type="text/javascript">
+            alert("Your booking was successful!");
+        </script>
+    <%
+        }
+    %>
+
     <div class="container1">
         <div class="title">
             <h1>Book A Room</h1>

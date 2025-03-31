@@ -57,6 +57,8 @@
              <label for="customer">Customer</label><br><br>
              <input type="radio" id="employee" name="radiob" value="employee" >
                    <label for="employee">Employee</label><br> <br>
+                    <input type="radio" id="manager" name="radiob" value="manager" >
+                         <label for="manager">Manager</label><br> <br>
            <button id="signinbutton" >Sign in</button>
 
 

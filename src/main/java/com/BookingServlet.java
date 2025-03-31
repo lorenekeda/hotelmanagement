@@ -23,6 +23,7 @@ public class BookingServlet extends HttpServlet  {
 
         try {
             BookingService.createBooking(start, end, chainId, hotelId, roomNum, customerId);
+            request.setAttribute("bookingMade", true);
 
         } catch (Exception e) {
             throw new RuntimeException(e);

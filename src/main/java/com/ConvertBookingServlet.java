@@ -22,8 +22,16 @@ public class ConvertBookingServlet extends HttpServlet  {
         String customerId = request.getParameter("custId");
         Integer employeeSsn = Integer.parseInt(request.getParameter("eSsn"));
 
+        Integer cardNumber = Integer.parseInt(request.getParameter("CardNumber"));
+        Integer cvv = Integer.parseInt(request.getParameter("Cvv"));
+        String expiry = request.getParameter("ExpiryDate");
+
         try {
-            RentingService.createRenting(start, end, chainId, hotelId, roomNum, customerId, employeeSsn);
+            if(!(PaymentService.checkSpecificPayment(cardNumber))){
+                PaymentService.createPayment(cardNumber,cvv,expiry,customerId);
+            }
+            RentingService.createRenting(start, end, chainId, hotelId, roomNum, customerId, employeeSsn, cardNumber);
+            request.setAttribute("bookingConvert", true);
 
         } catch (Exception e) {
             throw new RuntimeException(e);

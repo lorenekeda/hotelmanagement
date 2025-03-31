@@ -56,7 +56,7 @@ public class LoginServlet extends HttpServlet  {
                 throw new RuntimeException(e);
             }
     }
-        else if (type.equals("employee")){
+        else if (type.equals("employee")||type.equals("manager")){
             logger.info("checking employee instead!!!!");
             try {
                 //IF IT IS AN EMPLOYEE THE USERNAME WILL BE AN INTEGER
