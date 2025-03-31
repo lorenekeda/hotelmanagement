@@ -76,7 +76,7 @@
                             <label for="Cvv">CVV:</label>
                             <input type="number" placeholder="0" min="100" max="999" id="Cvv" name="Cvv" required>
                             <label for="ExpiryDate">Expiry Date:</label>
-                            <input type="text" placeholder="here" id="ExpiryDate" name="ExpiryDate" required>
+                            <input type="month" placeholder="here" id="ExpiryDate" name="ExpiryDate" required>
                         </button>
                     </form>
                 </div>
