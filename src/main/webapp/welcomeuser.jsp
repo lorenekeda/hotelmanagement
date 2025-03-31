@@ -13,7 +13,7 @@
     <nav class="menu">
         <ul>
             <li><a>About Us</a></li>
-            <li><a>About the Hotels</a></li>
+            <li><a href="aboutthehotels.jsp">About the Hotels</a></li>
         </ul>
     </nav>
     <div class="welcome-box">
@@ -33,7 +33,7 @@
                         <h2>Employee Dashboard</h2>
                         <p>Welcome, Employee. You have access to management features.</p>
                         <a href="rentaroom.jsp">Rent a room for a customer</a><br>
-                        <a href="viewcustomerbookings.jsp">View all customer bookings</a>
+                        <a href="viewcustomerbookings.jsp">Convert customer bookings</a>
             <%
 
                 // if it is a customer then show these options
@@ -53,7 +53,8 @@
                     <h2>Manager Dashboard</h2>
                   <p>Welcome, Manager. You have access to management features.</p>
                  <a href="rentaroom.jsp">Rent A Room For A Customer</a><br>
-                 <a href="viewcustomerbookings.jsp">View All Customer Bookings</a><br>
+                 <a href="viewcustomerbookings.jsp">Convert Customer Bookings</a><br>
+                 <a href="archive.jsp">View Booking And Renting Archive</a><br>
                  <a href="changeinfo.jsp">Change Information</a>
                  <a href="deletepage.jsp">Delete Information</a>
                  <a href="createpage.jsp">Add Information</a>

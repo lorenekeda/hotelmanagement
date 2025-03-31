@@ -34,7 +34,7 @@
     <nav class="menu">
         <ul>
             <li><a>About Us</a></li>
-            <li><a>About the Hotels</a></li>
+            <li><a href="aboutthehotels.jsp">About the Hotels</a></li>
         </ul>
     </nav>
 
@@ -70,9 +70,6 @@
 <%--            <a href="changecustomer.jsp" class="customerinfo-button">TEMPORARY BUTTON TO VIEW CUSTOMER CHANGE PAGE</a>--%>
 <%--            <a href="changehotel.jsp" class="hotelchange-button">TEMP BUTTON TO VIEW HOTEL UPDATE PAGE</a>--%>
 <%--            <a href="changeinfo.jsp" class="infochange-button">TEMP BUTTON TO VIEW INFORMATION UPDATE PAGE</a>--%>
-            <a href="viewcustomerbookings.jsp" class="room-button">TEMP BUTTON TO view customer booking PAGE</a>
-            <a href="aboutthehotels.jsp" class="room-button">TEMP BUTTON TO view about the hotels PAGE</a>
-            <a href="archive.jsp" class="room-button">TEMP BUTTON TO archive PAGE</a>
 <%--            <a href="createpage.jsp" class="room-button">TEMP BUTTON TO create PAGE</a>--%>
 <%--            <a href="deletepage.jsp" class="room-button">TEMP BUTTON TO delete PAGE</a>--%>
 
