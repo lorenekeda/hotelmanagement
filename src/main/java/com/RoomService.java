@@ -363,6 +363,139 @@ public class RoomService {
 
     }
 
+    // room amenity
+    public static boolean updateRoomAmenity(int hotelId, int chainId, String roomNum, String amenity) throws Exception {
+        String sql = "UPDATE relational_schema.room_amenity SET  amenity = ? WHERE hotel_id = ? AND chain_id = ? AND room_num = ?;";
+
+        try (Connection con = new ConnectionDB().getConnection();
+             PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            stmt.setString(1, amenity);
+            stmt.setInt(2, hotelId);
+            stmt.setInt(3, chainId);
+            stmt.setInt(4, Integer.parseInt(roomNum));
+
+
+            int rowsUpdated = stmt.executeUpdate();
+            return rowsUpdated > 0; // Returns true if update was successful
+
+        } catch (SQLException e) {
+            throw new SQLException("Error updating room amenity info: " + e.getMessage(), e);
+        }
+
+    }
+    public static boolean deleteRoomAmenity(int hotelId, int chainId, String roomNum, String amenity) throws SQLException {
+        String sql = "DELETE FROM relational_schema.room_amenity " +
+                "WHERE hotel_id = ? AND chain_id = ? AND room_num = ? AND amenity = ?;";
+
+        try (Connection con = new ConnectionDB().getConnection();
+             PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            stmt.setInt(1, hotelId);
+            stmt.setInt(2, chainId);
+            stmt.setInt(3, Integer.parseInt(roomNum));
+            stmt.setString(4, amenity);
+
+
+            int rowsDeleted = stmt.executeUpdate();
+            return rowsDeleted > 0;
+
+        } catch (SQLException e) {
+            throw new SQLException("Error deleting room amenity: " + e.getMessage(), e);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static boolean createRoomAmenity(int hotelId, int chainId,String roomNum, String amenity) throws SQLException {
+        String sql = "INSERT INTO relational_schema.room_amenity (hotel_id, chain_id, room_num, amenity) VALUES (?, ?, ?, ?);";
+
+        try (Connection con = new ConnectionDB().getConnection();
+             PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            stmt.setInt(1, hotelId);
+            stmt.setInt(2, chainId);
+            stmt.setInt(3, Integer.parseInt(roomNum));
+            stmt.setString(4, amenity);
+
+
+            int rowsInserted = stmt.executeUpdate();
+            return rowsInserted > 0;
+
+        } catch (SQLException e) {
+            throw new SQLException("Error adding room amenity info: " + e.getMessage(), e);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
+    //room damage
+
+    public static boolean updateRoomDamage(int hotelId, int chainId, String roomNum, String damage) throws Exception {
+        String sql = "UPDATE relational_schema.room_damage SET   damage = ? WHERE hotel_id = ? AND chain_id = ? AND room_num = ?;";
+
+        try (Connection con = new ConnectionDB().getConnection();
+             PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            stmt.setString(1, damage);
+            stmt.setInt(2, hotelId);
+            stmt.setInt(3, chainId);
+            stmt.setInt(4, Integer.parseInt(roomNum));
+
+
+            int rowsUpdated = stmt.executeUpdate();
+            return rowsUpdated > 0; // Returns true if update was successful
+
+        } catch (SQLException e) {
+            throw new SQLException("Error updating room damage info: " + e.getMessage(), e);
+        }
+
+    }
+    public static boolean deleteRoomDamage(int hotelId, int chainId, String roomNum, String damage) throws SQLException {
+        String sql = "DELETE FROM relational_schema.room_damage " +
+                "WHERE hotel_id = ? AND chain_id = ? AND room_num = ? AND damage = ?;";
+
+        try (Connection con = new ConnectionDB().getConnection();
+             PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            stmt.setInt(1, hotelId);
+            stmt.setInt(2, chainId);
+            stmt.setInt(3, Integer.parseInt(roomNum));
+            stmt.setString(4, damage);
+
+            int rowsDeleted = stmt.executeUpdate();
+            return rowsDeleted > 0;
+
+        } catch (SQLException e) {
+            throw new SQLException("Error deleting room damage: " + e.getMessage(), e);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static boolean createRoomDamage(int hotelId, int chainId, String roomNum, String damage) throws SQLException {
+        String sql = "INSERT INTO relational_schema.room_damage (hotel_id, chain_id, room_num, damage) VALUES (?, ?, ?, ?);";
+
+        try (Connection con = new ConnectionDB().getConnection();
+             PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            stmt.setInt(1, hotelId);
+            stmt.setInt(2, chainId);
+            stmt.setInt(3, Integer.parseInt(roomNum));
+            stmt.setString(4, damage);
+
+
+            int rowsInserted = stmt.executeUpdate();
+            return rowsInserted > 0;
+
+        } catch (SQLException e) {
+            throw new SQLException("Error adding room damage info: " + e.getMessage(), e);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
 
 
 

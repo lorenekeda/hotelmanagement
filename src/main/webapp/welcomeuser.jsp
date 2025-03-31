@@ -52,9 +52,11 @@
                     %>
                     <h2>Manager Dashboard</h2>
                   <p>Welcome, Manager. You have access to management features.</p>
-                 <a href="rentaroom.jsp">Rent a room for a customer</a><br>
-                 <a href="viewcustomerbookings.jsp">View all customer bookings</a><br>
-                 <a href="changeinfo.jsp">Change hotel information</a>
+                 <a href="rentaroom.jsp">Rent A Room For A Customer</a><br>
+                 <a href="viewcustomerbookings.jsp">View All Customer Bookings</a><br>
+                 <a href="changeinfo.jsp">Change Information</a>
+                 <a href="deletepage.jsp">Delete Information</a>
+                 <a href="createpage.jsp">Add Information</a>
            <%     }
            }
             %>

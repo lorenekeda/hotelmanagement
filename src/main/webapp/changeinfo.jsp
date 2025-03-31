@@ -94,6 +94,8 @@
     <a class="update-option" href="changehotel.jsp">Update Hotel Information</a>
     <a class="update-option" href="changeemployee.jsp">Update Employee Information</a>
     <a class="update-option" href="changeroom.jsp">Update Room Information</a>
+    <a class="update-option" href="changeamenity.jsp">Update Room Amenity Information</a>
+    <a class="update-option" href="changedamage.jsp">Update Room Damage Information</a>
 
     <button class="update-option" type="button" onclick="window.location.href='index.jsp'">
         Home

@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: lorenekeda
-  Date: 30.03.25
-  Time: 16:34
+  Date: 31.03.25
+  Time: 11:02
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -10,16 +10,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Room Information</title>
+    <title>Delete Room Amenity Information</title>
 </head>
 <body>
-<h2>Add Room Information</h2>
+<h2>Delete Room Amenity Information</h2>
 <% if (request.getAttribute("message") != null) { %>
 <div class="message ${messageType}">
     <%= request.getAttribute("message") %>
 </div>
 <% } %>
-<form action="addRoomServlet" method="post">
+<form action="deleteRoomAmenity" method="post">
     <label for="hotel_id">Hotel ID:</label>
     <input type="text" id="hotel_id" name="hotel_id" required><br>
 
@@ -29,23 +29,14 @@
     <label for="room_num">Room Number:</label>
     <input type="text" id="room_num" name="room_num" required><br>
 
-    <label for="price">Price:</label>
-    <input type="text" id="price" name="price" ><br>
-
-    <label for="view">View:</label>
-    <textarea id="view" name="view" ></textarea><br>
-
-    <label for="capacity">Capacity:</label>
-    <input type="text" id="capacity" name="capacity"><br>
-
-    <label for="extendable">Extendability:</label>
-    <input type="text" id="extendable" name="extendable"><br>
+    <label for="amenity">Amenity:</label>
+    <input type="text" id="amenity" name="amenity" required><br>
 
 
 
-    <button type="submit">Add Room</button>
+    <button type="submit">Delete Room Amenity</button>
     <div style="padding: 15px">
-        <button type="button" onclick="window.location.href='createpage.jsp'">
+        <button type="button" onclick="window.location.href='deletepage.jsp'">
             ← Back
         </button>
     </div>
@@ -163,4 +154,5 @@
     }
 </style>
 </html>
+
 

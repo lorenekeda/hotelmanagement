@@ -88,12 +88,14 @@
   </style>
 </head>
 <body>
-<h2>Select Information to Update</h2>
+<h2>Select Information to Add</h2>
 <div class="container">
   <a class="create-option" href="createcustomer.jsp">Add Customer Information</a>
   <a class="create-option" href="createhotel.jsp">Add Hotel Information</a>
   <a class="create-option" href="createemployee.jsp">Add Employee Information</a>
   <a class="create-option" href="createroom.jsp">Add Room Information</a>
+  <a class="create-option" href="createamenity.jsp">Add Room Amenity Information</a>
+  <a class="create-option" href="createdamage.jsp">Add Room Damage Information</a>
 </div>
 <div style="padding: 15px">
   <button type="button" onclick="window.location.href='index.jsp'">
