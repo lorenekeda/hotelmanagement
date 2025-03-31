@@ -32,7 +32,7 @@ public class FilterRoomByHotelServlet extends HttpServlet {
             logger.info("got the capacity"+capacity);
             String num = request.getParameter("Price");
             logger.info("got the price"+num);
-            String size = request.getParameter(String.valueOf(hotel.getNumOfRoom()));
+            int size = hotel.getNumOfRoom();
             logger.info("got the size"+String.valueOf(hotel.getNumOfRoom()));
             Date start = Date.valueOf(request.getParameter("StartDate"));
             Date end = Date.valueOf(request.getParameter("EndDate"));
@@ -44,14 +44,8 @@ public class FilterRoomByHotelServlet extends HttpServlet {
             }
             logger.info("got the price"+price);
             logger.info("got the hotelsize1");
-            int minHotelSize = 0;
-            try {
-                if (size != null && !size.isEmpty()) {
-                    minHotelSize = Integer.parseInt(size);
-                }
-            } catch (NumberFormatException e) {
-                logger.severe("Invalid hotel size: " + size);
-            }
+            int minHotelSize = size;
+
             //it stops logging here
             logger.info("got the hotelsize");
             logger.info("got the hotelsize"+ minHotelSize);
