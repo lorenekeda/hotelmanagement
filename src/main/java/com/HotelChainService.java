@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Logger;
+import java.util.logging.Level;
 
 public class HotelChainService {
 
@@ -52,6 +54,46 @@ public class HotelChainService {
         }
     }
 
+
+    /**
+     * Get Hotel Chain based on the chain ID.
+     * @param chainNum
+     * @return
+     * @throws Exception
+     */
+    public static HotelChain getHotelChain(int chainNum) throws Exception{
+        String sql = "SELECT * FROM relational_schema.hotel_chain WHERE chain_id = ?";
+
+        ConnectionDB db = new ConnectionDB();
+
+        Logger logger = Logger.getLogger(BookingService.class.getName());
+        logger.info(("inside hotlechain"));
+        //connect to database, catch any exceptions
+        try (Connection con = db.getConnection()) {
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setInt(1, chainNum);
+            ResultSet rs = stmt.executeQuery();
+            if(rs.next()){
+                HotelChain chain = new HotelChain(
+                        rs.getInt("chain_id"),
+                        rs.getString("chain_name"),
+                        rs.getInt("num_of_hotel")
+                );
+                logger.info("chain"+chain.getChainName());
+                return chain;
+            }
+
+
+
+
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+
+    return null;
+    }
+
     /**
      * Method to get average rating of HotelChains
      *
@@ -70,6 +112,7 @@ public class HotelChainService {
         try (Connection con = db.getConnection()) {
 
             PreparedStatement stmt = con.prepareStatement(sql);
+
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {

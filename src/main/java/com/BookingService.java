@@ -3,7 +3,8 @@ package com;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.logging.Logger;
+import java.util.logging.Level;
 public class BookingService {
 
     /**
@@ -110,7 +111,8 @@ public class BookingService {
     public static List<Booking> getAllCustomerBookings(String customerID) throws Exception {
         String sql = "SELECT * FROM relational_schema.booking WHERE customer_id = ? ";
         ConnectionDB db = new ConnectionDB();
-
+       Logger logger = Logger.getLogger(BookingService.class.getName());
+       logger.info("in the booking service");
         List<Booking> bookings = new ArrayList<>();
         try (Connection con = db.getConnection()) {
 
@@ -129,7 +131,7 @@ public class BookingService {
                         rs.getString("booking_end_date"),
                         rs.getString("customer_id")
                 );
-
+                logger.info("booking in list is"+booking.getChainId());
                 bookings.add(booking);
             }
 

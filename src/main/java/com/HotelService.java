@@ -58,6 +58,53 @@ public class HotelService {
         }
     }
 
+    /**
+     * Get the hotel based on their hotel ID.
+     * @param hotelID
+     * @return
+     * @throws Exception
+     */
+    public static Hotel getSpecificHotel(int hotelID) throws Exception {
+
+        String sql = "SELECT * FROM relational_schema.hotel WHERE hotel_id = ?";
+
+        ConnectionDB db = new ConnectionDB();
+
+
+
+        //connect to database, catch any exceptions
+        try (Connection con = db.getConnection()) {
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setInt(1, hotelID);
+            ResultSet rs = stmt.executeQuery();
+
+           if (rs.next()) {
+                // create com.Hotel object from result
+                Hotel hotel = new Hotel(
+                        rs.getInt("chain_id"),
+                        rs.getInt("hotel_id"),
+                        rs.getString("name"),
+                        rs.getString("address"),
+                        rs.getInt("rating"),
+                        rs.getInt("num_of_room")
+                );
+
+                return hotel;
+            }
+
+            rs.close();
+            stmt.close();
+            con.close();
+            db.close();
+
+            return null;
+
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
+
 
     /**
      * Method to get all locations that have a Hotel from the database
