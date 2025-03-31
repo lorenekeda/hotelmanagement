@@ -5,7 +5,7 @@
 -- Dumped from database version 17.2
 -- Dumped by pg_dump version 17.2
 
--- Started on 2025-03-31 13:24:42
+-- Started on 2025-03-31 13:36:14
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -229,15 +229,16 @@ CREATE TABLE relational_schema.hotel_phone (
 ALTER TABLE relational_schema.hotel_phone OWNER TO postgres;
 
 --
--- TOC entry 238 (class 1259 OID 33888)
+-- TOC entry 238 (class 1259 OID 33892)
 -- Name: hotel_room_capacity; Type: VIEW; Schema: relational_schema; Owner: postgres
 --
 
 CREATE VIEW relational_schema.hotel_room_capacity AS
- SELECT hotel_id,
+ SELECT chain_id,
+    hotel_id,
     sum(num_of_room) AS total_rooms
    FROM relational_schema.hotel
-  GROUP BY hotel_id;
+  GROUP BY chain_id, hotel_id;
 
 
 ALTER VIEW relational_schema.hotel_room_capacity OWNER TO postgres;
@@ -1235,7 +1236,7 @@ ALTER TABLE ONLY relational_schema.room
 REVOKE USAGE ON SCHEMA public FROM PUBLIC;
 
 
--- Completed on 2025-03-31 13:24:43
+-- Completed on 2025-03-31 13:36:14
 
 --
 -- PostgreSQL database dump complete
