@@ -38,6 +38,7 @@
         <div class="title">
             <h1>Convert Booking To Renting</h1>
             <p>Convert an existing booking to a renting</p>
+            <button type="button" onclick="window.location.href='welcomeuser.jsp'"> Home </button>
         </div>
     </div>
 

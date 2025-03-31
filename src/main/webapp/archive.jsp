@@ -34,6 +34,7 @@
     <div class="container1">
         <div class="title">
             <h1>View Booking & Renting Archive</h1>
+            <button type="button" onclick="window.location.href='welcomeuser.jsp'"> Home </button>
         </div>
     </div>
 

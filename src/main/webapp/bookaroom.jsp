@@ -59,6 +59,7 @@
         <div class="title">
             <h1>Book A Room</h1>
             <p>Search for the perfect room that fits all your needs!</p>
+            <button type="button" onclick="window.location.href='welcomeuser.jsp'"> Home </button>
         </div>
     </div>
 
