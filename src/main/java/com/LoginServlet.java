@@ -61,15 +61,17 @@ public class LoginServlet extends HttpServlet  {
             try {
                 //IF IT IS AN EMPLOYEE THE USERNAME WILL BE AN INTEGER
                 int empSSN = Integer.parseInt(request.getParameter("user"));
-                boolean validEmp = EmployeeService.checkSpecificEmployeeWithPassword(empSSN, password);
+                Employee validEmp = EmployeeService.checkSpecificEmployeeWithPassword(empSSN, password);
                 logger.info("checked if valid");
                 //if employee  exists
-                if (validEmp) {
+                if (validEmp !=null) {
                     logger.info("its valid");
                     //do the same http stuff if its an employee
                     HttpSession session = request.getSession();
                     session.setAttribute("user", empSSN);
                     session.setAttribute("type", type);
+                    session.setAttribute("hotel",validEmp.getHotelId() );
+                    session.setAttribute("chain",validEmp.getChainId() );
 
                     response.sendRedirect("welcomeuser.jsp");
                 } else {

@@ -25,10 +25,22 @@
     } catch (Exception e) {
         e.printStackTrace();
     }
-
+RoomService roomService = new RoomService();
     List<Room> rooms = (List<Room>) request.getAttribute("filteredRooms");
 
 %>
+ <%
+        Boolean rentingMade = (Boolean) request.getAttribute("rentingMade");
+    %>
+    <%
+        if (rentingMade != null && rentingMade) {
+    %>
+        <script type="text/javascript">
+            alert("Your renting was successful!");
+        </script>
+    <%
+        }
+    %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,10 +50,15 @@
     <title>Hotel Room Filter</title>
 </head>
 <body>
-
+<div class="container1">
+        <div class="title">
+            <h1>Rent A Room</h1>
+            <p>Rent a room for a customer</p>
+        </div>
+    </div>
 <div class="filter-section">
         <h2>Search Filter</h2>
-        <form id="filterForm" action="filterRoomServlet" method="get">
+        <form id="filterForm" action="filterRoomByHotelServlet" method="get">
 
             <div class="filter-rating">
                 <label for="RatingDetail">Rating:</label>
@@ -60,7 +77,7 @@
                 </select>
             </div>
 
-        <label for="Area">Area:</label>
+         <label for="Area">Area:</label>
                     <select id="Area" name="Area">
                         <option value="All">All</option>
                         <% for (String area : locations) { %>
@@ -89,7 +106,50 @@
 
                      <button type="submit" onclick="return validateDate()">Filter</button>
                  </form>
+
+ <label for="cusID">Customer Email:</label> <br>
+            <input type="text" id="cusID" name = "cusID"><br><br>
+            <label for="payment">Card Number:</label> <br>
+              <input type="text" id="payment" name = "payment"><br><br>
              </div>
+              <div class="container">
+                     <h1>Available Rooms</h1>
+
+                     <% if (rooms != null && rooms.size() == 0) { %>
+                         <h1 style="margin-top: 5rem;">No Rooms found!</h1>
+                     <% } else if (rooms != null) { %>
+                         <% for (Room room : rooms) { %>
+                             <div>
+                                 <form id="makeRenting" action="createRenting" method="post">
+                                     <input type="hidden" id="start" name="start" value= <%=request.getAttribute("start") %> >
+                                     <input type="hidden" id="end" name="end" value= <%=request.getAttribute("end") %> >
+                                     <input type="hidden" id="cId" name="cId" value= <%=room.getChainId() %> >
+                                     <input type="hidden" id="hId" name="hId" value= <%=room.getHotelId() %> >
+                                     <input type="hidden" id="rNum" name="rNum" value= <%=room.getRoomNum() %> >
+                                     <input type="hidden" id="custId" name="custId" placeholder="placeholder"  >
+                                     <input type="hidden" id="pay" name="pay" placeholder="placeholder" >
+                                       <script>
+                                       document.getElementById("cusID").addEventListener("input", function() {
+                                           document.getElementById("custId").value = this.value;
+                                       });
+                                        document.getElementById("payment").addEventListener("input", function() {
+                                              document.getElementById("pay").value = this.value;
+                                                      });
+                                       </script>
+                                     <button class="button-room "type="submit">
+                                              Room Number: <%= room.getRoomNum() %><br>
+                                               View: <%= room.getView() %><br>
+                                                   Price: <%= room.getPrice() %><br>
+                                                    Capacity: <%= room.getCapacity() %><br>
+                                              Amenities: <%= roomService.getRoomAmenities(room.getRoomNum(), room.getHotelId(), room.getChainId()) %> <br>
+                                           Damages: <%= roomService.getRoomDamages(room.getRoomNum(), room.getHotelId(), room.getChainId()) %>
+                                           </button>
+                                 </form>
+                             </div>
+                         <% } %>
+                         <% }
+                         %>
+                 </div>
 
         </body>
 <style>

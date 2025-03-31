@@ -106,7 +106,9 @@ public class RoomService {
      */
     public String getRoomDamages(Integer roomNum, Integer hotelId, Integer chainId) throws Exception {
 
-        String sql = "SELECT * FROM relational_schema.room_damage WHERE room_num=? AND hotel_id=? AND chain_id=?";
+        String sql = "SELECT * FROM relational_schema.room_damage " +
+                "WHERE room_num=? AND hotel_id=? AND chain_id=?";
+
 
         ConnectionDB db = new ConnectionDB();
 
@@ -142,6 +144,72 @@ public class RoomService {
         }
     }
 
+    public static List<Room> getRoomsForHotel(String chainID, String hotelID, String address, String ratingDetail, int rating, int price, String capacity, Date start, Date end, int minHotelSize) throws Exception {
+        String sql = "SELECT relational_schema.room.* " +
+                "FROM relational_schema.room NATURAL JOIN relational_schema.hotel" +
+                "WHERE rating "+ratingDetail+" ? AND price < ? AND capacity = ? AND num_of_room >= ? AND hotel_id = ? AND chain_id = ?";
+        if (!(address.equals("All"))){
+            sql += " AND address = ? ";
+        }
+
+
+        sql += " EXCEPT " +
+                "((SELECT relational_schema.room.* FROM relational_schema.booking NATURAL JOIN relational_schema.room WHERE NOT (booking_end_date<? OR booking_start_date>?)) " +
+                "UNION " +
+                "(SELECT relational_schema.room.* FROM relational_schema.renting NATURAL JOIN relational_schema.room WHERE NOT (end_date<? OR start_date>?)))";
+        ConnectionDB db = new ConnectionDB();
+
+        List<Room> rooms = new ArrayList<>();
+        try (Connection con = db.getConnection()) {
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+
+            int index = 1;
+            stmt.setInt(index++, rating);
+            stmt.setInt(index++, price);
+            stmt.setString(index++, capacity);
+            stmt.setInt(index++, minHotelSize);
+
+            if (!(address.equals("All"))){
+                stmt.setString(index++, address);
+            }
+
+
+
+            stmt.setDate(index++, start);
+            stmt.setDate(index++, end);
+            stmt.setDate(index++, start);
+            stmt.setDate(index++, end);
+
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                // create com.Room object from result
+                Room room = new Room(
+                        rs.getInt("chain_id"),
+                        rs.getInt("hotel_id"),
+                        rs.getInt("room_num"),
+                        rs.getString("view"),
+                        rs.getBoolean("extendable"),
+                        rs.getInt("price"),
+                        rs.getString("capacity")
+                );
+
+                rooms.add(room);
+            }
+
+            rs.close();
+            stmt.close();
+            con.close();
+            db.close();
+
+            return rooms;
+
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+
+    }
     /**
      * Method to get all com.Room from the database
      *

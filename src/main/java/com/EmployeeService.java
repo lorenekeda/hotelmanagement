@@ -80,13 +80,13 @@ public class EmployeeService {
     }
 
     /**
-     * Check if an employee exists in the databse using their SSN and password.
+     * Check if an employee exists in the databse using their SSN and password and return the employee.
      * @param empSSN
      * @param password
      * @return
      * @throws Exception
      */
-    public static boolean checkSpecificEmployeeWithPassword(int empSSN, String password) throws Exception {
+    public static Employee checkSpecificEmployeeWithPassword(int empSSN, String password) throws Exception {
         String sql = "SELECT * FROM relational_schema.employee WHERE employee_ssn = ? AND password = ?";
         ConnectionDB db = new ConnectionDB();
         try (Connection con = db.getConnection()) {
@@ -98,16 +98,27 @@ public class EmployeeService {
 
             // if there is no next that means it does not exist
             if (!rs.next()) {
-                return false;
+                return null;
             }
             else {
-                return true;
+                Employee emp = new Employee(
+                        rs.getInt("employee_ssn"),
+                        rs.getInt("chain_id"),
+                        rs.getInt("hotel_id"),
+                        rs.getString("first_name"),
+                        rs.getString("last_name"),
+                        rs.getString("address"),
+                        rs.getString("position"),
+                        rs.getString("password")
+                );
+                return emp;
             }
 
         } catch (Exception e) {
 
             throw new Exception(e.getMessage());
         }
+
     }
 
     public static boolean deleteEmployee(int hotelId, int chainId, int employeeSsn) throws SQLException {
