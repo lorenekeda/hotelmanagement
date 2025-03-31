@@ -42,9 +42,12 @@
         <% for (HotelChain chain : chains) { %>
             <div class="company">
                 <h2><%= chain.getChainName() %></h2>
-                <p>Come enjoy your stay at <%= chain.getChainName() %></p>
-                <p>With an average rating of <%= ratings.get(chain.getChainName()) %></p>
+                <p>Come enjoy your stay with us at <%= chain.getChainName() %></p>
+                <p>With headquarters in <%= hotelChainService.getChainAddresses(chain.getChainId()) %></p>
                 <p>And <%= chain.getNumOfHotel() %> hotels across <%= locations.get(chain.getChainName()) %> different locations</p>
+                <p>We boast an average rating of <%= ratings.get(chain.getChainName()) %></p>
+                <p>Contact us through our emails: <%= hotelChainService.getChainEmails(chain.getChainId()) %></p>
+                <p>Or chat with us by phone: <%= hotelChainService.getChainPhones(chain.getChainId()) %></p>
             </div>
         <% } %>
     </div>
@@ -67,6 +70,7 @@
 
     .company{
         padding: 10px;
+        text-align: center;
     }
 
     .company h2 {

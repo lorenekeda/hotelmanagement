@@ -116,7 +116,8 @@ public class HotelChainService {
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                info.put(rs.getString("chain_name"), rs.getDouble("average"));
+                Double rate = Math.round(rs.getDouble("average") * 100.0) / 100.0;
+                info.put(rs.getString("chain_name"), rate);
             }
 
             rs.close();
@@ -125,6 +126,132 @@ public class HotelChainService {
             db.close();
 
             return info;
+
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    /**
+     * Method to get emails for given Chain from the database
+     *
+     * @return String listing the emails for a Chain
+     * @throws Exception when trying to connect to database
+     */
+    public String getChainEmails(Integer chainId) throws Exception {
+
+        String sql = "SELECT c_email FROM relational_schema.chain_email WHERE chain_id=?";
+
+
+        ConnectionDB db = new ConnectionDB();
+
+        //connect to database, catch any exceptions
+        try (Connection con = db.getConnection()) {
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setInt(1, chainId);
+            ResultSet rs = stmt.executeQuery();
+
+            String emails = "";
+
+            while (rs.next()) {
+                emails += rs.getString("c_email") + ", ";
+            }
+
+            if (emails.isEmpty()){
+                emails = "N/A";
+            }
+
+            rs.close();
+            stmt.close();
+            con.close();
+            db.close();
+
+            return emails;
+
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    /**
+     * Method to get phone numbers for given Chain from the database
+     *
+     * @return String listing the phone numbers for a Chain
+     * @throws Exception when trying to connect to database
+     */
+    public String getChainPhones(Integer chainId) throws Exception {
+
+        String sql = "SELECT c_phone_number FROM relational_schema.chain_number WHERE chain_id=?";
+
+
+        ConnectionDB db = new ConnectionDB();
+
+        //connect to database, catch any exceptions
+        try (Connection con = db.getConnection()) {
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setInt(1, chainId);
+            ResultSet rs = stmt.executeQuery();
+
+            String phones = "";
+
+            while (rs.next()) {
+                phones += rs.getString("c_phone_number") + ", ";
+            }
+
+            if (phones.isEmpty()){
+                phones = "N/A";
+            }
+
+            rs.close();
+            stmt.close();
+            con.close();
+            db.close();
+
+            return phones;
+
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    /**
+     * Method to get addresses for given Chain from the database
+     *
+     * @return String listing the addresses for a Chain
+     * @throws Exception when trying to connect to database
+     */
+    public String getChainAddresses(Integer chainId) throws Exception {
+
+        String sql = "SELECT c_address FROM relational_schema.chain_address WHERE chain_id=?";
+
+
+        ConnectionDB db = new ConnectionDB();
+
+        //connect to database, catch any exceptions
+        try (Connection con = db.getConnection()) {
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setInt(1, chainId);
+            ResultSet rs = stmt.executeQuery();
+
+            String addresses = "";
+
+            while (rs.next()) {
+                addresses += rs.getString("c_address") + ", ";
+            }
+
+            if (addresses.isEmpty()){
+                addresses = "N/A";
+            }
+
+            rs.close();
+            stmt.close();
+            con.close();
+            db.close();
+
+            return addresses;
 
         } catch (Exception e) {
             throw new Exception(e.getMessage());
