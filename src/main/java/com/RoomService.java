@@ -147,7 +147,7 @@ public class RoomService {
     public static List<Room> getRoomsForHotel(int chainID, int hotelID, String address, String ratingDetail, int rating, int price, String capacity, Date start, Date end, int minHotelSize) throws Exception {
         String sql = "SELECT relational_schema.room.* " +
                 "FROM relational_schema.room NATURAL JOIN relational_schema.hotel " +
-                "WHERE rating "+ratingDetail+" ? AND price < ? AND capacity = ? AND num_of_room >= ? AND hotel_id = ? AND chain_id = ?";
+                "WHERE rating "+ratingDetail+" ? AND capacity = ? AND price <= ? AND num_of_room >= ? AND hotel_id = ? AND chain_id = ?";
         if (!(address.equals("All"))){
             sql += " AND address = ? ";
         }
@@ -166,8 +166,8 @@ public class RoomService {
 
             int index = 1;
             stmt.setInt(index++, rating);
-            stmt.setInt(index++, price);
             stmt.setString(index++, capacity);
+            stmt.setInt(index++, price);
             stmt.setInt(index++, minHotelSize);
             stmt.setInt(index++, hotelID);
             stmt.setInt(index++, chainID);
@@ -223,7 +223,7 @@ public class RoomService {
 
         String sql = "SELECT relational_schema.room.* " +
                         "FROM relational_schema.room NATURAL JOIN relational_schema.hotel NATURAL JOIN relational_schema.hotel_chain " +
-                        "WHERE rating "+ratingDetail+" ? AND price < ? AND capacity = ? AND num_of_room >= ? ";
+                        "WHERE rating "+ratingDetail+" ? AND capacity = ? AND price < ? AND num_of_room >= ? ";
 
         if (!(address.equals("All"))){
             sql += " AND address = ? ";
@@ -249,8 +249,8 @@ public class RoomService {
 
             int index = 1;
             stmt.setInt(index++, rating);
-            stmt.setInt(index++, price);
             stmt.setString(index++, capacity);
+            stmt.setInt(index++, price);
             stmt.setInt(index++, minHotelSize);
 
             if (!(address.equals("All"))){
