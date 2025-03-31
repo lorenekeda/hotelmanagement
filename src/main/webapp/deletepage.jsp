@@ -30,7 +30,7 @@
       align-items: center;
     }
 
-    .update-option {
+    .delete-option {
       margin: 15px;
       padding: 15px 30px;
       background-color: #63a7d1;
@@ -43,7 +43,7 @@
       text-align: center;
     }
 
-    .update-option:hover {
+    .delete-option:hover {
       cursor: pointer;
       box-shadow: 0px 0px 7px #487b9b;
     }

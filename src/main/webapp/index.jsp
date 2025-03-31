@@ -71,6 +71,8 @@
             <a href="viewcustomerbookings.jsp" class="room-button">TEMP BUTTON TO view customer booking PAGE</a>
             <a href="aboutthehotels.jsp" class="room-button">TEMP BUTTON TO view about the hotels PAGE</a>
             <a href="archive.jsp" class="room-button">TEMP BUTTON TO archive PAGE</a>
+            <a href="createpage.jsp" class="room-button">TEMP BUTTON TO create PAGE</a>
+            <a href="deletepage.jsp" class="room-button">TEMP BUTTON TO delete PAGE</a>
 
 
         </div>
