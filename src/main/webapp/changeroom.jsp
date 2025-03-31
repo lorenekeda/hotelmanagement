@@ -35,7 +35,7 @@
     <label for="view">View:</label>
     <textarea id="view" name="view" ></textarea><br>
 
-    <label for="capacity">Extendability:</label>
+    <label for="capacity">Capacity:</label>
     <input type="text" id="capacity" name="capacity"><br>
 
     <label for="extendable">Extendability:</label>
