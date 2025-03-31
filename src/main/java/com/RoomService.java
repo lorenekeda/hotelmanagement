@@ -144,9 +144,9 @@ public class RoomService {
         }
     }
 
-    public static List<Room> getRoomsForHotel(String chainID, String hotelID, String address, String ratingDetail, int rating, int price, String capacity, Date start, Date end, int minHotelSize) throws Exception {
+    public static List<Room> getRoomsForHotel(int chainID, int hotelID, String address, String ratingDetail, int rating, int price, String capacity, Date start, Date end, int minHotelSize) throws Exception {
         String sql = "SELECT relational_schema.room.* " +
-                "FROM relational_schema.room NATURAL JOIN relational_schema.hotel" +
+                "FROM relational_schema.room NATURAL JOIN relational_schema.hotel " +
                 "WHERE rating "+ratingDetail+" ? AND price < ? AND capacity = ? AND num_of_room >= ? AND hotel_id = ? AND chain_id = ?";
         if (!(address.equals("All"))){
             sql += " AND address = ? ";
@@ -169,6 +169,9 @@ public class RoomService {
             stmt.setInt(index++, price);
             stmt.setString(index++, capacity);
             stmt.setInt(index++, minHotelSize);
+            stmt.setInt(index++, hotelID);
+            stmt.setInt(index++, chainID);
+
 
             if (!(address.equals("All"))){
                 stmt.setString(index++, address);
