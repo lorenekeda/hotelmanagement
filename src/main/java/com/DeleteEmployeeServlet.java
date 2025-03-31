@@ -15,8 +15,8 @@ public class DeleteEmployeeServlet extends HttpServlet {
             throws ServletException, IOException {
 
         try {
-            int hotelId = Integer.parseInt(request.getParameter("hotel_id"));
             int chainId = Integer.parseInt(request.getParameter("chain_id"));
+            int hotelId = Integer.parseInt(request.getParameter("hotel_id"));
             int employeeSsn = Integer.parseInt(request.getParameter("employee_ssn"));
 
             boolean isDeleted = EmployeeService.deleteEmployee(hotelId, chainId, employeeSsn);
@@ -38,6 +38,6 @@ public class DeleteEmployeeServlet extends HttpServlet {
         }
 
         // Forward back to the HTML page
-        request.getRequestDispatcher("/deleteemployee.jsp").forward(request, response);
+        request.getRequestDispatcher("/deletepage.jsp").forward(request, response);
     }
 }

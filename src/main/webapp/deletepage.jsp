@@ -95,6 +95,11 @@
   <a class="delete-option" href="deleteemployee.jsp">Delete Employee Information</a>
   <a class="delete-option" href="deleteroom.jsp">Delete Room Information</a>
 </div>
+<div style="padding: 15px">
+  <button type="button" onclick="window.location.href='index.jsp'">
+    Home
+  </button>
+</div>
 
 </body>
 </html>

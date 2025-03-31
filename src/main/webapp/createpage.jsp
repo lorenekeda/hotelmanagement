@@ -95,6 +95,11 @@
   <a class="create-option" href="createemployee.jsp">Add Employee Information</a>
   <a class="create-option" href="createroom.jsp">Add Room Information</a>
 </div>
+<div style="padding: 15px">
+  <button type="button" onclick="window.location.href='index.jsp'">
+    Home
+  </button>
+</div>
 
 </body>
 </html>

@@ -17,12 +17,13 @@ public class AddRoomServlet extends HttpServlet {
         String view = request.getParameter("view");
         String price = request.getParameter("price");
         String extendable = request.getParameter("extendable");
+        String capacity = request.getParameter("capacity");
 
         try {
 
 
             // Call the updateHotel method
-            boolean addSuccess = RoomService.createRoom(hotelId, chainId, Boolean.parseBoolean(extendable), view, price, roomNum);
+            boolean addSuccess = RoomService.createRoom(hotelId, chainId, Boolean.parseBoolean(extendable), view, price, roomNum, capacity);
 
             if (addSuccess) {
                 request.setAttribute("message", "Room added successfully!");
