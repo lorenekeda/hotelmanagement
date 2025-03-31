@@ -14,6 +14,11 @@
 </head>
 <body>
 <h2>Update Hotel Information</h2>
+<% if (request.getAttribute("message") != null) { %>
+<div class="message ${messageType}">
+    <%= request.getAttribute("message") %>
+</div>
+<% } %>
 <form action="updateHotelServlet" method="post">
     <label for="hotel_id">Hotel ID:</label>
     <input type="text" id="hotel_id" name="hotel_id" required><br>
@@ -34,7 +39,28 @@
     <input type="text" id="num_of_room" name="num_of_room"><br>
 
     <button type="submit">Update Hotel</button>
+    <div style="padding: 15px">
+        <button type="button" onclick="window.location.href='changeinfo.jsp'">
+            ← Back
+        </button>
+    </div>
 </form>
+<script>
+    // Show message if it exists
+    document.addEventListener('DOMContentLoaded', function() {
+        const messageDiv = document.querySelector('.message');
+        if (messageDiv) {
+            messageDiv.style.display = 'block';
+
+            // Auto-hide success messages after 5 seconds
+            if (messageDiv.classList.contains('success')) {
+                setTimeout(() => {
+                    messageDiv.style.display = 'none';
+                }, 5000);
+            }
+        }
+    });
+</script>
 
 </body>
 <style>

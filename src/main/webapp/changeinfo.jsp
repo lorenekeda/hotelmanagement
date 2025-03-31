@@ -94,7 +94,17 @@
     <a class="update-option" href="changehotel.jsp">Update Hotel Information</a>
     <a class="update-option" href="changeemployee.jsp">Update Employee Information</a>
     <a class="update-option" href="changeroom.jsp">Update Room Information</a>
+
+    <button class="update-option" type="button" onclick="window.location.href='index.jsp'">
+        Home
+    </button>
+
+
+
 </div>
+
+
+
 
 </body>
 </html>

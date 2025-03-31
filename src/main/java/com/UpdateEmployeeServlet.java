@@ -12,8 +12,8 @@ import jakarta.servlet.ServletException;
 @WebServlet("/updateEmployeeServlet")
 public class UpdateEmployeeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int hotelId = Integer.parseInt(request.getParameter("hotel_id"));
         int chainId = Integer.parseInt(request.getParameter("chain_id"));
+        int hotelId = Integer.parseInt(request.getParameter("hotel_id"));
         int employeeSsn = Integer.parseInt(request.getParameter("employee_ssn"));
         String firstName = request.getParameter("first_name");
         String lastName = request.getParameter("last_name");

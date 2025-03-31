@@ -29,6 +29,7 @@
         e.printStackTrace();
     }
 
+    RoomService roomService = new RoomService();
     List<Room> rooms = (List<Room>) request.getAttribute("filteredRooms");
 
 %>
@@ -139,10 +140,13 @@
                         <input type="hidden" id="rNum" name="rNum" value= <%=room.getRoomNum() %> >
                         <input type="hidden" id="custId" name="custId" value= <%=customerID %> >
 
-                        <button class="button-room "type="submit">Room Number: <%= room.getRoomNum() %><br>
-                                              View: <%= room.getView() %><br>
-                                              Price: <%= room.getPrice() %><br>
-                                              Capacity: <%= room.getCapacity() %>
+                        <button class="button-room "type="submit">
+                            Room Number: <%= room.getRoomNum() %><br>
+                            View: <%= room.getView() %><br>
+                            Price: <%= room.getPrice() %><br>
+                            Capacity: <%= room.getCapacity() %><br>
+                            Amenities: <%= roomService.getRoomAmenities(room.getRoomNum(), room.getHotelId(), room.getChainId()) %> <br>
+                            Damages: <%= roomService.getRoomDamages(room.getRoomNum(), room.getHotelId(), room.getChainId()) %>
                         </button>
                     </form>
                 </div>

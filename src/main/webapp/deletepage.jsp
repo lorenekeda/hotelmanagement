@@ -30,7 +30,7 @@
       align-items: center;
     }
 
-    .update-option {
+    .delete-option {
       margin: 15px;
       padding: 15px 30px;
       background-color: #63a7d1;
@@ -43,7 +43,7 @@
       text-align: center;
     }
 
-    .update-option:hover {
+    .delete-option:hover {
       cursor: pointer;
       box-shadow: 0px 0px 7px #487b9b;
     }
@@ -94,6 +94,11 @@
   <a class="delete-option" href="deletehotel.jsp">Delete Hotel Information</a>
   <a class="delete-option" href="deleteemployee.jsp">Delete Employee Information</a>
   <a class="delete-option" href="deleteroom.jsp">Delete Room Information</a>
+</div>
+<div style="padding: 15px">
+  <button type="button" onclick="window.location.href='index.jsp'">
+    Home
+  </button>
 </div>
 
 </body>

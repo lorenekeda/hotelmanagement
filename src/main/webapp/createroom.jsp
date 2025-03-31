@@ -14,6 +14,11 @@
 </head>
 <body>
 <h2>Add Room Information</h2>
+<% if (request.getAttribute("message") != null) { %>
+<div class="message ${messageType}">
+    <%= request.getAttribute("message") %>
+</div>
+<% } %>
 <form action="addRoomServlet" method="post">
     <label for="hotel_id">Hotel ID:</label>
     <input type="text" id="hotel_id" name="hotel_id" required><br>
@@ -30,13 +35,37 @@
     <label for="view">View:</label>
     <textarea id="view" name="view" ></textarea><br>
 
+    <label for="capacity">Extendability:</label>
+    <input type="text" id="capacity" name="capacity"><br>
+
     <label for="extendable">Extendability:</label>
     <input type="text" id="extendable" name="extendable"><br>
 
 
 
     <button type="submit">Add Room</button>
+    <div style="padding: 15px">
+        <button type="button" onclick="window.location.href='createpage.jsp'">
+            ← Back
+        </button>
+    </div>
 </form>
+<script>
+    // Show message if it exists
+    document.addEventListener('DOMContentLoaded', function() {
+        const messageDiv = document.querySelector('.message');
+        if (messageDiv) {
+            messageDiv.style.display = 'block';
+
+            // Auto-hide success messages after 5 seconds
+            if (messageDiv.classList.contains('success')) {
+                setTimeout(() => {
+                    messageDiv.style.display = 'none';
+                }, 5000);
+            }
+        }
+    });
+</script>
 
 </body>
 <style>

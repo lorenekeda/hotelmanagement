@@ -224,8 +224,8 @@ public class RoomService {
         }
     }
 
-    public static boolean updateRoom(int hotelId, int chainId, boolean extendable, String view, String price, String roomNum) throws Exception {
-        String sql = "UPDATE relational_schema.room SET   extendable = ?, view = ?, price = ? WHERE hotel_id = ? AND chain_id = ? AND room_num = ?;";
+    public static boolean updateRoom(int hotelId, int chainId, boolean extendable, String view, String price, String roomNum, String capacity) throws Exception {
+        String sql = "UPDATE relational_schema.room SET   extendable = ?, view = ?, price = ?, capacity = ? WHERE hotel_id = ? AND chain_id = ? AND room_num = ?;";
 
         try (Connection con = new ConnectionDB().getConnection();
              PreparedStatement stmt = con.prepareStatement(sql)) {
@@ -236,6 +236,7 @@ public class RoomService {
             stmt.setInt(4, hotelId);
             stmt.setInt(5, chainId);
             stmt.setInt(6, Integer.parseInt(roomNum));
+            stmt.setString(7, capacity);
 
             int rowsUpdated = stmt.executeUpdate();
             return rowsUpdated > 0; // Returns true if update was successful
@@ -265,8 +266,8 @@ public class RoomService {
             throw new RuntimeException(e);
         }
     }
-    public static boolean createRoom(int hotelId, int chainId, boolean extendable, String view, String price, String roomNum) throws SQLException {
-        String sql = "INSERT INTO relational_schema.employee (hotel_id, chain_id, extendable, view, price, room_num) VALUES (?, ?, ?, ?, ?, ?);";
+    public static boolean createRoom(int hotelId, int chainId, boolean extendable, String view, String price, String roomNum, String capacity) throws SQLException {
+        String sql = "INSERT INTO relational_schema.room (hotel_id, chain_id, extendable, view, price, room_num, capacity) VALUES (?, ?, ?, ?, ?, ?, ?);";
 
         try (Connection con = new ConnectionDB().getConnection();
              PreparedStatement stmt = con.prepareStatement(sql)) {
@@ -277,6 +278,7 @@ public class RoomService {
             stmt.setString(4, view);
             stmt.setInt(5, Integer.parseInt(price));
             stmt.setInt(6, Integer.parseInt(roomNum));
+            stmt.setString(7, capacity);
 
 
             int rowsInserted = stmt.executeUpdate();

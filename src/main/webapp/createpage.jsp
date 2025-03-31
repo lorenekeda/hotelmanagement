@@ -30,7 +30,7 @@
       align-items: center;
     }
 
-    .update-option {
+    .create-option {
       margin: 15px;
       padding: 15px 30px;
       background-color: #63a7d1;
@@ -43,7 +43,7 @@
       text-align: center;
     }
 
-    .update-option:hover {
+    .create-option:hover {
       cursor: pointer;
       box-shadow: 0px 0px 7px #487b9b;
     }
@@ -94,6 +94,11 @@
   <a class="create-option" href="createhotel.jsp">Add Hotel Information</a>
   <a class="create-option" href="createemployee.jsp">Add Employee Information</a>
   <a class="create-option" href="createroom.jsp">Add Room Information</a>
+</div>
+<div style="padding: 15px">
+  <button type="button" onclick="window.location.href='index.jsp'">
+    Home
+  </button>
 </div>
 
 </body>

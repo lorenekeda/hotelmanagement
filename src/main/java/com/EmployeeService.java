@@ -131,8 +131,8 @@ public class EmployeeService {
         }
     }
 
-    public static boolean createEmployee(String address, String firstName, String lastName, String position, int hotelId, int chainId, int employeeSsn) throws SQLException {
-        String sql = "INSERT INTO relational_schema.employee (address, first_name, last_name, position, hotel_id, chain_id, employee_ssn) VALUES (?, ?, ?, ?, ?, ?, ?);";
+    public static boolean createEmployee(String address, String firstName, String lastName, String position, int hotelId, int chainId, int employeeSsn, String password) throws SQLException {
+        String sql = "INSERT INTO relational_schema.employee (address, first_name, last_name, position, hotel_id, chain_id, employee_ssn, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
 
         try (Connection con = new ConnectionDB().getConnection();
              PreparedStatement stmt = con.prepareStatement(sql)) {
@@ -144,6 +144,7 @@ public class EmployeeService {
             stmt.setInt(5, hotelId);
             stmt.setInt(6, chainId);
             stmt.setInt(7, employeeSsn);
+            stmt.setString(8, password);
 
             int rowsInserted = stmt.executeUpdate();
             return rowsInserted > 0;

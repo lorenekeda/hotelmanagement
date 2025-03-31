@@ -11,19 +11,20 @@ import jakarta.servlet.ServletException;
 @WebServlet("/addEmployeeServlet")
 public class AddEmployeeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int hotelId = Integer.parseInt(request.getParameter("hotel_id"));
         int chainId = Integer.parseInt(request.getParameter("chain_id"));
+        int hotelId = Integer.parseInt(request.getParameter("hotel_id"));
         int employeeSsn = Integer.parseInt(request.getParameter("employee_ssn"));
         String firstName = request.getParameter("first_name");
         String lastName = request.getParameter("last_name");
         String address = request.getParameter("address");
         String position = request.getParameter("position");
+        String password = request.getParameter("password");
 
         try {
 
 
 
-            boolean addSuccess = EmployeeService.createEmployee(address, firstName, lastName, position, hotelId, chainId, employeeSsn);
+            boolean addSuccess = EmployeeService.createEmployee(address, firstName, lastName, position, hotelId, chainId, employeeSsn, password);
 
             if (addSuccess) {
                 request.setAttribute("message", "Employee added successfully!");

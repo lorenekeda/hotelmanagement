@@ -21,6 +21,19 @@
     <title>Convert Booking</title>
 </head>
 <body>
+    <%
+        Boolean bookingConvert = (Boolean) request.getAttribute("bookingConvert");
+    %>
+    <%
+        if (bookingConvert != null && bookingConvert) {
+    %>
+        <script type="text/javascript">
+            alert("Your booking transformation was successful!");
+        </script>
+    <%
+        }
+    %>
+
     <div class="container1">
         <div class="title">
             <h1>Convert Booking To Renting</h1>
@@ -60,10 +73,10 @@
 
                             <label for="CardNumber">Card Number:</label>
                             <input type="number" placeholder="0" min="0" id="CardNumber" name="CardNumber" required>
-                            <label for="Cvv">Card Number:</label>
+                            <label for="Cvv">CVV:</label>
                             <input type="number" placeholder="0" min="100" max="999" id="Cvv" name="Cvv" required>
-                            <label for="ExpiryDate">ExpiryDate:</label>
-                            <input type="text" placeholder="here" id="ExpiryDate" name="ExpiryDate" required>
+                            <label for="ExpiryDate">Expiry Date:</label>
+                            <input type="month" placeholder="here" id="ExpiryDate" name="ExpiryDate" required>
                         </button>
                     </form>
                 </div>

@@ -18,15 +18,15 @@ public class UpdateHotelServlet extends HttpServlet {
         int chainId = Integer.parseInt(request.getParameter("chain_id"));
         String name = request.getParameter("name");
         String address = request.getParameter("address");
-        String rating = request.getParameter("rating");
-        String numOfRoomStr = request.getParameter("num_of_room");
+        int rating = Integer.parseInt(request.getParameter("rating"));
+        int numOfRoom = Integer.parseInt(request.getParameter("num_of_room"));
 
         try {
             // Convert numOfRoom from String to an Integer (for validation)
-            int numOfRoom = Integer.parseInt(numOfRoomStr);
+            //int numOfRoom = Integer.parseInt(numOfRoomStr);
 
             // Call the updateHotel method
-            boolean updateSuccess = HotelService.updateHotel(hotelId, chainId, address, name, rating, numOfRoomStr);
+            boolean updateSuccess = HotelService.updateHotel(hotelId, chainId, address, name, rating, numOfRoom);
 
             if (updateSuccess) {
                 request.setAttribute("message", "Hotel updated successfully!");

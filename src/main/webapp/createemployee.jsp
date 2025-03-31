@@ -14,12 +14,18 @@
 </head>
 <body>
 <h2>Add Employee Information</h2>
-<form action="addEmployeeServlet" method="post">
-    <label for="hotel_id">Hotel ID:</label>
-    <input type="text" id="hotel_id" name="hotel_id" required><br>
 
+<% if (request.getAttribute("message") != null) { %>
+<div class="message ${messageType}">
+    <%= request.getAttribute("message") %>
+</div>
+<% } %>
+<form action="addEmployeeServlet" method="post">
     <label for="chain_id">Chain ID:</label>
     <input type="text" id="chain_id" name="chain_id" required><br>
+
+    <label for="hotel_id">Hotel ID:</label>
+    <input type="text" id="hotel_id" name="hotel_id" required><br>
 
     <label for="employee_ssn">Employee SSN:</label>
     <input type="text" id="employee_ssn" name="employee_ssn" required><br>
@@ -33,13 +39,38 @@
     <label for="position">Position:</label>
     <input type="text" id="position" name="position"><br>
 
+    <label for="password">Password:</label>
+    <input type="text" id="password" name="password"><br>
+
     <label for="address">Address:</label>
     <textarea id="address" name="address"></textarea><br>
 
 
 
     <button type="submit">Add Employee</button>
+    <div style="padding: 15px">
+        <button type="button" onclick="window.location.href='createpage.jsp'">
+            ← Back
+        </button>
+    </div>
 </form>
+
+<script>
+    // Show message if it exists
+    document.addEventListener('DOMContentLoaded', function() {
+        const messageDiv = document.querySelector('.message');
+        if (messageDiv) {
+            messageDiv.style.display = 'block';
+
+            // Auto-hide success messages after 5 seconds
+            if (messageDiv.classList.contains('success')) {
+                setTimeout(() => {
+                    messageDiv.style.display = 'none';
+                }, 5000);
+            }
+        }
+    });
+</script>
 
 </body>
 <style>

@@ -15,6 +15,11 @@
 </head>
 <body>
 <h2>Add Customer Information</h2>
+<% if (request.getAttribute("message") != null) { %>
+<div class="message ${messageType}">
+    <%= request.getAttribute("message") %>
+</div>
+<% } %>
 <form action="addCustomerServlet" method="post">
     <label for="customer_id">Customer ID:</label>
     <input type="text" id="customer_id" name="customer_id" required><br>
@@ -35,7 +40,28 @@
     <textarea id="address" name="address"></textarea><br>
 
     <button type="submit">Add Customer</button>
+    <div style="padding: 15px">
+        <button type="button" onclick="window.location.href='createpage.jsp'">
+            ← Back
+        </button>
+    </div>
 </form>
+<script>
+    // Show message if it exists
+    document.addEventListener('DOMContentLoaded', function() {
+        const messageDiv = document.querySelector('.message');
+        if (messageDiv) {
+            messageDiv.style.display = 'block';
+
+            // Auto-hide success messages after 5 seconds
+            if (messageDiv.classList.contains('success')) {
+                setTimeout(() => {
+                    messageDiv.style.display = 'none';
+                }, 5000);
+            }
+        }
+    });
+</script>
 
 
 

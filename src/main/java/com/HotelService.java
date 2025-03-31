@@ -141,7 +141,7 @@ public class HotelService {
             throw new Exception(e.getMessage());
         }
     }
-    public static boolean updateHotel(int hotelId, int chainId, String address, String name, String rating, String numOfRoom) throws Exception {
+    public static boolean updateHotel(int hotelId, int chainId, String address, String name, int rating, int numOfRoom) throws Exception {
         String sql = "UPDATE relational_schema.hotel SET   address = ?, name = ?, rating = ?, num_of_room = ? WHERE hotel_id = ? AND chain_id = ?;";
 
         try (Connection con = new ConnectionDB().getConnection();
@@ -149,8 +149,8 @@ public class HotelService {
 
             stmt.setString(1, address);
             stmt.setString(2, name);
-            stmt.setString(3, rating);
-            stmt.setInt(4, Integer.parseInt(numOfRoom));
+            stmt.setInt(3, rating);
+            stmt.setInt(4, numOfRoom);
             stmt.setInt(5, hotelId);
             stmt.setInt(6, chainId);
 
@@ -181,7 +181,7 @@ public class HotelService {
             throw new RuntimeException(e);
         }
     }
-    public static boolean createHotel(int hotelId, int chainId, String address, String name, String rating, String numOfRoom) throws SQLException {
+    public static boolean createHotel(int hotelId, int chainId, String address, String name, int rating, int numOfRoom) throws SQLException {
         String sql = "INSERT INTO relational_schema.hotel (hotel_id, chain_id, address, name, rating, num_of_room) VALUES (?, ?, ?, ?, ?, ?);";
 
         try (Connection con = new ConnectionDB().getConnection();
@@ -191,8 +191,8 @@ public class HotelService {
             stmt.setInt(2, chainId);
             stmt.setString(3, address);
             stmt.setString(4, name);
-            stmt.setString(5, rating);
-            stmt.setString(6, numOfRoom);
+            stmt.setInt(5, rating);
+            stmt.setInt(6, numOfRoom);
 
 
             int rowsInserted = stmt.executeUpdate();
