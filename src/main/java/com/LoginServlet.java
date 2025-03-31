@@ -74,6 +74,7 @@ public class LoginServlet extends HttpServlet  {
                     session.setAttribute("chain",validEmp.getChainId() );
 
                     response.sendRedirect("welcomeuser.jsp");
+
                 } else {
                     logger.info("its not valid");
                     request.setAttribute("message2", "Password incorrect or user does not exist.");
