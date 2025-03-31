@@ -88,7 +88,7 @@
   </style>
 </head>
 <body>
-<h2>Select Information to Update</h2>
+<h2>Select Information to Add</h2>
 <div class="container">
   <a class="create-option" href="createcustomer.jsp">Add Customer Information</a>
   <a class="create-option" href="createhotel.jsp">Add Hotel Information</a>
