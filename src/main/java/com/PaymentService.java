@@ -1,5 +1,7 @@
 package com;
 
+import jakarta.servlet.http.HttpSession;
+
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -9,6 +11,7 @@ public class PaymentService {
 
     public static boolean checkSpecificPayment(Integer cardNumber) throws Exception {
         String sql = "SELECT * FROM relational_schema.payment WHERE card_number = ?";
+
         ConnectionDB db = new ConnectionDB();
         try (Connection con = db.getConnection()) {
 

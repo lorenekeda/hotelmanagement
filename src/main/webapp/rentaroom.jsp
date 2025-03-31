@@ -42,6 +42,19 @@ RoomService roomService = new RoomService();
         }
     %>
 
+    <%
+            Boolean paymentSet = (Boolean) request.getAttribute("paymentSet");
+        %>
+        <%
+            if (paymentSet != null && paymentSet) {
+        %>
+            <script type="text/javascript">
+                alert("Payment method set! You can now choose a room");
+            </script>
+        <%
+            }
+        %>
+
 
 
 <!DOCTYPE html>
@@ -107,25 +120,27 @@ RoomService roomService = new RoomService();
                      <input type="date" id="EndDate" name="EndDate" required>
 
                      <button type="submit" onclick="return validateDate()">Filter</button>
+
                  </form>
 
 
              </div>
-             <h3> Customer Payment: </h3>
-                    <label for="cusID">Customer Email:</label> <br>
 
-        <input type="text" id="cusID" name="cusID" value="<%= request.getParameter("cusID") != null ? request.getParameter("cusID") : request.setAttribute("cusID") %>"><br><br>
+ <h3> Customer Payment: (Create this first)</h3>
+    <form action="createPayment" method="post">
+     <label for="cusID">Customer Email:</label> <br>
+     <input type="text" id="cusID" name="cusID" value="<%= request.getParameter("cusID") != null ? request.getParameter("cusID") : "" %>"><br><br>
 
-        <label for="payment">Card Number:</label> <br>
-        <input type="text" id="payment" name="payment" value="<%= request.getParameter("payment") != null ? request.getParameter("payment") : request.setAttribute("payment") %>"><br><br>
+    <label for="payment">Card Number:</label> <br>
+   <input type="text" id="payment" name="payment" value="<%= request.getParameter("payment") != null ? request.getParameter("payment") : "" %>"><br><br>
 
-        <label for="cvv">CVV:</label> <br>
-        <input type="text" id="cvv" name="cvv" value="<%= request.getParameter("cvv") != null ? request.getParameter("cvv") : request.setAttribute("cvv") %>"><br><br>
+   <label for="cvv">CVV:</label> <br>
+    <input type="text" id="cvv" name="cvv" value="<%= request.getParameter("cvv") != null ? request.getParameter("cvv") : "" %>"><br><br>
 
-        <label for="expiry">Expiry Date:</label> <br>
-        <input type="date" id="expiry" name="expiry" value="<%= request.getParameter("expiry") != null ? request.getParameter("expiry") : request.setAttribute("expiry") %>"><br><br>
-
-
+      <label for="expiry">Expiry Date:</label> <br>
+     <input type="date" id="expiry" name="expiry" value="<%= request.getParameter("expiry") != null ? request.getParameter("expiry") : "" %>"><br><br>
+<button type="submit"> Submit payment information</button>
+</form>
               <div class="container">
                      <h1>Available Rooms</h1>
 
@@ -141,26 +156,10 @@ RoomService roomService = new RoomService();
                                      <input type="hidden" id="hId" name="hId" value= <%=room.getHotelId() %> >
                                      <input type="hidden" id="rNum" name="rNum" value= <%=room.getRoomNum() %> >
 
-                                     <input type="hidden" id="custId" name="custId" placeholder="placeholder"  >
-                                     <input type="hidden" id="pay" name="pay" placeholder="placeholder" >
-                                     <input type="hidden" id="cvv2" name="cvv2" placeholder="placeholder" >
-                                      <input type="hidden" id="expiry2" name="expiry2" placeholder="placeholder" >
 
-                                       <script>
-                                       document.getElementById("cusID").addEventListener("input", function() {
-                                           document.getElementById("custId").value = this.value;
-                                       });
-                                        document.getElementById("payment").addEventListener("input", function() {
-                                              document.getElementById("pay").value = this.value;
-                                                      });
-                                  document.getElementById("cvv").addEventListener("input", function() {
-                                        document.getElementById("cvv2").value = this.value;
-                                                                                      });
-                                  document.getElementById("expiry").addEventListener("input", function() {
-                                      document.getElementById("expiry2").value = this.value;
-                                                                                      });
 
-                                       </script>
+
+
                                      <button class="button-room "type="submit">
                                               Room Number: <%= room.getRoomNum() %><br>
                                                View: <%= room.getView() %><br>

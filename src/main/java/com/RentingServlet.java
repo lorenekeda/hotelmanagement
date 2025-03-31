@@ -17,30 +17,13 @@ public class RentingServlet extends HttpServlet  {
         Integer chainId = Integer.parseInt(request.getParameter("cId"));
         Integer hotelId = Integer.parseInt(request.getParameter("hId"));
         Integer roomNum = Integer.parseInt(request.getParameter("rNum"));
-        String customerId = request.getParameter("custId");
+        String customerId = request.getParameter("cusId");
         int empID = (int) session.getAttribute("user");
-        int cardNum = Integer.parseInt(request.getParameter("pay"));
-        int cvv = Integer.parseInt(request.getParameter("cvv2"));
-        Date expiry = Date.valueOf(request.getParameter("expiry2"));
+        int cardNum = (int) session.getAttribute("cardNum");
+
 
         //FIRST CREATE PAYMENT METHOD
-        try {
-            boolean exists = PaymentService.checkSpecificPayment(cardNum);
-            if (exists) {
-                request.setAttribute("paymentExists", true);
 
-            } else {
-                try {
-                    PaymentService.createPayment(cardNum, cvv, String.valueOf(expiry), customerId);
-                    request.setAttribute("paymentSet", true);
-
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
 
         try {
             RentingService.createRenting(start, end, chainId, hotelId, roomNum, customerId, empID, cardNum);
