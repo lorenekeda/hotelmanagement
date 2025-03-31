@@ -13,14 +13,21 @@
   <title>Delete Information</title>
   <style>
     body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       padding: 20px;
       font-family: Georgia, 'Times New Roman', Times, serif;
-      width: 600px;
-      height: 419px;
-      text-align: center;
-      align-self: center;
       background-color: #fefefe;
-      flex: 10;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 28px;
+      color: #528AAE;
+      margin-bottom: 20px;
     }
 
     .container {
@@ -28,62 +35,36 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      width: 100%;
+      max-width: 600px;
     }
 
     .delete-option {
-      margin: 15px;
-      padding: 15px 30px;
+      margin: 10px;
+      padding: 12px 25px;
       background-color: #63a7d1;
       color: white;
       text-decoration: none;
       font-size: 18px;
       border-radius: 10px;
       box-shadow: 0px 0px 5px #528AAE;
-      width: 250px;
+      width: 100%;
+      max-width: 250px;
       text-align: center;
+      display: inline-block;
+      transition: box-shadow 0.3s ease, background-color 0.3s ease;
     }
 
     .delete-option:hover {
       cursor: pointer;
+      background-color: #487b9b;
       box-shadow: 0px 0px 7px #487b9b;
     }
 
-    form {
-      box-shadow: 15px 15px 15px lightblue;
-      padding: 50px;
-      font-family: Georgia, 'Times New Roman', Times, serif;
-      height: 350px;
-      text-align: center;
-      align-self: center;
-      background-color: #528AAE;
-      flex: 1;
-    }
-
-    label {
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-
-    input, select {
-      border: 1px solid rgb(2, 4, 5);
-      padding: 8px;
-      margin: 10px;
-      width: 90%;
-      font-size: 16px;
-    }
-
-    button {
+    button.delete-option {
       border: none;
-      border-radius: 10px;
-      padding: 10px;
-      background-color: #63a7d1;
-      box-shadow: 0px 0px 5px #528AAE;
-      font-size: 18px;
-    }
-
-    button:hover {
       cursor: pointer;
-      box-shadow: 0px 0px 7px #487b9b;
+      font-size: 18px;
     }
   </style>
 </head>
@@ -98,7 +79,7 @@
   <a class="delete-option" href="deletedamage.jsp">Delete Room Damage Information</a>
 </div>
 <div style="padding: 15px">
-  <button type="button" onclick="window.location.href='index.jsp'">
+  <button class="delete-option" type="button" onclick="window.location.href='welcomeuser.jsp'">
     Home
   </button>
 </div>

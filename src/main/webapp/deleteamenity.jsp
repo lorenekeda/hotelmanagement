@@ -63,8 +63,10 @@
     h2 {
         font-size: 32px;
         color: #528AAE;
-        margin-bottom: 40px; /* Adds space between title and form */
+        margin-bottom: 40px;
         text-align: center;
+        width: 100%; /* Ensure it takes the full width */
+        display: block; /* Make sure it behaves as a block element */
     }
     form {
         box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Softer shadow for a more modern look */
@@ -80,17 +82,11 @@
 
     /* Body Styling */
     body {
-        padding: 20px;
-        font-family: 'Georgia', 'Times New Roman', Times, serif;
-        width: 100%;
-        max-width: 800px; /* Prevents body from becoming too wide */
-        min-height: 100vh;
-        text-align: center;
-        background-color: #fefefe;
         display: flex;
+        flex-direction: column; /* Stack elements vertically */
         justify-content: center;
         align-items: center;
-        margin: 0;
+        min-height: 100vh;
     }
 
     /* Label Styling (you can add label text styling if needed) */
