@@ -33,7 +33,7 @@
   <% } %>
     <nav class="menu">
         <ul>
-            <li><a>About Us</a></li>
+            <li><a href="aboutus.jsp">About Us</a></li>
             <li><a href="aboutthehotels.jsp">About the Hotels</a></li>
         </ul>
     </nav>
