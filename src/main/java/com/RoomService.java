@@ -223,7 +223,7 @@ public class RoomService {
 
         String sql = "SELECT relational_schema.room.* " +
                         "FROM relational_schema.room NATURAL JOIN relational_schema.hotel NATURAL JOIN relational_schema.hotel_chain " +
-                        "WHERE rating "+ratingDetail+" ? AND capacity = ? AND price < ? AND num_of_room >= ? ";
+                        "WHERE rating "+ratingDetail+" ? AND capacity = ? AND price <= ? AND num_of_room >= ? ";
 
         if (!(address.equals("All"))){
             sql += " AND address = ? ";
