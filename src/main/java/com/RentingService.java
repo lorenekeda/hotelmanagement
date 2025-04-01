@@ -105,7 +105,7 @@ public class RentingService {
 
         String sqlHas = "INSERT INTO relational_schema.has (booking_start_date, room_num, customer_id, card_number, hotel_id, chain_id) VALUES (?, ?, ?, ?, ?, ?)";
 
-        String sqlArchive = "INSERT INTO relational_schema.archive (start_date, room_num, hotel_id, chain_id) VALUES (?, ?, ?, ?)";
+        String sqlArchive = "INSERT INTO relational_schema.archive (renting_start_date, room_num, hotel_id, chain_id, booking_start_date) VALUES (?, ?, ?, ?, NULL)";
 
         try (Connection con = new ConnectionDB().getConnection();
 
