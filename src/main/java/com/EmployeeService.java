@@ -144,9 +144,11 @@ public class EmployeeService {
 
     public static boolean createEmployee(String address, String firstName, String lastName, String position, int hotelId, int chainId, int employeeSsn, String password) throws SQLException {
         String sql = "INSERT INTO relational_schema.employee (address, first_name, last_name, position, hotel_id, chain_id, employee_ssn, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+        ConnectionDB db = new ConnectionDB();
 
-        try (Connection con = new ConnectionDB().getConnection();
-             PreparedStatement stmt = con.prepareStatement(sql)) {
+            try (Connection con = db.getConnection()) {
+
+             PreparedStatement stmt = con.prepareStatement(sql);
 
             stmt.setString(1, address);
             stmt.setString(2, firstName);

@@ -1,6 +1,8 @@
 package com;
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -15,15 +17,15 @@ public class AddCustomerServlet extends HttpServlet {
         //getting customer info as strings
         String firstName = request.getParameter("first_name");
         String lastName = request.getParameter("last_name");
-        String idType = request.getParameter("id_type");
+        String idType = request.getParameter("email");
         String customerId = request.getParameter("customer_id");
         String address = request.getParameter("address");
-        String registrationDate = request.getParameter("registration_date");
-        String password = ""; //no need for password if manager is the one making customer acc
 
-
+        String password = request.getParameter("pass");
+        LocalDate today = LocalDate.now();
+        String date = String.valueOf(today);
         try {
-            boolean created = CustomerService.createCustomer(customerId,  registrationDate, firstName,  lastName,  idType, address, password);
+            boolean created = CustomerService.createCustomer(customerId,  date, firstName,  lastName,  idType, address, password);
             if (created) {
                 request.setAttribute("message", "Customer added successfully!");
                 request.setAttribute("messageType", "success");

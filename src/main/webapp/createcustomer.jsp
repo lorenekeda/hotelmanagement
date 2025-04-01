@@ -30,11 +30,11 @@
     <label for="last_name">Last Name:</label>
     <input type="text" id="last_name" name="last_name"><br>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email"><br>
+    <label for="email">ID Type:</label>
+    <input type="text" id="email" name="email"><br>
 
-    <label for="phone">Phone:</label>
-    <input type="text" id="phone" name="phone"><br>
+    <label for="pass">Password:</label>
+    <input type="password" id="pass" name="pass"><br>
 
     <label for="address">Address:</label>
     <textarea id="address" name="address"></textarea><br>
