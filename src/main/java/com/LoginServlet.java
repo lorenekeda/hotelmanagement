@@ -56,7 +56,7 @@ public class LoginServlet extends HttpServlet  {
                 throw new RuntimeException(e);
             }
     }
-        else if (type.equals("employee")||type.equals("manager")){
+        else if (type.equals("employee")){
             logger.info("checking employee instead!!!!");
             try {
                 //IF IT IS AN EMPLOYEE THE USERNAME WILL BE AN INTEGER
@@ -82,6 +82,33 @@ public class LoginServlet extends HttpServlet  {
                     RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
                     dispatcher.forward(request, response);
                 }
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+        else if(type.equals("manager")){
+            logger.info("checking manager instead!!!!");
+            int empSSN = Integer.parseInt(request.getParameter("user"));
+            try {
+                Employee validEmp = EmployeeService.checkSpecificEmployeeWithPassword(empSSN, password);
+            String position = validEmp.getPosition();
+            if (!position.equals("manager")){
+                logger.info("its not valid");
+                request.setAttribute("message2", "Password incorrect or user does not exist.");
+
+                RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+                dispatcher.forward(request, response);
+            }
+            else {
+                HttpSession session = request.getSession();
+                session.setAttribute("user", empSSN);
+                session.setAttribute("type", type);
+                session.setAttribute("hotel",validEmp.getHotelId() );
+                session.setAttribute("chain",validEmp.getChainId() );
+
+                response.sendRedirect("welcomeuser.jsp");
+            }
+
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
